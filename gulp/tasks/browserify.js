@@ -25,8 +25,8 @@ function buildScript(file) {
     debug: true,
     cache: {},
     packageCache: {},
-    fullPaths: true
-  }, watchify.args);
+    fullPaths: !global.isProd
+  });
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
@@ -49,7 +49,7 @@ function buildScript(file) {
 
   function rebundle() {
     var stream = bundler.bundle();
-    var createSourcemap = global.isProd && config.browserify.sourcemap;
+    var createSourcemap = global.isProd && config.browserify.prodSourcemap;
 
     gutil.log('Rebundle...');
 
@@ -62,7 +62,7 @@ function buildScript(file) {
       }))))
       .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
       .pipe(gulp.dest(config.scripts.dest))
-      .pipe(gulpif(browserSync.active, browserSync.reload({ stream: true, once: true })));
+      .pipe(browserSync.stream({ once: true }));
   }
 
   return rebundle();

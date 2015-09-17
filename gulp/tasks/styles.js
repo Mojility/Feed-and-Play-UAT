@@ -2,23 +2,30 @@
 
 var config       = require('../config');
 var gulp         = require('gulp');
-var sass         = require('gulp-sass');
 var gulpif       = require('gulp-if');
+var sourcemaps   = require('gulp-sourcemaps');
+var sass         = require('gulp-sass');
 var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
 var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('styles', function () {
 
+  var createSourcemap = !global.isProd || config.styles.prodSourcemap;
+
   return gulp.src(config.styles.src)
+    .pipe(gulpif(createSourcemap, sourcemaps.init()))
     .pipe(sass({
-      sourceComments: global.isProd ? 'none' : 'map',
-      sourceMap: 'sass',
+      sourceComments: !global.isProd,
       outputStyle: global.isProd ? 'compressed' : 'nested'
     }))
-    .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
+    .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
     .on('error', handleErrors)
+    .pipe(gulpif(
+      createSourcemap,
+      sourcemaps.write( global.isProd ? './' : null ))
+    )
     .pipe(gulp.dest(config.styles.dest))
-    .pipe(gulpif(browserSync.active, browserSync.reload({ stream: true })));
+    .pipe(browserSync.stream({ once: true }));
 
 });
