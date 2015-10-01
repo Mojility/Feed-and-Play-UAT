@@ -9,12 +9,24 @@ function SessionService(peopleService) {
 
     var service = {};
 
-    service.currentUser = null;
+    service.currentUserId = null;
+
+    service.currentUser = function() {
+        console.log("currentUser");
+        return peopleService.getPerson(service.currentUserId);
+    };
+
+    service.currentUserName = function() {
+        console.log("currentUserName");
+        var u = service.currentUser();
+        console.log(u);
+        return u.first_name + " " + u.last_name;
+    };
 
     service.initialize = function (data) {
         peopleService.loadCache(data.people);
-        service.currentUser = peopleService.getPerson(data.user.person_id);
-
+        service.currentUserId = data.user.person_id;
+        console.log("initialized");
     };
 
     return service;

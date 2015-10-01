@@ -5,14 +5,25 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function SessionController(sessionService) {
+function SessionController($scope, $http, sessionService) {
 
     // ViewModel
     var vm = this;
 
-    vm.currentUser = sessionService.currentUser;
-    console.log(vm.currentUser);
+    vm.currentUserName = sessionService.currentUserName;
+
+    $http({
+              method: 'GET',
+              url: 'data/profile.json'
+          }).then(function successCallback(response) {
+
+        sessionService.initialize(response.data);
+
+    }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+    });
 
 }
 
-controllersModule.controller('SessionController',['SessionService', SessionController]);
+controllersModule.controller('SessionController',['$scope', '$http', 'SessionService', SessionController]);

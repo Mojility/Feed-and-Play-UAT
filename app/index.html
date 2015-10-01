@@ -15,7 +15,7 @@
   <body>
 
     <nav ng-controller="SessionController as session">
-        <p>Logged in: {{ session.currentUser.first_name }}</p>
+        <p>Logged in: {{ session.currentUserName() }}</p>
     </nav>
 
       <div ui-view></div>
