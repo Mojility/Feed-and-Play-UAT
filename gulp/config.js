@@ -31,7 +31,7 @@ module.exports = {
   'data': {
     'src' : ['app/data/**/*'],
     'dest' : 'build/data'
-  }
+  },
 
   'views': {
     'watch': [
