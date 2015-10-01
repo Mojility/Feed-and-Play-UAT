@@ -13,7 +13,14 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'ExampleCtrl as home',
     templateUrl: 'home.html',
     title: 'Home'
+  })
+.state('Team', {
+    url: '/team',
+    controller: 'TeamController as team',
+    templateUrl: 'team.html',
+    title: 'Team'
   });
+
 
   $urlRouterProvider.otherwise('/');
 
