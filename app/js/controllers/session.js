@@ -5,12 +5,13 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function SessionController($scope, $http, sessionService) {
+function SessionController($scope, $timeout, $http, sessionService, peopleService) {
 
     // ViewModel
     var vm = this;
 
     vm.currentUserName = sessionService.currentUserName;
+    vm.getAllPeople = peopleService.getAllPeople;
 
     $http({
               method: 'GET',
@@ -26,4 +27,4 @@ function SessionController($scope, $http, sessionService) {
 
 }
 
-controllersModule.controller('SessionController',['$scope', '$http', 'SessionService', SessionController]);
+controllersModule.controller('SessionController',['$scope', '$timeout', '$http', 'SessionService', 'PeopleService', SessionController]);
