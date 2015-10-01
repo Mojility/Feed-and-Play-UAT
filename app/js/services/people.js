@@ -21,7 +21,6 @@ function PeopleService() {
         //console.log(service.cache);
         //console.log(id);
         return service.cache[id];
-
     };
 
     service.getAllPeople = function() {
