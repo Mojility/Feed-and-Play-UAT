@@ -28,6 +28,11 @@ module.exports = {
     'dest': 'build/fonts'
   },
 
+  'data': {
+    'src' : ['app/data/**/*'],
+    'dest' : 'build/data'
+  }
+
   'views': {
     'watch': [
       'app/index.html',
