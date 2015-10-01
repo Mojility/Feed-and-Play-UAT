@@ -1,0 +1,29 @@
+{
+  "user": {
+    "person_id": 0,
+    "teams": [
+      {
+        "name": "Smith Productions",
+        "member_ids": [ 0, 1 ]
+      },
+      {
+        "name": "John Solo",
+        "member_ids": [ 0 ]
+      }
+    ]
+  },
+  "people": [
+    {
+      "id": 0,
+      "first_name": "John",
+      "last_name": "Smith",
+      "email": "john@smith.com",
+    },
+    {
+      "id": 1,
+      "first_name": "Sally",
+      "last_name": "Johnson",
+      "email": "sally@johnson.com",
+    }
+  ]
+}
