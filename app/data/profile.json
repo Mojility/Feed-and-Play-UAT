@@ -3,10 +3,12 @@
     "person_id": 0,
     "teams": [
       {
+        "team_id": "0",
         "name": "Smith Productions",
         "member_ids": [ 0, 1 ]
       },
       {
+        "team_id": "1",
         "name": "John Solo",
         "member_ids": [ 0 ]
       }
