@@ -5,19 +5,19 @@
         "team_id": "0",
         "name": "Smith Productions",
         "member_ids": [ 0, 1 ],
-        "video_id": "gNqQL-1gZF8"
+        "video_id": "https://www.youtube.com/embed/gNqQL-1gZF8"
       },
       {
         "team_id": "1",
         "name": "John Solo",
         "member_ids": [ 0 ],
-        "video_id": "gNqQL-1gZF8"
+        "video_id": "https://www.youtube.com/embed/gNqQL-1gZF8"
       },
       {
         "team_id": "2",
         "name": "Ze Frank Team",
         "member_ids": [ 2 ],
-        "video_id": "gNqQL-1gZF8"
+        "video_id": "https://www.youtube.com/embed/gNqQL-1gZF8"
       }
     ]
   },

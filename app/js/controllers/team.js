@@ -17,11 +17,12 @@ function TeamController($stateParams, sessionService, teamService, peopleService
     vm.teamName = vm.team.name;
     vm.teamMembers = vm.team.member_ids;
     vm.video = vm.team.video_id;
-    console.log(vm.video);
+    //console.log(vm.video);
     //console.log(vm.teamMembers);
 
     //  console.log(peopleService.getPerson(vm.teamMembers[0]).first_name);
 
+  
     vm.userName = function (id) {
 
         return peopleService.getPerson(id).first_name;
