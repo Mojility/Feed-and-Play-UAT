@@ -15,7 +15,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             title: 'Home'
         })
         .state('Team', {
-            url: '/team',
+            url: '/team/:id',
             controller: 'TeamController as team',
             templateUrl: 'team.html',
             title: 'Team'

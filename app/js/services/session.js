@@ -5,7 +5,7 @@ var servicesModule = require('./_index.js');
 /**
  * @ngInject
  */
-function SessionService(peopleService) {
+function SessionService(peopleService, teamService) {
 
     var service = {};
 
@@ -27,6 +27,9 @@ function SessionService(peopleService) {
 
     service.initialize = function (data) {
         peopleService.loadCache(data.people);
+        teamService.loadCache(data.user.teams);
+        console.log(data.user)
+        //console.log(data.people)
         service.currentUserId = data.user.person_id;
     };
 
@@ -34,4 +37,4 @@ function SessionService(peopleService) {
 
 }
 
-servicesModule.service('SessionService', [ 'PeopleService', SessionService ]);
+servicesModule.service('SessionService', [ 'PeopleService', 'TeamService', SessionService ]);

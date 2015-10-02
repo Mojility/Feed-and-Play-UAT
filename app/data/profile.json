@@ -1,6 +1,5 @@
 {
   "user": {
-    "person_id": 0,
     "teams": [
       {
         "team_id": "0",
@@ -11,6 +10,11 @@
         "team_id": "1",
         "name": "John Solo",
         "member_ids": [ 0 ]
+      },
+      {
+        "team_id": "2",
+        "name": "Ze Frank Team",
+        "member_ids": [ 2 ]
       }
     ]
   },
@@ -26,6 +30,12 @@
       "first_name": "Sally",
       "last_name": "Johnson",
       "email": "sally@johnson.com"
+    },
+    {
+      "id": 2,
+      "first_name": "Ze",
+      "last_name": "Frank",
+      "email": "ze@Frank.com"
     }
   ]
 }
