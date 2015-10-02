@@ -13,7 +13,7 @@ function TeamService() {
 
     service.loadCache = function (team) {
         team.forEach(function (team) {
-            service.cache[team.id] = team;
+            service.cache[team.team_id] = team;
         });
     };
 

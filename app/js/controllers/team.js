@@ -12,10 +12,37 @@ function TeamController($stateParams, sessionService, teamService, peopleService
 
 
     //console.log(teamService.cache);
-    console.log(teamService.getTeam($stateParams.id));
-    console.log($stateParams.id);
+    //console.log(teamService.getTeam($stateParams.id));
+    vm.team = teamService.getTeam($stateParams.id);
+    vm.teamName = vm.team.name;
+    vm.TeamMembers = vm.team.member_ids;
+
+
+    //console.log(vm.team.member_ids);
+
+    //vm.team.member_ids.foreach()
+    //console.log(peopleService.getPerson(vm.team.member_ids).first_name);
+
+
+   // console.log(peopleService.getPerson(vm.team.member_ids[0].first_name));
+    // vm.teamMember = peopleService.getPerson(vm.team.member_ids[0]);
+
+    // console.log($stateParams.id);
     //vm.teamName = TeamService.getTeam($stateParams.id);
+
+   // console.log(teamService.getAllTeams());
+
+   // console.log( peopleService.getPerson(vm.team));
+
+    //console.log(vm.teamMembers);
+    //console.log(vm.teamMembers[0]);
+
+
+
+    //vm.TeamMembers.forEach
+
+
 
 }
 
-controllersModule.controller('TeamController',['$stateParams', 'SessionService', 'TeamService', 'PeopleService',  TeamController]);
+controllersModule.controller('TeamController', ['$stateParams', 'SessionService', 'TeamService', 'PeopleService', TeamController]);

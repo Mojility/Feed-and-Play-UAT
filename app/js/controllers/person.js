@@ -13,7 +13,9 @@ function PersonController($stateParams, peopleService) {
     vm.person = peopleService.getPerson($stateParams.id);
     //console.log($stateParams.id);
     vm.currentUserName = vm.person.first_name + " " + vm.person.last_name;
+    // vm.video = vm.person.videos[0];
+    //console.log(vm.video);
 
 }
 
-controllersModule.controller('PersonController',['$stateParams', 'PeopleService',  PersonController]);
+controllersModule.controller('PersonController', ['$stateParams', 'PeopleService', PersonController]);

@@ -28,7 +28,7 @@ function SessionService(peopleService, teamService) {
     service.initialize = function (data) {
         peopleService.loadCache(data.people);
         teamService.loadCache(data.user.teams);
-        console.log(data.user)
+        //console.log(data.user.teams);
         //console.log(data.people)
         service.currentUserId = data.user.person_id;
     };
