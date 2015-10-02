@@ -15,7 +15,7 @@ function PersonController($stateParams, peopleService) {
     vm.currentUserName = vm.person.first_name + " " + vm.person.last_name;
     // vm.video = vm.person.videos[0];
     //console.log(vm.video);
-    vm.video_id= vm.person.video_id;
+    vm.videoId= vm.person.video_id;
 
 }
 
