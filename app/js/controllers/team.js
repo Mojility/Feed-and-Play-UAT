@@ -15,8 +15,16 @@ function TeamController($stateParams, sessionService, teamService, peopleService
     //console.log(teamService.getTeam($stateParams.id));
     vm.team = teamService.getTeam($stateParams.id);
     vm.teamName = vm.team.name;
-    vm.TeamMembers = vm.team.member_ids;
+    vm.teamMembers = vm.team.member_ids;
+    console.log(vm.teamMembers);
 
+    console.log(peopleService.getPerson(vm.teamMembers[0]).first_name);
+
+    vm.userName = function(id) {
+
+        return peopleService.getPerson(id).first_name;
+
+    };
 
     //console.log(vm.team.member_ids);
 

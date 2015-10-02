@@ -16,7 +16,7 @@
     <li><a href="/">Home</a></li>
     <li><a href="/team">Team </a></li>
 </ol>
-<nav ng-controller="SessionController as session">
+<nav ng-controller="SessionController as session" >
     <p>Logged in: {{ session.currentUserName() }}</p>
     <ol>
         <li ng-repeat="person in session.getAllPeople()">

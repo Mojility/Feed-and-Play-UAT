@@ -6,7 +6,11 @@
 Members:
 
 
-
+<ol>
+    <li ng-repeat="person in team.teamMembers">
+        <a href="/person/{{person}}">{{ team.userName(person) }}</a>
+    </li>
+</ol>
 
 
 <!--<iframe width="280" height="157" src="https://www.youtube.com/embed/{{ 'gNqQL-1gZF8' }}" frameborder="0" allowfullscreen>-->
