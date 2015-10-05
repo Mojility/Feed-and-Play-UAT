@@ -5,11 +5,18 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function TeamController($stateParams, sessionService, teamService, peopleService, $sce) {
+function TeamController($stateParams, teamService, peopleService) {
 
     // ViewModel
     var vm = this;
 
+    vm.youtube="https://www.youtube.com/embed/";
+
+    vm.youtubeLink = function (video) {
+
+        return vm.youtube + video;
+
+    };
 
     vm.teamIsNotEmpty = function () {
 
@@ -32,9 +39,10 @@ function TeamController($stateParams, sessionService, teamService, peopleService
 
         vm.teamName = vm.team.name;
         vm.teamMembers = vm.team.member_ids;
-        vm.video = vm.team.video_id;
+        vm.videos = vm.team.video_id;
 
-        $sce.trustAsResourceUrl(vm.video);
+
+
 
     };
 
@@ -47,4 +55,4 @@ function TeamController($stateParams, sessionService, teamService, peopleService
 
 }
 
-controllersModule.controller('TeamController', ['$stateParams', 'SessionService', 'TeamService', 'PeopleService', "$sce", TeamController]);
+controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', TeamController]);

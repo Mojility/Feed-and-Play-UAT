@@ -16,9 +16,15 @@ Members:
 videos:
 <br> <br>
 
-{{team.video}}<br>
 
-<iframe ng-if="team.teamIsNotEmpty()" width="560" height="315" ng-src="{{team.video|trusted}}" frameborder="0" allowfullscreen></iframe>
+<ol>
+    <li ng-repeat="video in team.videos">
+        <iframe width="560" height="315" ng-src="{{team.youtubeLink(video)|trusted}}" frameborder="0" allowfullscreen></iframe>
+    </li>
+</ol>
+
+
+
 
 
 
