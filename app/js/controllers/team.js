@@ -22,7 +22,7 @@ function TeamController($stateParams, sessionService, teamService, peopleService
 
     //  console.log(peopleService.getPerson(vm.teamMembers[0]).first_name);
 
-  
+
     vm.userName = function (id) {
 
         return peopleService.getPerson(id).first_name;
