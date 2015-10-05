@@ -10,12 +10,29 @@ function PersonController($stateParams, peopleService) {
     // ViewModel
     var vm = this;
 
-    vm.person = peopleService.getPerson($stateParams.id);
-    //console.log($stateParams.id);
-    vm.currentUserName = vm.person.first_name + " " + vm.person.last_name;
-    // vm.video = vm.person.videos[0];
-    //console.log(vm.video);
-    vm.videoId= vm.person.video_id;
+
+    vm.personIsNotEmpty = function () {
+
+        vm.person = peopleService.getPerson($stateParams.id);
+
+        if (vm.person != null){
+
+            vm.setVariables();
+            return true;
+        }
+        else {
+
+            return false;
+        }
+
+    };
+
+    vm.setVariables = function () {
+
+        vm.currentUserName = vm.person.first_name + " " + vm.person.last_name;
+
+
+    };
 
 }
 

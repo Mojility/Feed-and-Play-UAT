@@ -5,18 +5,20 @@
 <br> <br>
 Members:
 
-
+<span ng-if="team.teamIsNotEmpty()">
 <ol>
     <li ng-repeat="person in team.teamMembers">
         <a href="/person/{{person}}">{{ team.userName(person) }}</a>
     </li>
 </ol>
+</span>
 <br> <br>
 videos:
 <br> <br>
 
 {{team.video}}<br>
-<iframe width="560" height="315" ng-src="{{team.video}}" frameborder="0" allowfullscreen></iframe>
+
+<iframe ng-if="team.teamIsNotEmpty()" width="560" height="315" ng-src="{{team.video|trusted}}" frameborder="0" allowfullscreen></iframe>
 
 
 

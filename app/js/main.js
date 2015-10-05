@@ -20,8 +20,17 @@ angular.element(document).ready(function() {
     'app.directives'
   ];
 
+
+
   // mount on window for testing
   window.app = angular.module('app', requires);
+
+  angular.module('app').filter("trusted",["$sce",function($sce){
+
+    return function(url) {
+      return $sce.trustAsResourceUrl(url);
+    };
+  }]);
 
   angular.module('app').constant('AppSettings', require('./constants'));
 
