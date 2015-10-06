@@ -6,18 +6,18 @@
 Members:
 
 <span ng-if="team.teamIsNotEmpty()">
-    <!--{{team.teamMembers}}-->
-    <!--{{team.getTeamMembers(team.teamId)}}-->
+
 <ol>
     <li ng-repeat="person in team.teamMembers">
-        <a href="/person/{{person}} "> {{team.userName(person)}} </a>
+        <a href="/person/{{person}} "> {{team.userName(person)}}   </a>
     </li>
+
 </ol>
+
 </span>
 <br> <br>
 videos:
 <br> <br>
-
 
 <ol>
     <li ng-repeat="video in team.videos">

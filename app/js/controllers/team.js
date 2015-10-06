@@ -54,7 +54,6 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
         vm.memberships.forEach(function (member, value) {
 
-
             if (member.team_id == id) {
                 vm.teamMembers.splice(value, 0, member.person_id);
             }
@@ -65,6 +64,20 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     };
 
+    vm.teamRole = function (teamId, personId) {
+
+
+        vm.memberships.forEach(function (member, value) {
+
+
+
+            if (member.team_id == teamId && member.person_id == personId) {
+                return member.role;
+            }
+
+
+        });
+    };
 
     vm.userName = function (id) {
 
