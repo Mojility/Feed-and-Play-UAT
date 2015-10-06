@@ -16,16 +16,17 @@
 
 <ol>
     <li><a href="/">Home</a></li>
-    <li><a href="/team">Team </a></li>
 </ol>
 <nav ng-controller="SessionController as session" >
     <p>Logged in: {{ session.currentUserName() }}</p>
+    <h1> Members</h1>
     <ol>
         <li ng-repeat="person in session.getAllPeople()">
             <a href="/person/{{person.id}}">{{ person.first_name }}</a>
         </li>
     </ol>
 
+    <h1> Teams</h1>
     <ol>
         <li ng-repeat="team in session.getAllTeams()">
             <a href="/team/{{team.team_id}}">{{ team.name }}</a>

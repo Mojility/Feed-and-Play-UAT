@@ -7,3 +7,22 @@ body {
   background-color: $background--light;
   padding: $half-space;
 }
+
+ol {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding: 0 12pt;
+
+
+
+
+
+    a {
+
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
