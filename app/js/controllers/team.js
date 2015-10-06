@@ -66,17 +66,20 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     vm.teamRole = function (teamId, personId) {
 
+        vm.foundRole = '';
 
         vm.memberships.forEach(function (member, value) {
 
-
-
             if (member.team_id == teamId && member.person_id == personId) {
-                return member.role;
+
+                vm.foundRole = member.role;
             }
 
 
         });
+
+
+        return vm.foundRole;
     };
 
     vm.userName = function (id) {

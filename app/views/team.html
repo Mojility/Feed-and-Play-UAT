@@ -9,7 +9,7 @@ Members:
 
 <ol>
     <li ng-repeat="person in team.teamMembers">
-        <a href="/person/{{person}} "> {{team.userName(person)}}   </a>
+        <a href="/person/{{person}} "> {{team.userName(person)}}   </a> <br> Role: {{team.teamRole(team.teamId,person)}}
     </li>
 
 </ol>
