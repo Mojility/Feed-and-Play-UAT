@@ -18,8 +18,7 @@ function PeopleService() {
     };
 
     service.getPerson = function (id) {
-        //console.log(service.cache);
-        //console.log(id);
+
         return service.cache[id];
     };
 

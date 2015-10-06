@@ -15,12 +15,13 @@ function TeamService() {
         team.forEach(function (team) {
             service.cache[team.team_id] = team;
         });
+
     };
 
     service.getTeam = function (id) {
-        //console.log(service.cache);
-        //console.log(id);
+
         return service.cache[id];
+
     };
 
     service.getAllTeams = function() {
@@ -28,6 +29,7 @@ function TeamService() {
             return service.cache[p];
         });
     };
+
 
     return service;
 

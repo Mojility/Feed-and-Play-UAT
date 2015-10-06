@@ -5,12 +5,12 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function TeamController($stateParams, teamService, peopleService) {
+function TeamController($stateParams, teamService, peopleService, sessionService) {
 
     // ViewModel
     var vm = this;
 
-    vm.youtube="https://www.youtube.com/embed/";
+    vm.youtube = "https://www.youtube.com/embed/";
 
     vm.youtubeLink = function (video) {
 
@@ -38,10 +38,29 @@ function TeamController($stateParams, teamService, peopleService) {
 
 
         vm.teamName = vm.team.name;
-        vm.teamMembers = vm.team.member_ids;
+        vm.memberships = sessionService.memberships;
+
+
+        vm.teamId = vm.team.team_id;
+
         vm.videos = vm.team.video_id;
+        vm.getTeamMembers(vm.team.team_id);
+
+    };
+
+    vm.getTeamMembers = function (id) {
+
+        vm.teamMembers = [];
+
+        vm.memberships.forEach(function (member, value) {
 
 
+            if (member.team_id == id) {
+                vm.teamMembers.splice(value, 0, member.person_id);
+            }
+
+
+        });
 
 
     };
@@ -55,4 +74,4 @@ function TeamController($stateParams, teamService, peopleService) {
 
 }
 
-controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', TeamController]);
+controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', 'SessionService', TeamController]);

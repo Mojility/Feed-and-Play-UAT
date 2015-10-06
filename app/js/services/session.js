@@ -10,6 +10,7 @@ function SessionService(peopleService, teamService) {
     var service = {};
 
     service.currentUserId = null;
+    service.memberships = {};
 
     service.currentUser = function() {
         //console.log("currentUser");
@@ -17,12 +18,10 @@ function SessionService(peopleService, teamService) {
     };
 
     service.currentUserName = function() {
-        //console.log("currentUserName");
         var u = service.currentUser();
         if (u) {
             return u.first_name + " " + u.last_name;
         }
-        //console.log(u);
     };
 
     service.initialize = function (data) {
@@ -30,7 +29,10 @@ function SessionService(peopleService, teamService) {
 
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);
-        service.currentUserId = data.person_id;
+        service.currentUserId = data.user[0].person_id;
+        service.memberships = data.team_memberships;
+
+
     };
 
     return service;
