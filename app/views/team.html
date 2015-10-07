@@ -1,17 +1,16 @@
 <h1> Team View</h1>
-<!--{{team.teamId}}-->
+
 {{team.teamName}}
 
 <br> <br>
 Members:
 
 <span ng-if="team.teamIsNotEmpty()">
-
 <ol>
     <li ng-repeat="person in team.teamMembers">
-        <a href="/person/{{person}} "> {{team.getFirstName(person)}}   </a> <br> Role: {{team.getTeamRole(team.teamId,person)}}
+        <a href="/person/{{person}} "> {{team.getFirstName(person)}} </a> <br> Role:
+        {{team.getTeamRole(team.teamId,person)}}
     </li>
-
 </ol>
 
 </span>

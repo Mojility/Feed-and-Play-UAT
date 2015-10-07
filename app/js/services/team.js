@@ -23,12 +23,16 @@ function TeamService() {
 
     };
 
-    service.getAllTeams = function() {
-        return Object.keys(service.cache).map(function(p) {
+    service.getVideos = function (id) {
+        return service.cache[id].video_id;
+
+    };
+
+    service.getAllTeams = function () {
+        return Object.keys(service.cache).map(function (p) {
             return service.cache[p];
         });
     };
-
 
     return service;
 

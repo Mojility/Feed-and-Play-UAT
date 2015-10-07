@@ -21,8 +21,8 @@ function PeopleService() {
         return service.cache[id];
     };
 
-    service.getAllPeople = function() {
-        return Object.keys(service.cache).map(function(p) {
+    service.getAllPeople = function () {
+        return Object.keys(service.cache).map(function (p) {
             return service.cache[p];
         });
     };

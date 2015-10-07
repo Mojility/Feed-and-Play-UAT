@@ -16,7 +16,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
         vm.foundRole = '';
 
-        vm.memberships.forEach(function (member, value) {
+        vm.memberships.forEach(function (member) {
 
             if (member.team_id == teamId && member.person_id == personId) {
 
@@ -44,7 +44,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
         vm.person = peopleService.getPerson($stateParams.id);
 
-        if (vm.person != null){
+        if (vm.person != null) {
             vm.setVariables();
             return true;
         }
@@ -73,6 +73,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
             if (member.person_id == id) {
                 vm.teams.splice(value, 0, member.team_id);
+
             }
 
         });
@@ -81,12 +82,10 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.getVideos = function (id) {
 
-        vm.team = teamService.getTeam(id);
-        vm.videos = vm.team.video_id;
-        return vm.videos;
+        return teamService.getVideos(id);
 
     };
 
 }
 
-controllersModule.controller('PersonController', ['$stateParams', 'PeopleService', 'SessionService','TeamService', PersonController]);
+controllersModule.controller('PersonController', ['$stateParams', 'PeopleService', 'SessionService', 'TeamService', PersonController]);

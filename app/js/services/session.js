@@ -12,12 +12,11 @@ function SessionService(peopleService, teamService) {
     service.currentUserId = null;
     service.memberships = {};
 
-    service.currentUser = function() {
-        //console.log("currentUser");
+    service.currentUser = function () {
         return peopleService.getPerson(service.currentUserId);
     };
 
-    service.currentUserName = function() {
+    service.currentUserName = function () {
         var u = service.currentUser();
         if (u) {
             return u.first_name + " " + u.last_name;
@@ -26,12 +25,10 @@ function SessionService(peopleService, teamService) {
 
     service.initialize = function (data) {
 
-
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);
         service.currentUserId = data.user[0].person_id;
         service.memberships = data.team_memberships;
-
 
     };
 
@@ -39,4 +36,4 @@ function SessionService(peopleService, teamService) {
 
 }
 
-servicesModule.service('SessionService', [ 'PeopleService', 'TeamService', SessionService ]);
+servicesModule.service('SessionService', ['PeopleService', 'TeamService', SessionService]);
