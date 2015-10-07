@@ -7,24 +7,13 @@
 
 <br><br>
 
-<ol>
-    <li ng-repeat="team in person.teams">
-        <iframe width="560" height="315" ng-src="{{team.youtubeLink(video)|trusted}}" frameborder="0"
-                allowfullscreen></iframe>
-    </li>
-</ol>
-
 <div ng-repeat="team in person.teams">
-<ol>
-    {{team}}
-    {{erson.getVideos(team)}}
-    <li ng-repeat="video in person.getVideos(team)">
-
-    <iframe width="560" height="315" ng-src="{{team.youtubeLink(video)|trusted}}" frameborder="0"
-            allowfullscreen></iframe>
-    </li>
-
-</ol>
+    <ol>
+        <li ng-repeat="video in person.getVideos(team)">
+            <iframe width="560" height="315" ng-src="{{person.youtubeLink(video)|trusted}}" frameborder="0"
+                    allowfullscreen></iframe>
+        </li>
+    </ol>
 </div>
 
 </span>

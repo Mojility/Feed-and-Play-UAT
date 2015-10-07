@@ -10,6 +10,13 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
     // ViewModel
     var vm = this;
 
+    vm.youtube = "https://www.youtube.com/embed/";
+
+    vm.youtubeLink = function (video) {
+
+        return vm.youtube + video;
+
+    };
 
     vm.personIsNotEmpty = function () {
 
@@ -50,22 +57,17 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
                 //console.log("true");
 
             }
-
-
+            
         });
-
-
-
-
 
     };
 
     vm.getVideos = function (id) {
 
         vm.team = teamService.getTeam(id);
-        console.log(vm.team);
+        //console.log(vm.team);
         vm.videos = vm.team.video_id;
-        console.log(vm.videos);
+        //console.log(vm.videos);
         return vm.videos;
 
     };
