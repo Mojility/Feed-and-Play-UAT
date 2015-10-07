@@ -19,7 +19,6 @@ function TeamService() {
     };
 
     service.getTeam = function (id) {
-
         return service.cache[id];
 
     };

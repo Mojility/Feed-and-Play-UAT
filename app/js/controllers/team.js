@@ -75,9 +75,7 @@ function TeamController($stateParams, teamService, peopleService, sessionService
                 vm.foundRole = member.role;
             }
 
-
         });
-
 
         return vm.foundRole;
     };

@@ -12,6 +12,33 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.youtube = "https://www.youtube.com/embed/";
 
+
+    vm.teamRole = function (teamId, personId) {
+
+        vm.foundRole = '';
+
+       // console.log(vm.memberships);
+        //console.log(personId);
+
+        vm.memberships.forEach(function (member, value) {
+
+            if (member.team_id == teamId && member.person_id == personId) {
+
+                vm.foundRole = member.role;
+              //  console.log("true");
+            }
+
+        });
+
+        return vm.foundRole;
+    };
+
+    vm.teamName = function (id) {
+        return teamService.getTeam(id).name;
+
+    };
+
+
     vm.youtubeLink = function (video) {
 
         return vm.youtube + video;
@@ -37,6 +64,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
     vm.setVariables = function () {
 
         vm.currentUserName = vm.person.first_name + " " + vm.person.last_name;
+        vm.personId = vm.person.id;
 
         vm.memberships = sessionService.memberships;
 
