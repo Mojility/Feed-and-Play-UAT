@@ -36,14 +36,10 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     vm.setVariables = function () {
 
-
         vm.teamName = vm.team.name;
-        vm.memberships = sessionService.memberships;
-
-
         vm.teamId = vm.team.team_id;
-
         vm.videos = vm.team.video_id;
+        vm.memberships = sessionService.memberships;
         vm.getTeamMembers(vm.team.team_id);
 
     };
@@ -58,13 +54,11 @@ function TeamController($stateParams, teamService, peopleService, sessionService
                 vm.teamMembers.splice(value, 0, member.person_id);
             }
 
-
         });
-
 
     };
 
-    vm.teamRole = function (teamId, personId) {
+    vm.getTeamRole = function (teamId, personId) {
 
         vm.foundRole = '';
 
@@ -80,9 +74,9 @@ function TeamController($stateParams, teamService, peopleService, sessionService
         return vm.foundRole;
     };
 
-    vm.userName = function (id) {
+    vm.getFirstName = function (id) {
 
-        return peopleService.getPerson(id).first_name;
+        return peopleService.getFirstName(id);
 
     };
 

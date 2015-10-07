@@ -12,20 +12,16 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.youtube = "https://www.youtube.com/embed/";
 
-
     vm.teamRole = function (teamId, personId) {
 
         vm.foundRole = '';
-
-       // console.log(vm.memberships);
-        //console.log(personId);
 
         vm.memberships.forEach(function (member, value) {
 
             if (member.team_id == teamId && member.person_id == personId) {
 
                 vm.foundRole = member.role;
-              //  console.log("true");
+
             }
 
         });
@@ -38,7 +34,6 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     };
 
-
     vm.youtubeLink = function (video) {
 
         return vm.youtube + video;
@@ -50,12 +45,10 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
         vm.person = peopleService.getPerson($stateParams.id);
 
         if (vm.person != null){
-
             vm.setVariables();
             return true;
         }
         else {
-
             return false;
         }
 
@@ -69,10 +62,8 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
         vm.memberships = sessionService.memberships;
 
         vm.getTeams(vm.person.id)
-       // console.log(vm.teams);
-      //  vm.getVideos( vm.getTeams(vm.person.id));
-    };
 
+    };
 
     vm.getTeams = function (id) {
 
@@ -82,8 +73,6 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
             if (member.person_id == id) {
                 vm.teams.splice(value, 0, member.team_id);
-                //console.log("true");
-
             }
 
         });
@@ -93,9 +82,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
     vm.getVideos = function (id) {
 
         vm.team = teamService.getTeam(id);
-        //console.log(vm.team);
         vm.videos = vm.team.video_id;
-        //console.log(vm.videos);
         return vm.videos;
 
     };

@@ -27,6 +27,10 @@ function PeopleService() {
         });
     };
 
+    service.getFirstName = function (id) {
+        return service.cache[id].first_name;
+    };
+
     return service;
 
 }
