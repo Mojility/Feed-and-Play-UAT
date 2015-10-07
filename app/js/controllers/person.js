@@ -57,7 +57,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
                 //console.log("true");
 
             }
-            
+
         });
 
     };
