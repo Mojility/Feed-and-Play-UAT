@@ -54,7 +54,7 @@ function TeamService() {
 
         service.foundRole = '';
 
-        service.memberships.forEach(function (member, value) {
+        service.memberships.forEach(function (member) {
 
             if (member.team_id == teamId && member.person_id == personId) {
 
@@ -62,7 +62,7 @@ function TeamService() {
             }
 
         });
-          //console.log(service.foundRole);
+        //console.log(service.foundRole);
         return service.foundRole;
     };
 

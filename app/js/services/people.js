@@ -38,7 +38,7 @@ function PeopleService() {
     };
 
     service.getFullName = function (id) {
-        return service.getPerson(id).first_name + " " + service.getPerson(id).last_name  ;
+        return service.getPerson(id).first_name + " " + service.getPerson(id).last_name;
     };
 
 

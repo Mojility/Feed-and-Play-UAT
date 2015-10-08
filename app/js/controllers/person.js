@@ -5,17 +5,17 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function PersonController($stateParams, peopleService, sessionService, teamService) {
+function PersonController($stateParams, peopleService,teamService) {
 
     // ViewModel
     var vm = this;
 
 
-   // console.log("personController");
+    // console.log("personController");
 
     vm.teamRole = function (teamId) {
 
-        return teamService.getTeamRole(teamId,vm.personId);
+        return teamService.getTeamRole(teamId, vm.personId);
 
     };
 
@@ -26,7 +26,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.youtubeLink = function (video) {
 
-        return  teamService.youtubeLink( video);
+        return teamService.youtubeLink(video);
 
     };
 
@@ -48,7 +48,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
         vm.personId = vm.person.id;
         vm.currentUserName = peopleService.getFullName(vm.personId);
-        vm.teams =  teamService.getTeams(vm.personId);
+        vm.teams = teamService.getTeams(vm.personId);
 
     };
 
@@ -61,4 +61,4 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
 }
 
-controllersModule.controller('PersonController', ['$stateParams', 'PeopleService', 'SessionService', 'TeamService', PersonController]);
+controllersModule.controller('PersonController', ['$stateParams', 'PeopleService', 'TeamService', PersonController]);
