@@ -20,12 +20,12 @@ function SessionController($http, sessionService, peopleService, teamService) {
         url: 'data/profile.json'
     }).then(function successCallback(response) {
 
-       // console.log("success");
+        // console.log("success");
         sessionService.initialize(response.data);
 
     }, function errorCallback(response) {
 
-       // console.log("fail"  );
+        // console.log("fail"  );
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });

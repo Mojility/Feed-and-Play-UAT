@@ -9,12 +9,12 @@ function SessionService(peopleService, teamService) {
 
     var service = {};
 
-   // service.currentUserId = null;
+    // service.currentUserId = null;
 
-   // console.log("session Sevice");
+    // console.log("session Sevice");
 
     service.initialize = function (data) {
-       // console.log("test");
+        // console.log("test");
 
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);

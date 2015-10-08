@@ -12,7 +12,7 @@ function TeamService() {
     service.youtube = "https://www.youtube.com/embed/";
 
     service.cache = {};
-   // console.log("teamService");
+    // console.log("teamService");
 
     service.loadCache = function (team) {
         team.forEach(function (team) {
@@ -36,8 +36,6 @@ function TeamService() {
         return service.getTeam(id).video_id;
 
     };
-
-
 
     service.youtubeLink = function (video) {
 

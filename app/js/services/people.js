@@ -27,7 +27,7 @@ function PeopleService() {
 
     service.getPerson = function (id) {
 
-       // console.log("test");
+        // console.log("test");
         return service.cache[id];
 
     };
@@ -44,13 +44,13 @@ function PeopleService() {
 
     service.setCurrentUserId = function (id) {
         service.currentUserId = id;
-       // console.log( "test");
+        // console.log( "test");
     };
 
     service.currentUserName = function () {
-       // service.setCurrentUserId(0);
+        // service.setCurrentUserId(0);
         var u = service.getPerson(service.currentUserId);
-       // console.log(u);
+        // console.log(u);
         if (u) {
             return u.first_name + " " + u.last_name;
         }

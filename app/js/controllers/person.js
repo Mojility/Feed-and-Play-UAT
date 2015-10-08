@@ -10,8 +10,6 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
     // ViewModel
     var vm = this;
 
-
-
     vm.currentUserName = peopleService.currentUserName;
 
    // console.log("personController");
