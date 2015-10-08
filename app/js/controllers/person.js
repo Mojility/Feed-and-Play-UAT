@@ -10,7 +10,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
     // ViewModel
     var vm = this;
 
-    vm.youtube = "https://www.youtube.com/embed/";
+
 
     vm.currentUserName = peopleService.currentUserName;
 
@@ -40,7 +40,7 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.youtubeLink = function (video) {
 
-        return vm.youtube + video;
+        return  teamService.youtubeLink( video);
 
     };
 

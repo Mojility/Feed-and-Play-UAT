@@ -12,11 +12,11 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     //console.log("teamController");
 
-    vm.youtube = "https://www.youtube.com/embed/";
+
 
     vm.youtubeLink = function (video) {
 
-        return vm.youtube + video;
+        return teamService.youtubeLink( video);
 
     };
 

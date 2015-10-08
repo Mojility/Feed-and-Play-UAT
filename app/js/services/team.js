@@ -9,6 +9,8 @@ function TeamService() {
 
     var service = {};
 
+    service.youtube = "https://www.youtube.com/embed/";
+
     service.cache = {};
    // console.log("teamService");
 
@@ -32,6 +34,14 @@ function TeamService() {
 
     service.getVideos = function (id) {
         return service.getTeam(id).video_id;
+
+    };
+
+
+
+    service.youtubeLink = function (video) {
+
+        return service.youtube + video;
 
     };
 
