@@ -2,7 +2,7 @@
 
 'use strict';
 
-describe('Unit: PeopleService', function() {
+describe('Unit: TeamService', function() {
 
     var session;
     var service;
@@ -12,9 +12,9 @@ describe('Unit: PeopleService', function() {
         angular.mock.module('app');
 
         // mock the service
-        angular.mock.inject(function(SessionService, PeopleService) {
+        angular.mock.inject(function(SessionService, TeamService) {
             session = SessionService;
-            service = PeopleService;
+            service = TeamService;
         });
 
         session.initialize(sampleData());
@@ -25,18 +25,16 @@ describe('Unit: PeopleService', function() {
         expect(service).toBeDefined();
     });
 
-    it('should retrieve a person by id', function() {
-        var person = service.getPerson(2);
-        var firstName = service.getFirstName(2)
+    it('should retrieve a team by id', function() {
 
-        expect(person.id).toEqual(2);
-        expect(person.first_name).toEqual("Ze");
-        expect(person.last_name).toEqual("Frank");
-        expect(person.email).toEqual("ze@frank.com");
-        expect(firstName).toEqual("Ze");
+      var team = service.getTeam(0);
+
+        expect(team.team_id).toEqual(0);
+        expect(team.name).toEqual("Smith Productions");
+        expect(team.video_id[0]).toEqual("gNqQL-1gZF8");
+
 
     });
-
 
 
     function sampleData() {

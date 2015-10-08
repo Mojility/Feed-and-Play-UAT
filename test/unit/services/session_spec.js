@@ -58,11 +58,17 @@ describe('Unit: SessionService', function() {
         service.initialize(data);
         var currentUser = service.currentUser();
 
+
         expect(service.currentUserId).toEqual(person_id);
         expect(currentUser.id).toEqual(person_id);
         expect(currentUser.first_name).toEqual(firstName);
         expect(currentUser.last_name).toEqual(lastName);
         expect(currentUser.email).toEqual(email);
+
+        expect(service.memberships[0].person_id).toEqual(person_id);
+        expect(service.memberships[0].team_id).toEqual(0);
+        expect(service.memberships[0].role).toEqual("Lead");
+
 
         expect(service.currentUserName()).toEqual("John Smith");
 

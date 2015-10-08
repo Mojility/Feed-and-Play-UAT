@@ -17,18 +17,19 @@ function PeopleService() {
         });
     };
 
-    service.getPerson = function (id) {
-        return service.cache[id];
-    };
-
     service.getAllPeople = function () {
         return Object.keys(service.cache).map(function (p) {
             return service.cache[p];
         });
     };
 
+    service.getPerson = function (id) {
+        return service.cache[id];
+    };
+
+
     service.getFirstName = function (id) {
-        return service.cache[id].first_name;
+        return service.getPerson(id).first_name
     };
 
     return service;
