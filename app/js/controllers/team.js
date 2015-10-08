@@ -38,7 +38,7 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
         vm.teamName = vm.team.name;
         vm.teamId = vm.team.team_id;
-        vm.videos = vm.team.video_id;
+        vm.videos = teamService.getVideos(vm.teamId);
         vm.teamMembers = teamService.getTeamMembers(vm.teamId);
 
 
