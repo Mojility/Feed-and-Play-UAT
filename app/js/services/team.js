@@ -23,14 +23,14 @@ function TeamService() {
             return service.cache[p];
         });
     };
-    
+
     service.getTeam = function (id) {
         return service.cache[id];
 
     };
 
     service.getVideos = function (id) {
-        return service.cache[id].video_id;
+        return service.getTeam(id).video_id;
 
     };
 
