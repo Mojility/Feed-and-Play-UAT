@@ -43,6 +43,61 @@ function TeamService() {
 
     };
 
+    service.setMemberships = function (membership) {
+
+        service.memberships = membership;
+
+
+    };
+
+    service.getTeamRole = function (teamId, personId) {
+
+        service.foundRole = '';
+
+        service.memberships.forEach(function (member, value) {
+
+            if (member.team_id == teamId && member.person_id == personId) {
+
+                service.foundRole = member.role;
+            }
+
+        });
+          //console.log(service.foundRole);
+        return service.foundRole;
+    };
+
+    service.getTeamMembers = function (id) {
+
+        service.teamMembers = [];
+
+        service.memberships.forEach(function (member, value) {
+
+            if (member.team_id == id) {
+                service.teamMembers.splice(value, 0, member.person_id);
+            }
+
+        });
+
+        return service.teamMembers;
+
+    };
+
+    service.getTeams = function (id) {
+
+        service.teams = [];
+
+        service.memberships.forEach(function (member, value) {
+
+            if (member.person_id == id) {
+                service.teams.splice(value, 0, member.team_id);
+
+            }
+
+        });
+
+        return service.teams;
+    };
+
     return service;
 
 }

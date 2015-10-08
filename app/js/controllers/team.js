@@ -39,40 +39,18 @@ function TeamController($stateParams, teamService, peopleService, sessionService
         vm.teamName = vm.team.name;
         vm.teamId = vm.team.team_id;
         vm.videos = vm.team.video_id;
-        vm.memberships = sessionService.memberships;
-        vm.getTeamMembers(vm.team.team_id);
+        vm.teamMembers = teamService.getTeamMembers(vm.teamId);
+
 
     };
 
-    vm.getTeamMembers = function (id) {
+    vm.getTeamRole = function (PersonId) {
 
-        vm.teamMembers = [];
-
-        vm.memberships.forEach(function (member, value) {
-
-            if (member.team_id == id) {
-                vm.teamMembers.splice(value, 0, member.person_id);
-            }
-
-        });
+        return teamService.getTeamRole(vm.teamId,PersonId);
 
     };
 
-    vm.getTeamRole = function (teamId, personId) {
 
-        vm.foundRole = '';
-
-        vm.memberships.forEach(function (member, value) {
-
-            if (member.team_id == teamId && member.person_id == personId) {
-
-                vm.foundRole = member.role;
-            }
-
-        });
-
-        return vm.foundRole;
-    };
 
     vm.getFirstName = function (id) {
 

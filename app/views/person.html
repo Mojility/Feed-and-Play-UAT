@@ -9,7 +9,7 @@
 
 <div ng-repeat="team in person.teams">
     Team: {{person.teamName(team)}} <br>
-    Role: {{person.teamRole(team,person.personId)}}<br>
+    Role: {{person.teamRole(team)}}<br>
     <ol>
         <li ng-repeat="video in person.getVideos(team)">
             <iframe width="280" height="157" ng-src="{{person.youtubeLink(video)|trusted}}" frameborder="0"

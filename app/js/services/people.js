@@ -55,7 +55,7 @@ function PeopleService() {
     service.currentUserName = function () {
         // service.setCurrentUserId(0);
         var u = service.getPerson(service.currentUserId);
-         console.log(service.currentUserId);
+        // console.log(service.currentUserId);
         if (u) {
             return service.getFullName(service.currentUserId);
         }
