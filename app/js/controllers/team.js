@@ -10,6 +10,8 @@ function TeamController($stateParams, teamService, peopleService, sessionService
     // ViewModel
     var vm = this;
 
+    //console.log("teamController");
+
     vm.youtube = "https://www.youtube.com/embed/";
 
     vm.youtubeLink = function (video) {

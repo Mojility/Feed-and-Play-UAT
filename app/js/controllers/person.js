@@ -12,6 +12,10 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.youtube = "https://www.youtube.com/embed/";
 
+    vm.currentUserName = peopleService.currentUserName;
+
+   // console.log("personController");
+
     vm.teamRole = function (teamId, personId) {
 
         vm.foundRole = '';

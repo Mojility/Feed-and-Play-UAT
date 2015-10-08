@@ -10,6 +10,7 @@ function TeamService() {
     var service = {};
 
     service.cache = {};
+   // console.log("teamService");
 
     service.loadCache = function (team) {
         team.forEach(function (team) {

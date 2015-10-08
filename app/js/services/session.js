@@ -9,25 +9,17 @@ function SessionService(peopleService, teamService) {
 
     var service = {};
 
-    service.currentUserId = null;
-    service.memberships = {};
+   // service.currentUserId = null;
 
-    service.currentUser = function () {
-        return peopleService.getPerson(service.currentUserId);
-    };
-
-    service.currentUserName = function () {
-        var u = service.currentUser();
-        if (u) {
-            return u.first_name + " " + u.last_name;
-        }
-    };
+   // console.log("session Sevice");
 
     service.initialize = function (data) {
+       // console.log("test");
 
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);
-        service.currentUserId = data.user[0].person_id;
+        peopleService.setCurrentUserId(data.user[0].person_id);
+
         service.memberships = data.team_memberships;
 
     };
