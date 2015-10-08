@@ -58,8 +58,9 @@ function PersonController($stateParams, peopleService, sessionService, teamServi
 
     vm.setVariables = function () {
 
-        vm.currentUserName = vm.person.first_name + " " + vm.person.last_name;
         vm.personId = vm.person.id;
+
+        vm.currentUserName = peopleService.getFullName(vm.personId);
 
         vm.memberships = sessionService.memberships;
 

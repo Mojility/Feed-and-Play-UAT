@@ -37,6 +37,11 @@ function PeopleService() {
         return service.getPerson(id).first_name;
     };
 
+    service.getFullName = function (id) {
+        return service.getPerson(id).first_name + " " + service.getPerson(id).last_name  ;
+    };
+
+
     service.currentUser = function () {
         return service.getPerson(service.currentUserId);
         //console.log("test");
@@ -50,9 +55,9 @@ function PeopleService() {
     service.currentUserName = function () {
         // service.setCurrentUserId(0);
         var u = service.getPerson(service.currentUserId);
-        // console.log(u);
+         console.log(service.currentUserId);
         if (u) {
-            return u.first_name + " " + u.last_name;
+            return service.getFullName(service.currentUserId);
         }
     };
 
