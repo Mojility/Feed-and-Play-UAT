@@ -2,11 +2,18 @@
 
 <br>
 <span ng-if="person.personIsNotEmpty()">
-{{person.currentUserName}}
+Name: {{person.currentUserName}}
+    <br><br>
+    Teams: <br><br>
+    <div ng-repeat="team in person.teams">
+        Team Name: {{person.teamName(team)}} <br>
+        Role: {{person.teamRole(team)}}<br>
+        <br>
+    </div>
 
-
-<br><br>
-
+<br>
+Videos:
+    <br><br>
 <div ng-repeat="team in person.teams">
     Team: {{person.teamName(team)}} <br>
     Role: {{person.teamRole(team)}}<br>
