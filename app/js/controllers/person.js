@@ -10,7 +10,6 @@ function PersonController($stateParams, peopleService, teamService) {
     // ViewModel
     var vm = this;
 
-
     // console.log("personController");
 
     vm.teamRole = function (teamId) {
@@ -20,6 +19,7 @@ function PersonController($stateParams, peopleService, teamService) {
     };
 
     vm.teamName = function (id) {
+
         return teamService.getTeam(id).name;
 
     };

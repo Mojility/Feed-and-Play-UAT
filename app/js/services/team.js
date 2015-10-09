@@ -15,6 +15,7 @@ function TeamService() {
     // console.log("teamService");
 
     service.loadCache = function (team) {
+
         team.forEach(function (team) {
             service.cache[team.team_id] = team;
         });
@@ -22,17 +23,21 @@ function TeamService() {
     };
 
     service.getAllTeams = function () {
+
         return Object.keys(service.cache).map(function (p) {
             return service.cache[p];
         });
+
     };
 
     service.getTeam = function (id) {
+
         return service.cache[id];
 
     };
 
     service.getVideos = function (id) {
+
         return service.getTeam(id).video_id;
 
     };
@@ -63,6 +68,7 @@ function TeamService() {
         });
         //console.log(service.foundRole);
         return service.foundRole;
+
     };
 
     service.getTeamMembers = function (id) {

@@ -9,10 +9,7 @@ function SessionService(peopleService, teamService) {
 
     var service = {};
 
-    // console.log("session Sevice");
-
     service.initialize = function (data) {
-        // console.log("test");
 
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);
