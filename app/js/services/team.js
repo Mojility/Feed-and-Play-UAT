@@ -78,6 +78,9 @@ function TeamService() {
 
         });
 
+//        console.log(service.teamMembers);
+
+
         return service.teamMembers;
 
     };

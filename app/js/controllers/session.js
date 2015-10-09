@@ -14,7 +14,7 @@ function SessionController($http, sessionService, peopleService, teamService) {
     vm.getAllPeople = peopleService.getAllPeople;
     vm.getAllTeams = teamService.getAllTeams;
 
-//    console.log("session");
+    //console.log("session");
     $http({
         method: 'GET',
         url: 'data/profile.json'

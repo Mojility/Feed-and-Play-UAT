@@ -42,11 +42,6 @@ function PeopleService() {
     };
 
 
-    service.currentUser = function () {
-        return service.getPerson(service.currentUserId);
-        //console.log("test");
-    };
-
     service.setCurrentUserId = function (id) {
         service.currentUserId = id;
         // console.log( "test");

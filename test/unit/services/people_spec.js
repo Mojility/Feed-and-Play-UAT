@@ -27,13 +27,33 @@ describe('Unit: PeopleService', function() {
 
     it('should retrieve a person by id', function() {
         var person = service.getPerson(2);
-        var firstName = service.getFirstName(2)
+        var firstName = service.getFirstName(2);
+        var fullName = service.getFullName(2);
 
         expect(person.id).toEqual(2);
         expect(person.first_name).toEqual("Ze");
         expect(person.last_name).toEqual("Frank");
         expect(person.email).toEqual("ze@frank.com");
         expect(firstName).toEqual("Ze");
+        expect(fullName).toEqual("Ze Frank");
+
+
+    });
+
+    it('should get name on logged in user', function() {
+
+        var currentUserName = service.currentUserName();
+
+        expect(currentUserName).toEqual("John Smith");
+
+    });
+
+
+    it('should set current user id', function() {
+
+       service.setCurrentUserId(1);
+
+        expect(service.currentUserId).toEqual(1);
 
     });
 

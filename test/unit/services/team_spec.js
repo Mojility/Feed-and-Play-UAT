@@ -34,8 +34,41 @@ describe('Unit: TeamService', function() {
         expect(team.video_id[0]).toEqual("gNqQL-1gZF8");
 
 
+
+
     });
 
+
+    it('should get videos', function() {
+
+        expect(service.getVideos(0)).toEqual(["gNqQL-1gZF8"]);
+
+    });
+
+    it('should assemble youtube link', function() {
+
+        expect(service.youtubeLink("gNqQL-1gZF8")).toEqual("https://www.youtube.com/embed/gNqQL-1gZF8");
+
+    });
+
+
+    it('should find team role', function() {
+
+      expect(service.getTeamRole(0,0)).toEqual("Lead");
+
+    });
+
+    it('should find team members', function() {
+
+        expect(service.getTeamMembers(0)).toEqual([0,1]);
+
+    });
+
+    it('should find teams', function() {
+
+        expect(service.getTeams(0)).toEqual([0,1]);
+
+    });
 
     function sampleData() {
         return {
