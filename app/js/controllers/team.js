@@ -42,7 +42,6 @@ function TeamController($stateParams, teamService, peopleService) {
         vm.videos = teamService.getVideos(vm.teamId);
         vm.teamMembers = teamService.getTeamMembers(vm.teamId);
 
-
     };
 
     vm.getTeamRole = function (PersonId) {

@@ -23,7 +23,5 @@ describe('Unit: TeamController', function () {
 
         expect(team.youtubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
     });
-    
-
 
 });
