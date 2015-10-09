@@ -2,25 +2,25 @@
 
 'use strict';
 
-describe('Unit: SessionService', function() {
+describe('Unit: SessionService', function () {
 
     var service;
 
-    beforeEach(function() {
+    beforeEach(function () {
         // instantiate the app module
         angular.mock.module('app');
 
         // mock the service
-        angular.mock.inject(function(SessionService) {
+        angular.mock.inject(function (SessionService) {
             service = SessionService;
         });
     });
 
-    it('should exist', function() {
+    it('should exist', function () {
         expect(service).toBeDefined();
     });
 
-    it('should load some data and ensure current user is present', function() {
+    it('should load some data and ensure current user is present', function () {
 
         var person_id = 1;
         var firstName = "John";
@@ -50,8 +50,8 @@ describe('Unit: SessionService', function() {
                     "email": email
                 }
             ],
-            "team_memberships" : [
-                { "person_id": person_id, "team_id": 0, "role": "Lead" }
+            "team_memberships": [
+                {"person_id": person_id, "team_id": 0, "role": "Lead"}
             ]
         };
 

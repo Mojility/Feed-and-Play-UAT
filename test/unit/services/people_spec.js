@@ -2,17 +2,17 @@
 
 'use strict';
 
-describe('Unit: PeopleService', function() {
+describe('Unit: PeopleService', function () {
 
     var session;
     var service;
 
-    beforeEach(function() {
+    beforeEach(function () {
         // instantiate the app module
         angular.mock.module('app');
 
         // mock the service
-        angular.mock.inject(function(SessionService, PeopleService) {
+        angular.mock.inject(function (SessionService, PeopleService) {
             session = SessionService;
             service = PeopleService;
         });
@@ -20,12 +20,12 @@ describe('Unit: PeopleService', function() {
         session.initialize(sampleData());
     });
 
-    it('should exist', function() {
+    it('should exist', function () {
         expect(session).toBeDefined();
         expect(service).toBeDefined();
     });
 
-    it('should retrieve a person by id', function() {
+    it('should retrieve a person by id', function () {
         var person = service.getPerson(2);
         var firstName = service.getFirstName(2);
         var fullName = service.getFullName(2);
@@ -40,7 +40,7 @@ describe('Unit: PeopleService', function() {
 
     });
 
-    it('should get name on logged in user', function() {
+    it('should get name on logged in user', function () {
 
         var currentUserName = service.currentUserName();
 
@@ -49,14 +49,13 @@ describe('Unit: PeopleService', function() {
     });
 
 
-    it('should set current user id', function() {
+    it('should set current user id', function () {
 
-       service.setCurrentUserId(1);
+        service.setCurrentUserId(1);
 
         expect(service.currentUserId).toEqual(1);
 
     });
-
 
 
     function sampleData() {
@@ -85,7 +84,7 @@ describe('Unit: PeopleService', function() {
                     "team_id": 2,
                     "name": "Ze Frank Team",
                     "video_id": [
-                        "110iUX1Ursk","GDwOi7HpHtQ", "ndQZBQJf034"
+                        "110iUX1Ursk", "GDwOi7HpHtQ", "ndQZBQJf034"
                     ]
                 }
             ],
@@ -109,11 +108,11 @@ describe('Unit: PeopleService', function() {
                     "email": "ze@frank.com"
                 }
             ],
-            "team_memberships" : [
-                { "person_id": 0, "team_id": 0, "role": "Lead" },
-                { "person_id": 0, "team_id": 1, "role": "Lead" },
-                { "person_id": 1, "team_id": 0, "role": "Writer" },
-                { "person_id": 2, "team_id": 2, "role": "Lead" }
+            "team_memberships": [
+                {"person_id": 0, "team_id": 0, "role": "Lead"},
+                {"person_id": 0, "team_id": 1, "role": "Lead"},
+                {"person_id": 1, "team_id": 0, "role": "Writer"},
+                {"person_id": 2, "team_id": 2, "role": "Lead"}
             ]
         };
     }
