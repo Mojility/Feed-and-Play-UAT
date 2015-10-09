@@ -5,7 +5,7 @@ describe('Unit: TeamController', function () {
     var teamController;
     var session;
     var teamService;
-    
+
     beforeEach(function () {
         // instantiate the app module
         angular.mock.module('app');
@@ -32,7 +32,7 @@ describe('Unit: TeamController', function () {
 
     it('should get youtube link', function () {
 
-        expect(teamService.youtubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
+        expect(teamController.youtubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
     });
 
     it('should have team', function () {

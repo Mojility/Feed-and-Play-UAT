@@ -16,7 +16,7 @@ function SessionService(peopleService, teamService) {
 
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);
-        teamService.setMemberships(data.team_memberships)
+        teamService.setMemberships(data.team_memberships);
         peopleService.setCurrentUserId(data.user[0].person_id);
 
     };
