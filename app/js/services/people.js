@@ -32,7 +32,6 @@ function PeopleService() {
 
     };
 
-
     service.getFirstName = function (id) {
         return service.getPerson(id).first_name;
     };
@@ -40,7 +39,6 @@ function PeopleService() {
     service.getFullName = function (id) {
         return service.getPerson(id).first_name + " " + service.getPerson(id).last_name;
     };
-
 
     service.setCurrentUserId = function (id) {
         service.currentUserId = id;

@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function PersonController($stateParams, peopleService,teamService) {
+function PersonController($stateParams, peopleService, teamService) {
 
     // ViewModel
     var vm = this;
@@ -51,7 +51,6 @@ function PersonController($stateParams, peopleService,teamService) {
         vm.teams = teamService.getTeams(vm.personId);
 
     };
-
 
     vm.getVideos = function (id) {
 

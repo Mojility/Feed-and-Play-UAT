@@ -47,7 +47,6 @@ function TeamService() {
 
         service.memberships = membership;
 
-
     };
 
     service.getTeamRole = function (teamId, personId) {
@@ -78,8 +77,7 @@ function TeamService() {
 
         });
 
-//        console.log(service.teamMembers);
-
+        //console.log(service.teamMembers);
 
         return service.teamMembers;
 

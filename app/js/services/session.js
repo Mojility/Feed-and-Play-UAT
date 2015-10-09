@@ -9,8 +9,6 @@ function SessionService(peopleService, teamService) {
 
     var service = {};
 
-    // service.currentUserId = null;
-
     // console.log("session Sevice");
 
     service.initialize = function (data) {
@@ -20,8 +18,6 @@ function SessionService(peopleService, teamService) {
         teamService.loadCache(data.teams);
         teamService.setMemberships(data.team_memberships)
         peopleService.setCurrentUserId(data.user[0].person_id);
-
-
 
     };
 

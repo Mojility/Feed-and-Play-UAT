@@ -51,7 +51,6 @@ function TeamController($stateParams, teamService, peopleService) {
 
     };
 
-
     vm.getFirstName = function (id) {
 
         return peopleService.getFirstName(id);
