@@ -23,11 +23,7 @@ describe('Unit: TeamController', function () {
 
         expect(team.youtubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
     });
-
-    it('should set team', function () {
-
-        expect(team.teamIsNotEmpty()).toEqual(true);
-    });
+    
 
 
 });
