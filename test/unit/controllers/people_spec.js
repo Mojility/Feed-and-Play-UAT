@@ -11,7 +11,7 @@ describe('Unit: PersonController', function () {
         // instantiate the app module
         angular.mock.module('app');
 
-        angular.mock.inject(function ($controller,SessionService,PeopleService) {
+        angular.mock.inject(function ($controller, SessionService, PeopleService) {
             person = $controller('PersonController');
             session = SessionService;
             people = PeopleService;
@@ -53,7 +53,7 @@ describe('Unit: PersonController', function () {
         expect(person.person).toNotEqual(undefined);
         expect(person.personId).toEqual(0);
         expect(person.currentUserName).toEqual("John Smith");
-        expect(person.teams).toEqual([0,1]);
+        expect(person.teams).toEqual([0, 1]);
         //expect(teamController.teamMembers).toEqual([0,1]);
     });
 
@@ -83,7 +83,7 @@ describe('Unit: PersonController', function () {
                     "team_id": 2,
                     "name": "Ze Frank Team",
                     "video_id": [
-                        "110iUX1Ursk","GDwOi7HpHtQ", "ndQZBQJf034"
+                        "110iUX1Ursk", "GDwOi7HpHtQ", "ndQZBQJf034"
                     ]
                 }
             ],
@@ -107,11 +107,11 @@ describe('Unit: PersonController', function () {
                     "email": "ze@frank.com"
                 }
             ],
-            "team_memberships" : [
-                { "person_id": 0, "team_id": 0, "role": "Lead" },
-                { "person_id": 0, "team_id": 1, "role": "Lead" },
-                { "person_id": 1, "team_id": 0, "role": "Writer" },
-                { "person_id": 2, "team_id": 2, "role": "Lead" }
+            "team_memberships": [
+                {"person_id": 0, "team_id": 0, "role": "Lead"},
+                {"person_id": 0, "team_id": 1, "role": "Lead"},
+                {"person_id": 1, "team_id": 0, "role": "Writer"},
+                {"person_id": 2, "team_id": 2, "role": "Lead"}
             ]
         };
     }

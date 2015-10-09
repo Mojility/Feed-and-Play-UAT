@@ -10,11 +10,10 @@ describe('Unit: TeamController', function () {
         // instantiate the app module
         angular.mock.module('app');
 
-        angular.mock.inject(function ($controller,SessionService,TeamService) {
+        angular.mock.inject(function ($controller, SessionService, TeamService) {
             teamController = $controller('TeamController');
             session = SessionService;
             teamService = TeamService;
-
 
         });
 
@@ -41,7 +40,7 @@ describe('Unit: TeamController', function () {
         expect(teamController.teamName).toEqual("Smith Productions");
         expect(teamController.teamId).toEqual(0);
         expect(teamController.videos).toEqual(["gNqQL-1gZF8"]);
-        expect(teamController.teamMembers).toEqual([0,1]);
+        expect(teamController.teamMembers).toEqual([0, 1]);
     });
 
     it('should get team role', function () {
@@ -83,7 +82,7 @@ describe('Unit: TeamController', function () {
                     "team_id": 2,
                     "name": "Ze Frank Team",
                     "video_id": [
-                        "110iUX1Ursk","GDwOi7HpHtQ", "ndQZBQJf034"
+                        "110iUX1Ursk", "GDwOi7HpHtQ", "ndQZBQJf034"
                     ]
                 }
             ],
@@ -107,11 +106,11 @@ describe('Unit: TeamController', function () {
                     "email": "ze@frank.com"
                 }
             ],
-            "team_memberships" : [
-                { "person_id": 0, "team_id": 0, "role": "Lead" },
-                { "person_id": 0, "team_id": 1, "role": "Lead" },
-                { "person_id": 1, "team_id": 0, "role": "Writer" },
-                { "person_id": 2, "team_id": 2, "role": "Lead" }
+            "team_memberships": [
+                {"person_id": 0, "team_id": 0, "role": "Lead"},
+                {"person_id": 0, "team_id": 1, "role": "Lead"},
+                {"person_id": 1, "team_id": 0, "role": "Writer"},
+                {"person_id": 2, "team_id": 2, "role": "Lead"}
             ]
         };
     }

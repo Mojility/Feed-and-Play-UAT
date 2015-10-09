@@ -37,7 +37,6 @@ describe('Unit: PeopleService', function () {
         expect(firstName).toEqual("Ze");
         expect(fullName).toEqual("Ze Frank");
 
-
     });
 
     it('should get name on logged in user', function () {
@@ -48,7 +47,6 @@ describe('Unit: PeopleService', function () {
 
     });
 
-
     it('should set current user id', function () {
 
         service.setCurrentUserId(1);
@@ -56,7 +54,6 @@ describe('Unit: PeopleService', function () {
         expect(service.currentUserId).toEqual(1);
 
     });
-
 
     function sampleData() {
         return {

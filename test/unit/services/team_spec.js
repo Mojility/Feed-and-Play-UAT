@@ -2,17 +2,17 @@
 
 'use strict';
 
-describe('Unit: TeamService', function() {
+describe('Unit: TeamService', function () {
 
     var session;
     var service;
 
-    beforeEach(function() {
+    beforeEach(function () {
         // instantiate the app module
         angular.mock.module('app');
 
         // mock the service
-        angular.mock.inject(function(SessionService, TeamService) {
+        angular.mock.inject(function (SessionService, TeamService) {
             session = SessionService;
             service = TeamService;
         });
@@ -20,53 +20,51 @@ describe('Unit: TeamService', function() {
         session.initialize(sampleData());
     });
 
-    it('should exist', function() {
+    it('should exist', function () {
         expect(session).toBeDefined();
         expect(service).toBeDefined();
     });
 
-    it('should retrieve a team by id', function() {
+    it('should retrieve a team by id', function () {
 
-      var team = service.getTeam(0);
+        var team = service.getTeam(0);
 
         expect(team.team_id).toEqual(0);
         expect(team.name).toEqual("Smith Productions");
         expect(team.video_id[0]).toEqual("gNqQL-1gZF8");
 
 
-
-
     });
 
 
-    it('should get videos', function() {
+    it('should get videos', function () {
 
         expect(service.getVideos(0)).toEqual(["gNqQL-1gZF8"]);
 
     });
 
-    it('should assemble youtube link', function() {
+    it('should assemble youtube link', function () {
 
         expect(service.youtubeLink("gNqQL-1gZF8")).toEqual("https://www.youtube.com/embed/gNqQL-1gZF8");
 
     });
 
 
-    it('should find team role', function() {
+    it('should find team role', function () {
 
-      expect(service.getTeamRole(0,0)).toEqual("Lead");
-
-    });
-
-    it('should find team members', function() {
-
-        expect(service.getTeamMembers(0)).toEqual([0,1]);
+        expect(service.getTeamRole(0, 0)).toEqual("Lead");
 
     });
 
-    it('should find teams', function() {
+    it('should find team members', function () {
 
-        expect(service.getTeams(0)).toEqual([0,1]);
+        expect(service.getTeamMembers(0)).toEqual([0, 1]);
+
+    });
+
+    it('should find teams', function () {
+
+        expect(service.getTeams(0)).toEqual([0, 1]);
 
     });
 
@@ -96,7 +94,7 @@ describe('Unit: TeamService', function() {
                     "team_id": 2,
                     "name": "Ze Frank Team",
                     "video_id": [
-                        "110iUX1Ursk","GDwOi7HpHtQ", "ndQZBQJf034"
+                        "110iUX1Ursk", "GDwOi7HpHtQ", "ndQZBQJf034"
                     ]
                 }
             ],
@@ -120,11 +118,11 @@ describe('Unit: TeamService', function() {
                     "email": "ze@frank.com"
                 }
             ],
-            "team_memberships" : [
-                { "person_id": 0, "team_id": 0, "role": "Lead" },
-                { "person_id": 0, "team_id": 1, "role": "Lead" },
-                { "person_id": 1, "team_id": 0, "role": "Writer" },
-                { "person_id": 2, "team_id": 2, "role": "Lead" }
+            "team_memberships": [
+                {"person_id": 0, "team_id": 0, "role": "Lead"},
+                {"person_id": 0, "team_id": 1, "role": "Lead"},
+                {"person_id": 1, "team_id": 0, "role": "Writer"},
+                {"person_id": 2, "team_id": 2, "role": "Lead"}
             ]
         };
     }
