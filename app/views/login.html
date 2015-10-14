@@ -3,12 +3,14 @@
 <br>
 
 <form>
-    {{login.firstName}}
+
     <br>
-    First Name <input type="text" ng-model="login.firstName">
-    password <input type="text" ng-model="login.password">
+    First Name: <input type="text" ng-model="login.firstName">
+    <br>
+    password: &nbsp; <input type="password" ng-model="login.password">
+    <br>
 
   <span ng-if="login.buttonEnabled()">
-    <input type="submit" ng-click="login.loginUser()" value="log in"/>
+    <input type="submit" ng-click="login.loginUser()" value="Log In"/>
   </span>
 </form>

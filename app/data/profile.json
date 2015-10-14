@@ -32,19 +32,22 @@
       "id": 0,
       "first_name": "John",
       "last_name": "Smith",
+      "password": "1234",
       "email": "john@smith.com"
     },
     {
       "id": 1,
       "first_name": "Sally",
       "last_name": "Johnson",
-      "email": "sally@johnson.com"
+      "email": "sally@johnson.com",
+      "password": "4321"
     },
     {
       "id": 2,
       "first_name": "Ze",
       "last_name": "Frank",
-      "email": "ze@Frank.com"
+      "email": "ze@Frank.com",
+      "password": "abcd"
     }
   ],
   "team_memberships" : [
