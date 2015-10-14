@@ -30,7 +30,7 @@ describe('Unit: PersonController', function () {
 
     it('should get youtube link', function () {
 
-        expect(person.youtubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
+        expect(person.getYoutubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
     });
 
     it('should get videos', function () {

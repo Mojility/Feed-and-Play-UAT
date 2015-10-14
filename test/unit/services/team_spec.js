@@ -45,7 +45,7 @@ describe('Unit: TeamService', function () {
 
     it('should assemble youtube link', function () {
 
-        expect(service.youtubeLink("gNqQL-1gZF8")).toEqual("https://www.youtube.com/embed/gNqQL-1gZF8");
+        expect(service.getYoutubeLink("gNqQL-1gZF8")).toEqual("https://www.youtube.com/embed/gNqQL-1gZF8");
 
     });
 

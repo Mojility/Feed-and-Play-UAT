@@ -31,7 +31,7 @@ describe('Unit: TeamController', function () {
 
     it('should get youtube link', function () {
 
-        expect(teamController.youtubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
+        expect(teamController.getYoutubeLink("abc")).toEqual("https://www.youtube.com/embed/abc");
     });
 
     it('should have team', function () {

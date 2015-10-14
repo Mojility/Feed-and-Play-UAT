@@ -12,9 +12,9 @@ function TeamController($stateParams, teamService, peopleService) {
 
     //console.log("teamController");
 
-    vm.youtubeLink = function (video) {
+    vm.getYoutubeLink = function (video) {
 
-        return teamService.youtubeLink(video);
+        return teamService.getYoutubeLink(video);
 
     };
 

@@ -42,7 +42,7 @@ function TeamService() {
 
     };
 
-    service.youtubeLink = function (video) {
+    service.getYoutubeLink = function (video) {
 
         return service.youtube + video;
 
@@ -75,10 +75,10 @@ function TeamService() {
 
         service.teamMembers = [];
 
-        service.memberships.forEach(function (member, value) {
+        service.memberships.forEach(function (member) {
 
             if (member.team_id == id) {
-                service.teamMembers.splice(value, 0, member.person_id);
+                service.teamMembers.push(member.person_id);
             }
 
         });
@@ -93,10 +93,10 @@ function TeamService() {
 
         service.teams = [];
 
-        service.memberships.forEach(function (member, value) {
+        service.memberships.forEach(function (member) {
 
             if (member.person_id == id) {
-                service.teams.splice(value, 0, member.team_id);
+                service.teams.push( member.team_id);
 
             }
 

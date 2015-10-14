@@ -24,9 +24,9 @@ function PersonController($stateParams, peopleService, teamService) {
 
     };
 
-    vm.youtubeLink = function (video) {
+    vm.getYoutubeLink = function (video) {
 
-        return teamService.youtubeLink(video);
+        return teamService.getYoutubeLink(video);
 
     };
 

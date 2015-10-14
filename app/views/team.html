@@ -20,7 +20,7 @@ videos:
 
 <ol>
     <li ng-repeat="video in team.videos">
-        <iframe width="280" height="157" ng-src="{{team.youtubeLink(video)|trusted}}" frameborder="0"
+        <iframe width="280" height="157" ng-src="{{team.getYoutubeLink(video)|trusted}}" frameborder="0"
                 allowfullscreen></iframe>
     </li>
 </ol>
