@@ -6,6 +6,7 @@
     {{login.firstName}}
     <br>
     First Name <input type="text" ng-model="login.firstName">
+    password <input type="text" ng-model="login.password">
 
   <span ng-if="login.buttonEnabled()">
     <input type="submit" ng-click="login.loginUser()" value="log in"/>

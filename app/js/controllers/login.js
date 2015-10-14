@@ -11,10 +11,11 @@ function LoginController($location, peopleService) {
     var vm = this;
 
     vm.firstName = "";
+    vm.password = "";
 
     vm.buttonEnabled = function () {
 
-        if (vm.firstName !== "") {
+        if (vm.firstName !== "" && vm.password !=="") {
             return true;
         }
 
