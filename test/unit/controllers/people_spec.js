@@ -40,12 +40,12 @@ describe('Unit: PersonController', function () {
 
     it('should get team name', function () {
 
-        expect(person.teamName(0)).toEqual("Smith Productions");
+        expect(person.getTeamName(0)).toEqual("Smith Productions");
     });
 
     it('should get team role', function () {
 
-        expect(person.teamRole(0)).toEqual("Lead");
+        expect(person.getTeamRole(0)).toEqual("Lead");
     });
 
     it('should have person', function () {

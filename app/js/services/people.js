@@ -55,7 +55,7 @@ function PeopleService() {
 
     };
 
-    service.currentUserName = function () {
+    service.getCurrentUserName = function () {
 
         // service.setCurrentUserId(0);
         var u = service.getPerson(service.currentUserId);

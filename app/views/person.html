@@ -6,8 +6,8 @@ Name: {{person.currentUserName}}
     <br><br>
     Teams: <br><br>
     <div ng-repeat="team in person.teams">
-        Team Name: {{person.teamName(team)}} <br>
-        Role: {{person.teamRole(team)}}<br>
+        Team Name: {{person.getTeamName(team)}} <br>
+        Role: {{person.getTeamRole(team)}}<br>
         <br>
     </div>
 
@@ -15,8 +15,8 @@ Name: {{person.currentUserName}}
 Videos:
     <br><br>
 <div ng-repeat="team in person.teams">
-    Team: {{person.teamName(team)}} <br>
-    Role: {{person.teamRole(team)}}<br>
+    Team: {{person.getTeamName(team)}} <br>
+    Role: {{person.getTeamRole(team)}}<br>
     <ol>
         <li ng-repeat="video in person.getVideos(team)">
             <iframe width="280" height="157" ng-src="{{person.getYoutubeLink(video)|trusted}}" frameborder="0"

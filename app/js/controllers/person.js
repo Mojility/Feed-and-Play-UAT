@@ -12,24 +12,6 @@ function PersonController($stateParams, peopleService, teamService) {
 
     // console.log("personController");
 
-    vm.teamRole = function (teamId) {
-
-        return teamService.getTeamRole(teamId, vm.personId);
-
-    };
-
-    vm.teamName = function (id) {
-
-        return teamService.getTeam(id).name;
-
-    };
-
-    vm.getYoutubeLink = function (video) {
-
-        return teamService.getYoutubeLink(video);
-
-    };
-
     vm.personIsNotEmpty = function () {
 
         vm.person = peopleService.getPerson($stateParams.id);
@@ -48,13 +30,31 @@ function PersonController($stateParams, peopleService, teamService) {
 
         vm.personId = vm.person.id;
         vm.currentUserName = peopleService.getFullName(vm.personId);
-        vm.teams = teamService.getTeams(vm.personId);
+        vm.teams = teamService.getTeamsOfUser(vm.personId);
+
+    };
+
+    vm.getTeamRole = function (teamId) {
+
+        return teamService.getTeamRole(teamId, vm.personId);
+
+    };
+
+    vm.getTeamName = function (id) {
+
+        return teamService.getTeam(id).name;
 
     };
 
     vm.getVideos = function (id) {
 
         return teamService.getVideos(id);
+
+    };
+
+    vm.getYoutubeLink = function (video) {
+
+        return teamService.getYoutubeLink(video);
 
     };
 

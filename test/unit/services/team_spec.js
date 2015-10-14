@@ -58,13 +58,13 @@ describe('Unit: TeamService', function () {
 
     it('should find team members', function () {
 
-        expect(service.getTeamMembers(0)).toEqual([0, 1]);
+        expect(service.getMembersInTeam(0)).toEqual([0, 1]);
 
     });
 
     it('should find teams', function () {
 
-        expect(service.getTeams(0)).toEqual([0, 1]);
+        expect(service.getTeamsOfUser(0)).toEqual([0, 1]);
 
     });
 

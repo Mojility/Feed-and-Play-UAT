@@ -41,7 +41,7 @@ describe('Unit: PeopleService', function () {
 
     it('should get name on logged in user', function () {
 
-        var currentUserName = service.currentUserName();
+        var currentUserName = service.getCurrentUserName();
 
         expect(currentUserName).toEqual("John Smith");
 

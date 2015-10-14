@@ -10,9 +10,9 @@ function SessionController($http, sessionService, peopleService, teamService) {
     // ViewModel
     var vm = this;
 
-    vm.currentUserName = peopleService.currentUserName;
-    vm.getAllPeople = peopleService.getAllPeople;
-    vm.getAllTeams = teamService.getAllTeams;
+    vm.currentUserName = peopleService.getCurrentUserName;
+    vm.allPeople = peopleService.getAllPeople;
+    vm.allTeams = teamService.getAllTeams;
 
     //console.log("session");
     $http({

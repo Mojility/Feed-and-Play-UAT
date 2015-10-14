@@ -9,7 +9,7 @@ function TeamService() {
 
     var service = {};
 
-    service.youtube = "https://www.youtube.com/embed/";
+    service.baseYoutubeLink = "https://www.youtube.com/embed/";
 
     service.cache = {};
     // console.log("teamService");
@@ -22,17 +22,9 @@ function TeamService() {
 
     };
 
-    service.getAllTeams = function () {
+    service.setMemberships = function (membership) {
 
-        return Object.keys(service.cache).map(function (p) {
-            return service.cache[p];
-        });
-
-    };
-
-    service.getTeam = function (id) {
-
-        return service.cache[id];
+        service.memberships = membership;
 
     };
 
@@ -44,13 +36,21 @@ function TeamService() {
 
     service.getYoutubeLink = function (video) {
 
-        return service.youtube + video;
+        return service.baseYoutubeLink + video;
 
     };
 
-    service.setMemberships = function (membership) {
+    service.getTeam = function (id) {
 
-        service.memberships = membership;
+        return service.cache[id];
+
+    };
+
+    service.getAllTeams = function () {
+
+        return Object.keys(service.cache).map(function (p) {
+            return service.cache[p];
+        });
 
     };
 
@@ -71,7 +71,7 @@ function TeamService() {
 
     };
 
-    service.getTeamMembers = function (id) {
+    service.getMembersInTeam = function (id) {
 
         service.teamMembers = [];
 
@@ -89,7 +89,7 @@ function TeamService() {
 
     };
 
-    service.getTeams = function (id) {
+    service.getTeamsOfUser = function (id) {
 
         service.teams = [];
 
