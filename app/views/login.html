@@ -1,0 +1,13 @@
+<h1>Log In View</h1>
+
+<br>
+
+<form>
+    {{login.firstName}}
+    <br>
+    First Name <input type="text" ng-model="login.firstName">
+
+  <span ng-if="login.buttonEnabled()">
+    <input type="submit" ng-click="login.loginUser()" value="log in"/>
+  </span>
+</form>

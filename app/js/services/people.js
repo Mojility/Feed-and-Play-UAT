@@ -15,6 +15,8 @@ function PeopleService() {
 
     service.loadCache = function (people) {
 
+        service.people = people;
+
         people.forEach(function (person) {
             service.cache[person.id] = person;
         });
@@ -45,7 +47,7 @@ function PeopleService() {
     service.getFullName = function (id) {
 
         return service.getPerson(id).first_name + " " + service.getPerson(id).last_name;
-        
+
     };
 
     service.setCurrentUserId = function (id) {
@@ -64,6 +66,25 @@ function PeopleService() {
             return service.getFullName(service.currentUserId);
         }
 
+    };
+
+    service.getUserId = function (name) {
+
+        var userId = "";
+
+        // console.log(service.people);
+
+        service.people.forEach(function (person) {
+
+            if (person.first_name == name) {
+                userId = person.id;
+
+            }
+
+        });
+
+
+        return userId;
     };
 
     return service;

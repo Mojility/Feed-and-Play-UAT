@@ -25,6 +25,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             controller: 'PersonController as person',
             templateUrl: 'person.html',
             title: 'Person'
+        })
+        .state('Login', {
+            url: '/login',
+            controller: 'LoginController as login',
+            templateUrl: 'login.html',
+            title: 'Person'
         });
 
 
