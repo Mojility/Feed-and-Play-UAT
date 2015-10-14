@@ -96,7 +96,7 @@ function TeamService() {
         service.memberships.forEach(function (member) {
 
             if (member.person_id == id) {
-                service.teams.push( member.team_id);
+                service.teams.push(member.team_id);
 
             }
 

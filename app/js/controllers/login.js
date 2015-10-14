@@ -15,7 +15,7 @@ function LoginController($location, peopleService) {
 
     vm.buttonEnabled = function () {
 
-        if (vm.firstName !== "" && vm.password !=="") {
+        if (vm.firstName !== "" && vm.password !== "") {
             return true;
         }
 
@@ -24,14 +24,14 @@ function LoginController($location, peopleService) {
     vm.loginUser = function () {
 
 
-         var userId = peopleService.getUserId(vm.firstName);
+        var userId = peopleService.getUserId(vm.firstName);
 
-         //console.log(userId);
+        //console.log(userId);
 
-        if (userId ===  "") {
+        if (userId === "") {
             //console.log("fail");
             //console.log(vm.userId);
-           // console.log(userId);
+            // console.log(userId);
         }
         else {
             $location.url("/person/" + userId);

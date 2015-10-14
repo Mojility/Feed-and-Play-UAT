@@ -21,7 +21,7 @@ function TeamController($stateParams, teamService, peopleService) {
     vm.teamIsNotEmpty = function () {
 
         vm.team = teamService.getTeam($stateParams.id);
-       // console.log(vm.team);
+        // console.log(vm.team);
 
         if (vm.team != null) {
 

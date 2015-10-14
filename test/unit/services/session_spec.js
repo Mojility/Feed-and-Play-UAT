@@ -13,7 +13,7 @@ describe('Unit: SessionService', function () {
         angular.mock.module('app');
 
         // mock the service
-        angular.mock.inject(function (SessionService,TeamService, PeopleService) {
+        angular.mock.inject(function (SessionService, TeamService, PeopleService) {
             service = SessionService;
             team = TeamService;
             people = PeopleService;
@@ -32,11 +32,8 @@ describe('Unit: SessionService', function () {
     it('should load cache', function () {
 
 
-
         expect(team.cache).toNotEqual(null);
         expect(people.cache).toNotEqual(null);
-
-
 
 
     });
