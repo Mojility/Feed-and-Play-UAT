@@ -81,7 +81,7 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.getRolesApplied = function (id) {
 
-       return peopleService.getRolesApplied(id);
+        return peopleService.getRolesApplied(id);
 
     };
 
