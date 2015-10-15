@@ -32,8 +32,7 @@ function PersonController($stateParams, peopleService, teamService) {
         vm.currentUserName = peopleService.getFullName(vm.personId);
         vm.teams = teamService.getTeamsOfUser(vm.personId);
         vm.allTeams = teamService.getAllTeams;
-        vm.rolesApplied = vm.person.role_applied;
-
+        vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
 
     };
 
@@ -66,12 +65,9 @@ function PersonController($stateParams, peopleService, teamService) {
         return teamService.getLookingForRoles(id);
     };
 
-    vm.addLookingForRoles = function (role, id) {
+    vm.addLookingForRoles = function (role, teamId) {
 
-        vm.rolesApplied.push({
-            "team_id": id,
-            "role": role
-        });
+        peopleService.addLookingForRoles(role, teamId, vm.personId);
     }
 
 }

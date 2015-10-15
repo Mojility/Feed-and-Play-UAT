@@ -87,6 +87,25 @@ function PeopleService() {
         return userId;
     };
 
+    service.getRolesApplied = function (id) {
+
+        return service.getPerson(id).role_applied;
+
+    };
+
+    service.addLookingForRoles = function (role, teamId, personId) {
+
+        var rolesApplied = service.getRolesApplied(personId);
+
+       // console.log(rolesApplied);
+
+        rolesApplied.push({
+            "team_id": teamId,
+            "role": role
+        });
+
+    };
+
     return service;
 
 }
