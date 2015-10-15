@@ -51,4 +51,22 @@ Looking for team roles:
  </span>
     </form>
 
+    <br>
+
+ People Applied For Roles
+
+  <div ng-repeat="person in team.allPeople()">
+
+      
+      <ol>
+
+          <li ng-repeat="role in team.getRolesApplied(person.id)">
+
+          <span ng-if="role.team_id == team.teamId">  Name: {{person.first_name}}
+              Role(s):  {{ role.role }} <input type="submit" ng-click="person.addLookingForRoles(role,team.team_id)" value="accept"/> </span>
+          </li>
+      </ol>
+
+  </div>
+
 </span>

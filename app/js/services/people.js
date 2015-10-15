@@ -83,7 +83,6 @@ function PeopleService() {
 
         });
 
-
         return userId;
     };
 
@@ -97,7 +96,7 @@ function PeopleService() {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-       // console.log(rolesApplied);
+        console.log(rolesApplied);
 
         rolesApplied.push({
             "team_id": teamId,

@@ -43,6 +43,7 @@ function TeamController($stateParams, teamService, peopleService) {
         vm.videos = teamService.getVideos(vm.teamId);
         vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
         vm.lookingForRoles = teamService.getLookingForRoles(vm.teamId);
+        vm.allPeople = peopleService.getAllPeople;
 
     };
 
@@ -75,6 +76,12 @@ function TeamController($stateParams, teamService, peopleService) {
     vm.deleteLookingForRole = function (role) {
 
         teamService.deleteLookingForRole(vm.teamId, role);
+
+    };
+
+    vm.getRolesApplied = function (id) {
+
+       return peopleService.getRolesApplied(id);
 
     };
 
