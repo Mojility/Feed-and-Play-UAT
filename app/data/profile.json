@@ -10,21 +10,24 @@
       "name": "Smith Productions",
       "video_id": [
         "gNqQL-1gZF8"
-      ]
+      ],
+      "team_roles": ["writer"]
     },
     {
       "team_id": 1,
       "name": "John Solo",
       "video_id": [
         "st8-EY71K84"
-      ]
+      ],
+      "team_roles": ["editor"]
     },
     {
       "team_id": 2,
       "name": "Ze Frank Team",
       "video_id": [
         "110iUX1Ursk","GDwOi7HpHtQ", "ndQZBQJf034"
-      ]
+      ],
+      "team_roles": ["editor","writer"]
     }
   ],
   "people": [

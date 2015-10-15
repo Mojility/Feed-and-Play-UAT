@@ -13,7 +13,7 @@ Members:
     </li>
 </ol>
 
-</span>
+
 <br> <br>
 videos:
 <br> <br>
@@ -25,8 +25,30 @@ videos:
     </li>
 </ol>
 
+Looking for team roles:
 
 
+<br>
+<table>
+    <thead>
+    <th>Role</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="role in team.lookingForRoles">
+        <td> {{role}}</td>
 
+        <td>
+            <button ng-click="team.deleteLookingForRole(role)">remove</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
+    <form>
+        Role: <input type="text" ng-model="team.newRole">
+  <span ng-if="team.addEnabled()">
+    <input type="submit" ng-click="team.addLookingForRole()" value="add"/>
+ </span>
+    </form>
 
+</span>
