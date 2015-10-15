@@ -36,21 +36,30 @@
       "first_name": "John",
       "last_name": "Smith",
       "password": "1234",
-      "email": "john@smith.com"
+      "email": "john@smith.com",
+      "role_applied":[
+        {"team_id": 0, "role": "writer" }
+      ]
     },
     {
       "id": 1,
       "first_name": "Sally",
       "last_name": "Johnson",
       "email": "sally@johnson.com",
-      "password": "4321"
+      "password": "4321",
+      "role_applied":[
+        {"team_id": 0, "role": "writer" }
+      ]
     },
     {
       "id": 2,
       "first_name": "Ze",
       "last_name": "Frank",
       "email": "ze@Frank.com",
-      "password": "abcd"
+      "password": "abcd",
+      "role_applied":[
+        {"team_id": 1, "role": "editor" }
+      ]
     }
   ],
   "team_memberships" : [

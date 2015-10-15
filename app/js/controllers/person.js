@@ -31,6 +31,9 @@ function PersonController($stateParams, peopleService, teamService) {
         vm.personId = vm.person.id;
         vm.currentUserName = peopleService.getFullName(vm.personId);
         vm.teams = teamService.getTeamsOfUser(vm.personId);
+        vm.allTeams = teamService.getAllTeams;
+        vm.rolesApplied = vm.person.role_applied;
+
 
     };
 
@@ -57,6 +60,19 @@ function PersonController($stateParams, peopleService, teamService) {
         return teamService.getYoutubeLink(video);
 
     };
+
+    vm.getLookingForRoles = function (id) {
+
+        return teamService.getLookingForRoles(id);
+    };
+
+    vm.addLookingForRoles = function (role, id) {
+
+        vm.rolesApplied.push({
+            "team_id": id,
+            "role": role
+        });
+    }
 
 }
 
