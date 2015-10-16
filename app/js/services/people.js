@@ -92,7 +92,7 @@ function PeopleService() {
 
     };
 
-    service.addAppliedForRoles = function (role, teamId, personId) {
+    service.addTeamMembershipApplication = function (role, teamId, personId) {
 
         var rolesApplied = service.getRolesApplied(personId);
 
@@ -103,17 +103,17 @@ function PeopleService() {
             "role": role
         });
 
-
-
     };
 
-    service.removeAppliedForRoles = function (role, personId) {
+    service.removeTeamMembershipApplications = function (role, personId) {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-        // console.log(rolesApplied);
+         console.log(rolesApplied);
+
 
         var index = rolesApplied.indexOf(role);
+        console.log(index);
         rolesApplied.splice(index, 1);
 
     };

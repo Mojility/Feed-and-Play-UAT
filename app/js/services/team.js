@@ -105,23 +105,23 @@ function TeamService() {
         return service.teams;
     };
 
-    service.getLookingForRoles = function (id) {
+    service.getAdvertisedRoles    = function (id) {
 
         return service.getTeam(id).team_roles;
 
     };
 
-    service.deleteLookingForRole = function (id, role) {
+    service.deleteAdvertisedRole = function (id, role) {
 
-        var roles = service.getLookingForRoles(id);
+        var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);
         roles.splice(index, 1);
 
     };
 
-    service.addLookingForRole = function (id, role) {
+    service.addAdvertisedRole = function (id, role) {
 
-        var roles = service.getLookingForRoles(id);
+        var roles = service.getAdvertisedRoles(id);
         roles.push(role);
 
     };

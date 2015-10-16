@@ -38,7 +38,7 @@ Looking for team roles:
         <td> {{role}}</td>
 
         <td>
-            <button ng-click="team.deleteLookingForRole(role)">remove</button>
+            <button ng-click="team.deleteAdvertisedRole(role)">remove</button>
         </td>
     </tr>
     </tbody>
@@ -47,7 +47,7 @@ Looking for team roles:
     <form>
         Role: <input type="text" ng-model="team.newRole">
   <span ng-if="team.addEnabled()">
-    <input type="submit" ng-click="team.addLookingForRole()" value="add"/>
+    <input type="submit" ng-click="team.addAdvertisedRole()" value="add"/>
  </span>
     </form>
 
@@ -69,6 +69,7 @@ Looking for team roles:
           </li>
       </ol>
 
+  </div>
   </div>
 
 </span>

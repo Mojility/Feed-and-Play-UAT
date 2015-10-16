@@ -60,14 +60,15 @@ function PersonController($stateParams, peopleService, teamService) {
 
     };
 
-    vm.getLookingForRoles = function (id) {
+    vm.getAdvertisedRoles = function (id) {
 
-        return teamService.getLookingForRoles(id);
+        return teamService.getAdvertisedRoles(id);
     };
 
-    vm.addAppliedForRoles = function (role, teamId) {
+    vm.addTeamMembershipApplication = function (role, teamId) {
 
-        peopleService.addAppliedForRoles(role, teamId, vm.personId);
+        peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
+        teamService.deleteAdvertisedRole(teamId,role);
     }
 
 }

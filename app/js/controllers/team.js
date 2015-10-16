@@ -42,7 +42,7 @@ function TeamController($stateParams, teamService, peopleService) {
         vm.teamId = vm.team.team_id;
         vm.videos = teamService.getVideos(vm.teamId);
         vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
-        vm.lookingForRoles = teamService.getLookingForRoles(vm.teamId);
+        vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
         vm.getAllPeople = peopleService.getAllPeople;
 
     };
@@ -66,16 +66,16 @@ function TeamController($stateParams, teamService, peopleService) {
         }
     };
 
-    vm.addLookingForRole = function () {
+    vm.addAdvertisedRole = function () {
 
-        teamService.addLookingForRole(vm.teamId, vm.newRole);
+        teamService.addAdvertisedRole(vm.teamId, vm.newRole);
         vm.newRole = "";
 
     };
 
-    vm.deleteLookingForRole = function (role) {
+    vm.deleteAdvertisedRole = function (role) {
 
-        teamService.deleteLookingForRole(vm.teamId, role);
+        teamService.deleteAdvertisedRole(vm.teamId, role);
 
     };
 
@@ -87,13 +87,13 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.rejectApplicant = function (role,id) {
 
-        peopleService.removeAppliedForRoles(role,id);
+        peopleService.removeTeamMembershipApplications(role,id);
 
     };
 
     vm.acceptApplicant = function (role,personId) {
 
-        peopleService.removeAppliedForRoles(role,personId);
+        peopleService.removeTeamMembershipApplications(role,personId);
         teamService.addMember(vm.teamId,personId,role);
 
 
