@@ -125,6 +125,18 @@ function TeamService() {
         roles.push(role);
 
     };
+
+    service.addMember = function (teamId,personId,role){
+
+        service.memberships.push({
+            "person_id": personId,
+            "team_id": teamId,
+            "role": role
+        });
+
+    };
+
+
     return service;
 
 }
