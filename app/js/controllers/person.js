@@ -65,9 +65,9 @@ function PersonController($stateParams, peopleService, teamService) {
         return teamService.getLookingForRoles(id);
     };
 
-    vm.addLookingForRoles = function (role, teamId) {
+    vm.addAppliedForRoles = function (role, teamId) {
 
-        peopleService.addLookingForRoles(role, teamId, vm.personId);
+        peopleService.addAppliedForRoles(role, teamId, vm.personId);
     }
 
 }

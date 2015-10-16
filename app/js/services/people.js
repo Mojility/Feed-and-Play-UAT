@@ -92,7 +92,7 @@ function PeopleService() {
 
     };
 
-    service.addLookingForRoles = function (role, teamId, personId) {
+    service.addAppliedForRoles = function (role, teamId, personId) {
 
         var rolesApplied = service.getRolesApplied(personId);
 
