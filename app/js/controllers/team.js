@@ -85,6 +85,17 @@ function TeamController($stateParams, teamService, peopleService) {
 
     };
 
+    vm.rejectApplicant = function (role,id) {
+
+        peopleService.removeAppliedForRoles(role,id);
+
+    };
+
+    vm.acceptApplicant = function (id) {
+
+
+    };
+
 
 }
 

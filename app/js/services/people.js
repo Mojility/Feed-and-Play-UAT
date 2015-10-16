@@ -96,12 +96,25 @@ function PeopleService() {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-        console.log(rolesApplied);
+       // console.log(rolesApplied);
 
         rolesApplied.push({
             "team_id": teamId,
             "role": role
         });
+
+
+
+    };
+
+    service.removeAppliedForRoles = function (role, personId) {
+
+        var rolesApplied = service.getRolesApplied(personId);
+
+        // console.log(rolesApplied);
+
+        var index = rolesApplied.indexOf(role);
+        rolesApplied.splice(index, 1);
 
     };
 
