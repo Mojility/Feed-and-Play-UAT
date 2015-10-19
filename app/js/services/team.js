@@ -91,6 +91,13 @@ function TeamService() {
 
     service.getTeamsOfUser = function (id) {
 
+        // Request from server, what teams for this user?
+
+        // Return some data structure from server???
+        // -> load the getTeamsOfUser.json data
+
+        // merge that data into what's already in the team / people service
+
         service.teams = [];
 
         service.memberships.forEach(function (member) {
