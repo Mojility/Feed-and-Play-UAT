@@ -5,7 +5,7 @@ var servicesModule = require('./_index.js');
 /**
  * @ngInject
  */
-function TeamService() {
+function TeamService($http, peopleService) {
 
     var service = {};
 
@@ -93,6 +93,24 @@ function TeamService() {
 
         // Request from server, what teams for this user?
 
+        $http({
+            method: 'GET',
+            url: 'data/getTeamsOfUser.json'
+        }).then(function successCallback(response) {
+
+             console.log(response.data);
+            peopleService.loadCache(response.data.people);
+            service.loadCache(response.data.teams);
+            service.setMemberships(response.data.team_memberships);
+
+        }, function errorCallback(response) {
+
+            // console.log("fail"  );
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
+
         // Return some data structure from server???
         // -> load the getTeamsOfUser.json data
 
@@ -148,4 +166,4 @@ function TeamService() {
 
 }
 
-servicesModule.service('TeamService', TeamService);
+servicesModule.service('TeamService',['$http', 'PeopleService', TeamService]);

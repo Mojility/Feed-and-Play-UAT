@@ -28,10 +28,10 @@
   "people": [
     {
       "id": 0,
-      "first_name": "John",
+      "first_name": "Bob",
       "last_name": "Smith",
       "password": "1234",
-      "email": "john@smith.com",
+      "email": "bob@smith.com",
       "role_applied":[
         {"team_id": 0, "role": "writer" }
       ]
