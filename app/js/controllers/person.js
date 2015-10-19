@@ -13,27 +13,7 @@ function PersonController($stateParams, peopleService, teamService) {
     // console.log("personController");
 
     vm.personIsNotEmpty = function () {
-
-        vm.person = peopleService.getPerson($stateParams.id);
-
-        if (vm.person != null) {
-            vm.setVariables();
-            return true;
-        }
-        else {
-            return false;
-        }
-
-    };
-
-    vm.setVariables = function () {
-
-        vm.personId = vm.person.id;
-        vm.currentUserName = peopleService.getFullName(vm.personId);
-        vm.teams = teamService.getTeamsOfUser(vm.personId);
-        vm.allTeams = teamService.getAllTeams;
-        vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
-
+        return vm.person != null;
     };
 
     vm.getTeamRole = function (teamId) {
@@ -70,6 +50,23 @@ function PersonController($stateParams, peopleService, teamService) {
         peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
         teamService.deleteAdvertisedRole(teamId,role);
     }
+
+
+
+    // initialization code can go here, to get executed when the controller is created for a view
+    function initialize() {
+        vm.person = peopleService.getPerson($stateParams.id);
+
+        if (vm.person != null) {
+            vm.personId = vm.person.id;
+            vm.currentUserName = peopleService.getFullName(vm.personId);
+            vm.teams = teamService.getTeamsOfUser(vm.personId);
+            vm.allTeams = teamService.getAllTeams;
+            vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
+        }
+    }
+
+    initialize();
 
 }
 
