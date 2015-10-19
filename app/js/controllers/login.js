@@ -35,6 +35,7 @@ function LoginController($location, peopleService) {
         }
         else {
             $location.url("/person/" + userId);
+            peopleService.setCurrentUserId(userId);
             // console.log($location.url());
         }
 
