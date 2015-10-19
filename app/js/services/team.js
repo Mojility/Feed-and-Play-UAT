@@ -98,7 +98,7 @@ function TeamService($http, peopleService) {
             url: 'data/getTeamsOfUser.json'
         }).then(function successCallback(response) {
 
-             console.log(response.data);
+            //console.log(response.data);
             peopleService.loadCache(response.data.people);
             service.loadCache(response.data.teams);
             service.setMemberships(response.data.team_memberships);
@@ -132,11 +132,32 @@ function TeamService($http, peopleService) {
 
     service.getAdvertisedRoles    = function (id) {
 
+       //console.log("hello");
+
+        $http({
+            method: 'GET',
+            url: 'data/advertisedRoles.json'
+        }).then(function successCallback(response) {
+
+            //console.log(response.data);
+            //peopleService.loadCache(response.data.people);
+            //service.loadCache(response.data.teams);
+            //service.setMemberships(response.data.team_memberships);
+
+        }, function errorCallback(response) {
+
+            // console.log("fail"  );
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
+       // console.log("get");
         return service.getTeam(id).team_roles;
 
     };
 
     service.deleteAdvertisedRole = function (id, role) {
+
 
         var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);

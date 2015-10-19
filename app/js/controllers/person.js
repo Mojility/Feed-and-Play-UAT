@@ -42,6 +42,7 @@ function PersonController($stateParams, peopleService, teamService) {
 
     vm.getAdvertisedRoles = function (id) {
 
+        //console.log("getAdvertisedRoles");
         return teamService.getAdvertisedRoles(id);
     };
 
@@ -49,13 +50,14 @@ function PersonController($stateParams, peopleService, teamService) {
 
         peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
         teamService.deleteAdvertisedRole(teamId,role);
-    }
+    };
 
 
 
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.person = peopleService.getPerson($stateParams.id);
+       // console.log("person initialize");
 
         if (vm.person != null) {
             vm.personId = vm.person.id;

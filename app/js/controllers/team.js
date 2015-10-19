@@ -21,31 +21,11 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.teamIsNotEmpty = function () {
 
-        vm.team = teamService.getTeam($stateParams.id);
-        // console.log(vm.team);
-
-        if (vm.team != null) {
-
-            vm.setVariables();
-            return true;
-        }
-        else {
-
-            return false;
-        }
+        return vm.team != null;
 
     };
 
-    vm.setVariables = function () {
 
-        vm.teamName = vm.team.name;
-        vm.teamId = vm.team.team_id;
-        vm.videos = teamService.getVideos(vm.teamId);
-        vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
-        vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
-        vm.getAllPeople = peopleService.getAllPeople;
-
-    };
 
     vm.getTeamRole = function (PersonId) {
 
@@ -98,6 +78,25 @@ function TeamController($stateParams, teamService, peopleService) {
 
 
     };
+
+
+    // initialization code can go here, to get executed when the controller is created for a view
+    function initialize() {
+        vm.team = teamService.getTeam($stateParams.id);
+        //console.log("team initialize");
+
+        if (vm.team != null) {
+            vm.teamName = vm.team.name;
+            vm.teamId = vm.team.team_id;
+            vm.videos = teamService.getVideos(vm.teamId);
+            vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
+            vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
+            vm.getAllPeople = peopleService.getAllPeople;
+        }
+    }
+
+    initialize();
+
 
 
 }
