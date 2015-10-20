@@ -42,7 +42,7 @@ function LoginController($location, peopleService) {
         //console.log(vm.userId);
 
 
-    }
+    };
 
 
 }

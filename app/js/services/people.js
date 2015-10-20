@@ -76,7 +76,7 @@ function PeopleService() {
 
         service.people.forEach(function (person) {
 
-            if (person.first_name == name) {
+            if (person.first_name === name) {
                 userId = person.id;
 
             }
@@ -96,7 +96,7 @@ function PeopleService() {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-       // console.log(rolesApplied);
+        // console.log(rolesApplied);
 
         rolesApplied.push({
             "team_id": teamId,
@@ -109,7 +109,7 @@ function PeopleService() {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-         console.log(rolesApplied);
+        console.log(rolesApplied);
 
 
         var index = rolesApplied.indexOf(role);

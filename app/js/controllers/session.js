@@ -25,7 +25,7 @@ function SessionController($http, sessionService, peopleService, teamService) {
 
     }, function errorCallback(response) {
 
-        // console.log("fail"  );
+        console.log(response);
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });

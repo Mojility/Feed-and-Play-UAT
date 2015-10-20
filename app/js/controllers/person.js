@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function PersonController($stateParams, peopleService, teamService) {
+function PersonController($http, $stateParams, peopleService, teamService) {
 
     // ViewModel
     var vm = this;
@@ -13,7 +13,8 @@ function PersonController($stateParams, peopleService, teamService) {
     // console.log("personController");
 
     vm.personIsNotEmpty = function () {
-        return vm.person != null;
+
+        return vm.person !== null;
     };
 
     vm.getTeamRole = function (teamId) {
@@ -40,31 +41,55 @@ function PersonController($stateParams, peopleService, teamService) {
 
     };
 
+    vm.updateAdvertisedRoles = function () {
+
+        //console.log("updateAdvertisedRoles");
+
+        $http({
+            method: 'GET',
+            url: 'data/advertisedRoles.json'
+        }).then(function successCallback(response) {
+
+            //console.log(response.data.teams);
+
+            teamService.loadCache(response.data.teams);
+
+
+        }, function errorCallback(response) {
+            console.log(response);
+            // console.log("fail"  );
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
+    };
+
+
     vm.getAdvertisedRoles = function (id) {
 
-        //console.log("getAdvertisedRoles");
         return teamService.getAdvertisedRoles(id);
     };
 
     vm.addTeamMembershipApplication = function (role, teamId) {
 
         peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
-        teamService.deleteAdvertisedRole(teamId,role);
+        teamService.deleteAdvertisedRole(teamId, role);
     };
-
 
 
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.person = peopleService.getPerson($stateParams.id);
-       // console.log("person initialize");
+        // console.log("person initialize");
 
-        if (vm.person != null) {
+        if (vm.person !== undefined) {
+            vm.updateAdvertisedRoles();
             vm.personId = vm.person.id;
             vm.currentUserName = peopleService.getFullName(vm.personId);
             vm.teams = teamService.getTeamsOfUser(vm.personId);
             vm.allTeams = teamService.getAllTeams;
             vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
+
         }
     }
 
@@ -72,4 +97,4 @@ function PersonController($stateParams, peopleService, teamService) {
 
 }
 
-controllersModule.controller('PersonController', ['$stateParams', 'PeopleService', 'TeamService', PersonController]);
+controllersModule.controller('PersonController', ['$http', '$stateParams', 'PeopleService', 'TeamService', PersonController]);

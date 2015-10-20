@@ -60,7 +60,7 @@ function TeamService($http, peopleService) {
 
         service.memberships.forEach(function (member) {
 
-            if (member.team_id == teamId && member.person_id == personId) {
+            if (member.team_id === teamId && member.person_id === personId) {
 
                 service.foundRole = member.role;
             }
@@ -77,7 +77,7 @@ function TeamService($http, peopleService) {
 
         service.memberships.forEach(function (member) {
 
-            if (member.team_id == id) {
+            if (member.team_id === id) {
                 service.teamMembers.push(member.person_id);
             }
 
@@ -105,11 +105,10 @@ function TeamService($http, peopleService) {
 
         }, function errorCallback(response) {
 
-            // console.log("fail"  );
+            console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
-
 
         // Return some data structure from server???
         // -> load the getTeamsOfUser.json data
@@ -120,7 +119,7 @@ function TeamService($http, peopleService) {
 
         service.memberships.forEach(function (member) {
 
-            if (member.person_id == id) {
+            if (member.person_id === id) {
                 service.teams.push(member.team_id);
 
             }
@@ -130,34 +129,14 @@ function TeamService($http, peopleService) {
         return service.teams;
     };
 
-    service.getAdvertisedRoles    = function (id) {
+    service.getAdvertisedRoles = function (id) {
 
-       //console.log("hello");
-
-        $http({
-            method: 'GET',
-            url: 'data/advertisedRoles.json'
-        }).then(function successCallback(response) {
-
-            //console.log(response.data);
-            //peopleService.loadCache(response.data.people);
-            //service.loadCache(response.data.teams);
-            //service.setMemberships(response.data.team_memberships);
-
-        }, function errorCallback(response) {
-
-            // console.log("fail"  );
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
-
-       // console.log("get");
+        // console.log("get");
         return service.getTeam(id).team_roles;
 
     };
 
     service.deleteAdvertisedRole = function (id, role) {
-
 
         var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);
@@ -172,7 +151,7 @@ function TeamService($http, peopleService) {
 
     };
 
-    service.addMember = function (teamId,personId,role){
+    service.addMember = function (teamId, personId, role) {
 
         service.memberships.push({
             "person_id": personId,
@@ -187,4 +166,4 @@ function TeamService($http, peopleService) {
 
 }
 
-servicesModule.service('TeamService',['$http', 'PeopleService', TeamService]);
+servicesModule.service('TeamService', ['$http', 'PeopleService', TeamService]);

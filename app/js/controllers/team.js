@@ -21,11 +21,9 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.teamIsNotEmpty = function () {
 
-        return vm.team != null;
+        return vm.team !== null;
 
     };
-
-
 
     vm.getTeamRole = function (PersonId) {
 
@@ -41,7 +39,7 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.addEnabled = function () {
 
-        if (vm.newRole != "") {
+        if (vm.newRole !== "") {
             return true;
         }
     };
@@ -65,16 +63,16 @@ function TeamController($stateParams, teamService, peopleService) {
 
     };
 
-    vm.rejectApplicant = function (role,id) {
+    vm.rejectApplicant = function (role, id) {
 
-        peopleService.removeTeamMembershipApplications(role,id);
+        peopleService.removeTeamMembershipApplications(role, id);
 
     };
 
-    vm.acceptApplicant = function (role,personId) {
+    vm.acceptApplicant = function (role, personId) {
 
-        peopleService.removeTeamMembershipApplications(role,personId);
-        teamService.addMember(vm.teamId,personId,role);
+        peopleService.removeTeamMembershipApplications(role, personId);
+        teamService.addMember(vm.teamId, personId, role);
 
 
     };
@@ -85,7 +83,7 @@ function TeamController($stateParams, teamService, peopleService) {
         vm.team = teamService.getTeam($stateParams.id);
         //console.log("team initialize");
 
-        if (vm.team != null) {
+        if (vm.team !== undefined) {
             vm.teamName = vm.team.name;
             vm.teamId = vm.team.team_id;
             vm.videos = teamService.getVideos(vm.teamId);
@@ -96,7 +94,6 @@ function TeamController($stateParams, teamService, peopleService) {
     }
 
     initialize();
-
 
 
 }

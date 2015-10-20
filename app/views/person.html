@@ -2,6 +2,7 @@
 
 <br>
 <span ng-if="person.personIsNotEmpty()">
+
 Name: {{person.currentUserName}}
     <br><br>
     Teams: <br><br>
@@ -29,13 +30,16 @@ Videos:
     Teams Looking For People
      <br> <br>
 
+
     <div ng-repeat="team in person.allTeams()">
 
         Team Name: {{team.name}}
         <ol>
             Role(s):
             <li ng-repeat="role in person.getAdvertisedRoles(team.team_id)">
-                {{ role }} <input type="submit" ng-click="person.addTeamMembershipApplication(role,team.team_id)" value="apply"/>
+
+                {{ role }} <input type="submit" ng-click="person.addTeamMembershipApplication(role,team.team_id)"
+                                  value="apply"/>
             </li>
         </ol>
 
