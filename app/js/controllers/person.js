@@ -31,11 +31,15 @@ function PersonController($http, $stateParams, peopleService, teamService) {
 
     vm.getVideos = function (id) {
 
+        //console.log(teamService.getVideos(id));
+
         return teamService.getVideos(id);
 
     };
 
     vm.getYoutubeLink = function (video) {
+
+      // console.log("hello");
 
         return teamService.getYoutubeLink(video);
 
@@ -47,7 +51,7 @@ function PersonController($http, $stateParams, peopleService, teamService) {
 
         $http({
             method: 'GET',
-            url: 'data/advertisedRoles.json'
+            url: 'http://localhost:3000/'
         }).then(function successCallback(response) {
 
             //console.log(response.data.teams);
@@ -56,7 +60,7 @@ function PersonController($http, $stateParams, peopleService, teamService) {
 
 
         }, function errorCallback(response) {
-            console.log(response);
+           // console.log(response);
             // console.log("fail"  );
             // called asynchronously if an error occurs
             // or server returns response with an error status.

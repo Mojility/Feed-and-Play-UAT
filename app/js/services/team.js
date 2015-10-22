@@ -17,7 +17,7 @@ function TeamService($http, peopleService) {
     service.loadCache = function (team) {
 
         team.forEach(function (team) {
-            service.cache[team.team_id] = team;
+            service.cache[team.id] = team;
         });
 
     };
@@ -29,8 +29,9 @@ function TeamService($http, peopleService) {
     };
 
     service.getVideos = function (id) {
+        console.log(service.getTeam(id).videos[0].youtube_link)
 
-        return service.getTeam(id).video_id;
+        return service.getTeam(id).videos[0].youtube_link;
 
     };
 
@@ -41,6 +42,8 @@ function TeamService($http, peopleService) {
     };
 
     service.getTeam = function (id) {
+
+    //    console.log(service.cache[id]);
 
         return service.cache[id];
 
@@ -95,10 +98,10 @@ function TeamService($http, peopleService) {
 
         $http({
             method: 'GET',
-            url: 'data/getTeamsOfUser.json'
+            url: 'http://localhost:3000/'
         }).then(function successCallback(response) {
 
-            //console.log(response.data);
+           // console.log(response.data);
             peopleService.loadCache(response.data.people);
             service.loadCache(response.data.teams);
             service.setMemberships(response.data.team_memberships);
@@ -131,8 +134,9 @@ function TeamService($http, peopleService) {
 
     service.getAdvertisedRoles = function (id) {
 
-        // console.log("get");
-        return service.getTeam(id).team_roles;
+        // console.log(id);
+         //console.log(service.getTeam(id));
+        return service.getTeam(id).team_roles[0].role;
 
     };
 

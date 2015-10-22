@@ -20,12 +20,12 @@ function SessionController($http, sessionService, peopleService, teamService) {
         url: 'http://localhost:3000/'
     }).then(function successCallback(response) {
 
-        // console.log(response);
-       // sessionService.initialize(response.data);
+        // console.log(response.data);
+        sessionService.initialize(response.data);
 
     }, function errorCallback(response) {
 
-        console.log(response);
+    //    console.log(response);
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });
