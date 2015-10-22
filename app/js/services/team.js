@@ -105,7 +105,7 @@ function TeamService($http, peopleService) {
 
         }, function errorCallback(response) {
 
-            console.log(response);
+          //  console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });

@@ -17,10 +17,10 @@ function SessionController($http, sessionService, peopleService, teamService) {
     //console.log("session");
     $http({
         method: 'GET',
-        url: 'data/profile.json'
+        url: 'http://localhost:3000/'
     }).then(function successCallback(response) {
 
-        // console.log("success");
+        // console.log(response);
         sessionService.initialize(response.data);
 
     }, function errorCallback(response) {

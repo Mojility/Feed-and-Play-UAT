@@ -109,11 +109,11 @@ function PeopleService() {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-        console.log(rolesApplied);
+       // console.log(rolesApplied);
 
 
         var index = rolesApplied.indexOf(role);
-        console.log(index);
+       // console.log(index);
         rolesApplied.splice(index, 1);
 
     };
