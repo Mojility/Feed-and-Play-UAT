@@ -21,7 +21,7 @@ function SessionController($http, sessionService, peopleService, teamService) {
     }).then(function successCallback(response) {
 
         // console.log(response);
-        sessionService.initialize(response.data);
+       // sessionService.initialize(response.data);
 
     }, function errorCallback(response) {
 
