@@ -81,7 +81,7 @@ function PersonController($http, $stateParams, peopleService, teamService) {
         //console.log(role.role);
 
         peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
-        teamService.deleteAdvertisedRole(teamId, role);
+        //teamService.deleteAdvertisedRole(teamId, role);
     };
 
 
