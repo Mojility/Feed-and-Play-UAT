@@ -158,6 +158,24 @@ function TeamService($http, peopleService) {
             "role": role
         });
 
+        $http({
+            method: 'PUT',
+            url: 'http://localhost:3000/create_opening',
+            data: {
+                team_id: id,
+                role: role
+            }
+        }).then(function successCallback(response) {
+
+           console.log('role added');
+
+        }, function errorCallback(response) {
+
+            //  console.log(response);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
     };
 
     service.addMember = function (teamId, personId, role) {
