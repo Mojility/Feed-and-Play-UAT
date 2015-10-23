@@ -25,17 +25,25 @@ function LoginController($location, peopleService) {
 
 
         var userId = peopleService.getUserId(vm.email);
+        var person = peopleService.getPerson(userId);
+
 
         //console.log(userId);
 
         if (userId === "") {
-            //console.log("fail");
+            console.log("invalid email");
             //console.log(vm.userId);
             // console.log(userId);
         }
         else {
-            $location.url("/person/" + userId);
-            peopleService.setCurrentUserId(userId);
+            if (person.password === vm.password ){
+                $location.url("/person/" + userId);
+                peopleService.setCurrentUserId(userId);
+            }
+            else {
+                console.log("invalid password");
+            }
+
             // console.log($location.url());
         }
 
