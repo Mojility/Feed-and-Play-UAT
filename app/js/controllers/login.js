@@ -10,12 +10,12 @@ function LoginController($location, peopleService) {
     // ViewModel
     var vm = this;
 
-    vm.firstName = "";
+    vm.email = "";
     vm.password = "";
 
     vm.buttonEnabled = function () {
 
-        if (vm.firstName !== "" && vm.password !== "") {
+        if (vm.email !== "" && vm.password !== "") {
             return true;
         }
 
@@ -24,7 +24,7 @@ function LoginController($location, peopleService) {
     vm.loginUser = function () {
 
 
-        var userId = peopleService.getUserId(vm.firstName);
+        var userId = peopleService.getUserId(vm.email);
 
         //console.log(userId);
 

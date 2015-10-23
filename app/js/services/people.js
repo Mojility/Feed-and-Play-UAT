@@ -68,7 +68,7 @@ function PeopleService() {
 
     };
 
-    service.getUserId = function (name) {
+    service.getUserId = function (email) {
 
         var userId = "";
 
@@ -76,7 +76,7 @@ function PeopleService() {
 
         service.people.forEach(function (person) {
 
-            if (person.first_name === name) {
+            if (person.email === email) {
                 userId = person.id;
 
             }
