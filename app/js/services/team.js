@@ -98,22 +98,22 @@ function TeamService($http, peopleService) {
 
         // Request from server, what teams for this user?
 
-        $http({
-            method: 'GET',
-            url: 'http://localhost:3000/'
-        }).then(function successCallback(response) {
-
-            // console.log(response.data);
-            peopleService.loadCache(response.data.people);
-            service.loadCache(response.data.teams);
-            service.setMemberships(response.data.team_memberships);
-
-        }, function errorCallback(response) {
-
-            //  console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        //$http({
+        //    method: 'GET',
+        //    url: 'http://localhost:3000/'
+        //}).then(function successCallback(response) {
+        //
+        //    // console.log(response.data);
+        //    peopleService.loadCache(response.data.people);
+        //    service.loadCache(response.data.teams);
+        //    service.setMemberships(response.data.team_memberships);
+        //
+        //}, function errorCallback(response) {
+        //
+        //    //  console.log(response);
+        //    // called asynchronously if an error occurs
+        //    // or server returns response with an error status.
+        //});
 
         // Return some data structure from server???
         // -> load the getTeamsOfUser.json data
