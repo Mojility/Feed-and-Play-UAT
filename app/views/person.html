@@ -18,33 +18,34 @@ Videos:
 
 <div ng-repeat="team in person.teams">
     Team: {{person.getTeamName(team)}} <br>
-    <!--Role: {{person.getTeamRole(team)}}<br>-->
-    <!--<ol>-->
-        <!--<li ng-repeat="video in person.getVideos(team)">-->
-            <!--<iframe width="280" height="157" ng-src="{{person.getYoutubeLink(video)|trusted}}" frameborder="0"-->
-                    <!--allowfullscreen></iframe>-->
-        <!--</li>-->
-    <!--</ol>-->
+    Role: {{person.getTeamRole(team)}}<br>
+    <ol>
+        <li ng-repeat="video in person.getVideos(team)">
+            <iframe width="280" height="157" ng-src="{{person.getYoutubeLink(video.youtube_link)|trusted}}"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+        </li>
+    </ol>
 
 </div>
 
-    <!--Teams Looking For People-->
-     <!--<br> <br>-->
+    Teams Looking For People
+     <br> <br>
 
 
-    <!--<div ng-repeat="team in person.allTeams()">-->
+    <div ng-repeat="team in person.allTeams">
 
-        <!--Team Name: {{team.name}}-->
-        <!--<ol>-->
-            <!--Role(s):-->
-            <!--<li ng-repeat="role in person.getAdvertisedRoles(team.team_id)">-->
+        Team Name: {{team.name}}
+        <ol>
+            Role(s):
+            <li ng-repeat="role in person.getAdvertisedRoles(team.id)">
 
-                <!--{{ role }} <input type="submit" ng-click="person.addTeamMembershipApplication(role,team.team_id)"-->
-                                  <!--value="apply"/>-->
-            <!--</li>-->
-        <!--</ol>-->
+                {{ role.role }} <input type="submit" ng-click="person.addTeamMembershipApplication(role,team.id)"
+                                       value="apply"/>
+            </li>
+        </ol>
 
-    <!--</div>-->
+    </div>
 
 </span>
 

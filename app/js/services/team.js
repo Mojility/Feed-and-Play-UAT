@@ -29,9 +29,9 @@ function TeamService($http, peopleService) {
     };
 
     service.getVideos = function (id) {
-        console.log(service.getTeam(id).videos[0].youtube_link)
+        //    console.log(service.getTeam(id).videos[0].youtube_link)
 
-        return service.getTeam(id).videos[0].youtube_link;
+        return service.getTeam(id).videos;
 
     };
 
@@ -43,7 +43,7 @@ function TeamService($http, peopleService) {
 
     service.getTeam = function (id) {
 
-    //    console.log(service.cache[id]);
+        //    console.log(service.cache[id]);
 
         return service.cache[id];
 
@@ -51,7 +51,9 @@ function TeamService($http, peopleService) {
 
     service.getAllTeams = function () {
 
+        //console.log( service.cache);
         return Object.keys(service.cache).map(function (p) {
+            //console.log(service.cache[p]);
             return service.cache[p];
         });
 
@@ -101,14 +103,14 @@ function TeamService($http, peopleService) {
             url: 'http://localhost:3000/'
         }).then(function successCallback(response) {
 
-           // console.log(response.data);
+            // console.log(response.data);
             peopleService.loadCache(response.data.people);
             service.loadCache(response.data.teams);
             service.setMemberships(response.data.team_memberships);
 
         }, function errorCallback(response) {
 
-          //  console.log(response);
+            //  console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
@@ -135,8 +137,8 @@ function TeamService($http, peopleService) {
     service.getAdvertisedRoles = function (id) {
 
         // console.log(id);
-         //console.log(service.getTeam(id));
-        return service.getTeam(id).team_roles[0].role;
+        //    console.log(service.getTeam(id).team_roles);
+        return service.getTeam(id).team_roles;
 
     };
 
@@ -151,7 +153,10 @@ function TeamService($http, peopleService) {
     service.addAdvertisedRole = function (id, role) {
 
         var roles = service.getAdvertisedRoles(id);
-        roles.push(role);
+        // console.log(roles);
+        roles.push({
+            "role": role
+        });
 
     };
 
@@ -162,6 +167,7 @@ function TeamService($http, peopleService) {
             "team_id": teamId,
             "role": role
         });
+
 
     };
 

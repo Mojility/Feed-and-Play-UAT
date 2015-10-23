@@ -46,6 +46,7 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.addAdvertisedRole = function () {
 
+       // console.log(vm.newRole);
         teamService.addAdvertisedRole(vm.teamId, vm.newRole);
         vm.newRole = "";
 
@@ -73,6 +74,7 @@ function TeamController($stateParams, teamService, peopleService) {
 
         peopleService.removeTeamMembershipApplications(role, personId);
         teamService.addMember(vm.teamId, personId, role);
+        vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
 
 
     };
@@ -81,14 +83,17 @@ function TeamController($stateParams, teamService, peopleService) {
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.team = teamService.getTeam($stateParams.id);
-        console.log(vm.team);
+       // console.log(vm.team);
 
         if (vm.team !== undefined) {
             vm.teamName = vm.team.name;
             vm.teamId = vm.team.id;
+           // console.log(vm.teamId);
             vm.videos = teamService.getVideos(vm.teamId);
+           // console.log(vm.videos);
             vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
             vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
+           //console.log(teamService.getAdvertisedRoles(vm.teamId));
             vm.getAllPeople = peopleService.getAllPeople;
         }
     }

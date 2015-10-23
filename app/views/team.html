@@ -15,60 +15,62 @@ Members:
 
 
 <br> <br>
-<!--videos:-->
-<!--<br> <br>-->
+videos:
+<br> <br>
 
-<!--<ol>-->
-    <!--<li ng-repeat="video in team.videos">-->
-        <!--<iframe width="280" height="157" ng-src="{{team.getYoutubeLink(video)|trusted}}" frameborder="0"-->
-                <!--allowfullscreen></iframe>-->
-    <!--</li>-->
-<!--</ol>-->
+<ol>
+    <li ng-repeat="video in team.videos">
 
-<!--Looking for team roles:-->
+        <iframe width="280" height="157" ng-src="{{team.getYoutubeLink(video.youtube_link)|trusted}}" frameborder="0"
+                allowfullscreen></iframe>
+    </li>
+</ol>
+
+Looking for team roles:
 
 
-<!--<br>-->
-<!--<table>-->
-    <!--<thead>-->
-    <!--<th>Role</th>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr ng-repeat="role in team.lookingForRoles">-->
-        <!--<td> {{role}}</td>-->
+<br>
+<table>
+    <thead>
+    <th>Role</th>
+    </thead>
+    <tbody>
 
-        <!--<td>-->
-            <!--<button ng-click="team.deleteAdvertisedRole(role)">remove</button>-->
-        <!--</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-<!--</table>-->
+    <tr ng-repeat="role in team.lookingForRoles">
+        <td> {{role.role}}</td>
 
-    <!--<form>-->
-        <!--Role: <input type="text" ng-model="team.newRole">-->
-  <!--<span ng-if="team.addEnabled()">-->
-    <!--<input type="submit" ng-click="team.addAdvertisedRole()" value="add"/>-->
- <!--</span>-->
-    <!--</form>-->
+        <td>
+            <button ng-click="team.deleteAdvertisedRole(role)">remove</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-    <!--<br>-->
+    <form>
+        Role: <input type="text" ng-model="team.newRole">
+  <span ng-if="team.addEnabled()">
+    <input type="submit" ng-click="team.addAdvertisedRole()" value="add"/>
+ </span>
+    </form>
 
- <!--People Applied For Roles-->
+    <br>
 
-  <!--<div ng-repeat="person in team.getAllPeople()">-->
+ People Applied For Roles
 
-      <!--<ol>-->
+  <div ng-repeat="person in team.getAllPeople()">
 
-          <!--<li ng-repeat="role in team.getRolesApplied(person.id)">-->
+      <ol>
 
-          <!--<span ng-if="role.team_id == team.teamId">  Name: {{person.first_name}}-->
-              <!--Role(s):  {{ role.role }}-->
-              <!--<input type="submit" ng-click="team.acceptApplicant(role.role,person.id)" value="accept"/>-->
-              <!--<input type="submit" ng-click="team.rejectApplicant(role.role,person.id)" value="reject"/> </span>-->
-          <!--</li>-->
-      <!--</ol>-->
+          <li ng-repeat="role in team.getRolesApplied(person.id)">
 
-  <!--</div>-->
-  <!--</div>-->
+          <span ng-if="role.team_id == team.teamId">  Name: {{person.first_name}}
+              Role(s):  {{ role.role }}
+              <input type="submit" ng-click="team.acceptApplicant(role.role,person.id)" value="accept"/>
+              <input type="submit" ng-click="team.rejectApplicant(role.role,person.id)" value="reject"/> </span>
+          </li>
+      </ol>
+
+  </div>
+    </div>
 
 </span>

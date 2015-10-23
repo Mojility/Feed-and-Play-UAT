@@ -45,36 +45,40 @@ function PersonController($http, $stateParams, peopleService, teamService) {
 
     };
 
-    vm.updateAdvertisedRoles = function () {
-
-        //console.log("updateAdvertisedRoles");
-
-        $http({
-            method: 'GET',
-            url: 'http://localhost:3000/'
-        }).then(function successCallback(response) {
-
-            //console.log(response.data.teams);
-
-            teamService.loadCache(response.data.teams);
-
-
-        }, function errorCallback(response) {
-           // console.log(response);
-            // console.log("fail"  );
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
-
-    };
+    //vm.updateAdvertisedRoles = function () {
+    //
+    //    console.log("updateAdvertisedRoles");
+    //
+    //    //$http({
+    //    //    method: 'GET',
+    //    //    url: 'http://localhost:3000/'
+    //    //}).then(function successCallback(response) {
+    //    //
+    //    //    //console.log(response.data.teams);
+    //    //
+    //    //    teamService.loadCache(response.data.teams);
+    //    //
+    //    //
+    //    //}, function errorCallback(response) {
+    //    //   // console.log(response);
+    //    //    // console.log("fail"  );
+    //    //    // called asynchronously if an error occurs
+    //    //    // or server returns response with an error status.
+    //    //});
+    //
+    //};
 
 
     vm.getAdvertisedRoles = function (id) {
 
+      //  console.log(teamService.getAdvertisedRoles(id))
         return teamService.getAdvertisedRoles(id);
+
     };
 
     vm.addTeamMembershipApplication = function (role, teamId) {
+
+        //console.log(role.role);
 
         peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
         teamService.deleteAdvertisedRole(teamId, role);
@@ -87,12 +91,13 @@ function PersonController($http, $stateParams, peopleService, teamService) {
         // console.log("person initialize");
 
         if (vm.person !== undefined) {
-            vm.updateAdvertisedRoles();
+           // vm.updateAdvertisedRoles();
             vm.personId = vm.person.id;
             vm.currentUserName = peopleService.getFullName(vm.personId);
             vm.teams = teamService.getTeamsOfUser(vm.personId);
-            vm.allTeams = teamService.getAllTeams;
-            vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
+            vm.allTeams = teamService.getAllTeams();
+            //console.log(vm.allTeams);
+           // vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
 
         }
     }
