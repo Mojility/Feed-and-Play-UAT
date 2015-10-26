@@ -127,7 +127,7 @@ function PeopleService($http) {
 
         var rolesApplied = service.getRolesApplied(personId);
 
-        // console.log(rolesApplied);
+         console.log("adsfadsf");
 
 
         var index = rolesApplied.indexOf(role);
