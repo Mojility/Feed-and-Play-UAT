@@ -5,7 +5,7 @@ var servicesModule = require('./_index.js');
 /**
  * @ngInject
  */
-function PeopleService() {
+function PeopleService($http) {
 
     var service = {};
 
@@ -101,6 +101,25 @@ function PeopleService() {
             "role": role.role
         });
 
+        $http({
+            method: 'PUT',
+            url: 'http://localhost:3000/create_application',
+            data: {
+                person_id: personId,
+                role: role.role,
+                team_id: teamId
+            }
+        }).then(function successCallback(response) {
+
+            console.log('application added');
+
+        }, function errorCallback(response) {
+
+            console.log(response);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
 
     };
 
@@ -121,4 +140,4 @@ function PeopleService() {
 
 }
 
-servicesModule.service('PeopleService', PeopleService);
+servicesModule.service('PeopleService',['$http', PeopleService]);

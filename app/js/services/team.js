@@ -148,6 +148,27 @@ function TeamService($http, peopleService) {
         var index = roles.indexOf(role);
         roles.splice(index, 1);
 
+        console.log(id);
+        console.log(role.role);
+       var test = role.role;
+        $http({
+            method: 'DELETE',
+            url: 'http://localhost:3000/delete_opening',
+            data: {
+                team_id: id,
+                role: role
+            }
+        }).then(function successCallback(response) {
+
+            console.log('role deleted');
+
+        }, function errorCallback(response) {
+
+              console.log(response);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
     };
 
     service.addAdvertisedRole = function (id, role) {
@@ -171,12 +192,28 @@ function TeamService($http, peopleService) {
 
         }, function errorCallback(response) {
 
-            //  console.log(response);
+              console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
 
     };
+
+
+    service.editAdvertisedRole = function (id, role, newRole) {
+
+        var roles = service.getAdvertisedRoles(id);
+        var index = roles.indexOf(role);
+
+        roles[index].role = newRole;
+
+      //console.log(roles[index]);
+      //console.log(id);
+      //console.log(role);
+      //console.log(roles[index]);
+
+    };
+
 
     service.addMember = function (teamId, personId, role) {
 

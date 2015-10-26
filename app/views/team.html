@@ -42,6 +42,15 @@ Looking for team roles:
         <td>
             <button ng-click="team.deleteAdvertisedRole(role)">remove</button>
         </td>
+        <td>
+            <form>
+                <input type="text" ng-model="team.editRole">
+        <span ng-if="team.editEnabled()">
+            <input type="submit" ng-click="team.editAdvertisedRole(role)" value="edit"/>
+        </span>
+            </form>
+
+        </td>
     </tr>
     </tbody>
 </table>

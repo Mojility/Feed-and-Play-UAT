@@ -44,11 +44,26 @@ function TeamController($stateParams, teamService, peopleService) {
         }
     };
 
+    vm.editEnabled = function () {
+
+        if (vm.editRole !== "") {
+            return true;
+        }
+    };
+
     vm.addAdvertisedRole = function () {
 
        // console.log(vm.newRole);
         teamService.addAdvertisedRole(vm.teamId, vm.newRole);
         vm.newRole = "";
+
+    };
+
+    vm.editAdvertisedRole = function (role) {
+
+         console.log(role);
+        teamService.editAdvertisedRole(vm.teamId, role, vm.editRole);
+        vm.editRole = "";
 
     };
 
