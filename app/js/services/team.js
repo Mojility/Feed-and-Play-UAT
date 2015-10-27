@@ -189,14 +189,16 @@ function TeamService($http, peopleService) {
 
 
         var index = service.openings.indexOf(role);
+        var value = service.openings[index].id;
         service.openings.splice(index, 1);
 
-        //console.log(id);
+
+        console.log(value);
         console.log(index);
        //var test = role.role;
         $http({
             method: 'DELETE',
-            url: 'http://localhost:3000/delete/' + index,
+            url: 'http://localhost:3000/delete/' + value ,
 
         }).then(function successCallback(response) {
 
@@ -244,8 +246,28 @@ function TeamService($http, peopleService) {
 
         var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);
+        var value = roles[index].id;
+        console.log(role);
 
         roles[index].role = newRole;
+
+        $http({
+            method: 'POST',
+            url: 'http://localhost:3000/update/' + value,
+            data: {
+
+                role: role
+            }
+        }).then(function successCallback(response) {
+
+            console.log('role updated');
+
+        }, function errorCallback(response) {
+
+            console.log(response);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
 
       //console.log(roles[index]);
       //console.log(id);

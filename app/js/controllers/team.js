@@ -61,7 +61,7 @@ function TeamController($stateParams, teamService, peopleService) {
 
     vm.editAdvertisedRole = function (role) {
 
-         console.log(role);
+         //console.log(role);
         teamService.editAdvertisedRole(vm.teamId, role, vm.editRole);
         vm.editRole = "";
 
