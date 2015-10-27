@@ -86,9 +86,29 @@ function PeopleService($http) {
         return userId;
     };
 
+    service.setApplications = function (applications) {
+
+       service.applications = applications;
+
+
+    };
+
     service.getRolesApplied = function (id) {
 
-        return service.getPerson(id).role_applied;
+         //console.log(service.applications);
+
+        var roles = [];
+        service.applications.forEach(function (application) {
+
+            if (application.person_id === id) {
+                roles.push (application);
+                // console.log(roles);
+
+            }
+
+        });
+
+        return roles;
 
     };
 

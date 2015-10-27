@@ -34,6 +34,10 @@ function TeamService($http, peopleService) {
 
     };
 
+
+
+
+
     service.getVideos = function (id) {
         //    console.log(service.getTeam(id).videos[0].youtube_link)
 
@@ -79,6 +83,25 @@ function TeamService($http, peopleService) {
         });
         //console.log(service.foundRole);
         return service.foundRole;
+
+    };
+
+
+    service.getOpening = function (id) {
+
+
+        var foundOpening = '';
+
+        service.openings.forEach(function (opening) {
+
+            if (opening.id === id) {
+
+                foundOpening = opening;
+            }
+
+        });
+       // console.log(foundOpening);
+        return foundOpening;
 
     };
 
@@ -164,27 +187,24 @@ function TeamService($http, peopleService) {
 
     service.deleteAdvertisedRole = function (id, role) {
 
-        var roles = service.getAdvertisedRoles(id);
-        var index = roles.indexOf(role);
-        roles.splice(index, 1);
 
-        console.log(id);
-        console.log(role.role);
-       var test = role.role;
+        var index = service.openings.indexOf(role);
+        service.openings.splice(index, 1);
+
+        //console.log(id);
+        console.log(index);
+       //var test = role.role;
         $http({
             method: 'DELETE',
-            url: 'http://localhost:3000/delete_opening',
-            data: {
-                team_id: id,
-                role: role
-            }
+            url: 'http://localhost:3000/delete/' + index,
+
         }).then(function successCallback(response) {
 
             console.log('role deleted');
 
         }, function errorCallback(response) {
 
-              console.log(response);
+            //  console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });

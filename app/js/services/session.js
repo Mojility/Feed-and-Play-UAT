@@ -15,6 +15,7 @@ function SessionService(peopleService, teamService) {
        // console.log(data.openings)
 
         peopleService.loadCache(data.people);
+        peopleService.setApplications(data.applications);
         teamService.loadCache(data.teams);
         teamService.setMemberships(data.team_memberships);
         teamService.setOpenings(data.openings);

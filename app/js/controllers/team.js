@@ -74,10 +74,17 @@ function TeamController($stateParams, teamService, peopleService) {
     };
 
     vm.getRolesApplied = function (id) {
-
+    //    console.log(peopleService.getRolesApplied(id));
         return peopleService.getRolesApplied(id);
 
     };
+
+    vm.getOpening = function (id) {
+
+        return teamService.getOpening(id);
+
+    };
+
 
     vm.rejectApplicant = function (role, id) {
 
@@ -110,6 +117,8 @@ function TeamController($stateParams, teamService, peopleService) {
             vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
            //console.log(teamService.getAdvertisedRoles(vm.teamId));
             vm.getAllPeople = peopleService.getAllPeople;
+            vm.openings = teamService.openings;
+            vm.applications = peopleService.applications;
         }
     }
 
