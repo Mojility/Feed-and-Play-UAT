@@ -12,11 +12,13 @@ function SessionService(peopleService, teamService) {
     service.initialize = function (data) {
 
         //console.log(data.people)
-        //console.log(data.teams)
+       // console.log(data.openings)
 
         peopleService.loadCache(data.people);
         teamService.loadCache(data.teams);
         teamService.setMemberships(data.team_memberships);
+        teamService.setOpenings(data.openings);
+
        // peopleService.setCurrentUserId(data.user[0].person_id);
 
     };

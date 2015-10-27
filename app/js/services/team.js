@@ -28,6 +28,12 @@ function TeamService($http, peopleService) {
 
     };
 
+    service.setOpenings = function (openings) {
+
+        service.openings = openings;
+
+    };
+
     service.getVideos = function (id) {
         //    console.log(service.getTeam(id).videos[0].youtube_link)
 
@@ -136,9 +142,23 @@ function TeamService($http, peopleService) {
 
     service.getAdvertisedRoles = function (id) {
 
-        // console.log(id);
+         //console.log(service.openings);
         //    console.log(service.getTeam(id).team_roles);
-        return service.getTeam(id).team_roles;
+        var roles = [];
+
+        service.openings.forEach(function (opening) {
+
+            if (opening.team_id === id) {
+                roles.push (opening);
+               // console.log(roles);
+
+            }
+
+        });
+
+        // console.log(roles);
+
+        return roles;
 
     };
 
@@ -223,9 +243,7 @@ function TeamService($http, peopleService) {
             "role": role
         });
 
-
     };
-
 
     return service;
 
