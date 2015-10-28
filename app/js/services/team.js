@@ -34,10 +34,6 @@ function TeamService($http, peopleService) {
 
     };
 
-
-
-
-
     service.getVideos = function (id) {
         //    console.log(service.getTeam(id).videos[0].youtube_link)
 
@@ -100,7 +96,7 @@ function TeamService($http, peopleService) {
             }
 
         });
-       // console.log(foundOpening);
+        // console.log(foundOpening);
         return foundOpening;
 
     };
@@ -165,15 +161,15 @@ function TeamService($http, peopleService) {
 
     service.getAdvertisedRoles = function (id) {
 
-         //console.log(service.openings);
+        //console.log(service.openings);
         //    console.log(service.getTeam(id).team_roles);
         var roles = [];
 
         service.openings.forEach(function (opening) {
 
             if (opening.team_id === id) {
-                roles.push (opening);
-               // console.log(roles);
+                roles.push(opening);
+                // console.log(roles);
 
             }
 
@@ -193,23 +189,23 @@ function TeamService($http, peopleService) {
         service.openings.splice(index, 1);
 
 
-        console.log(value);
-        console.log(index);
-       //var test = role.role;
-        $http({
-            method: 'DELETE',
-            url: 'http://localhost:3000/delete/' + value ,
-
-        }).then(function successCallback(response) {
-
-            console.log('role deleted');
-
-        }, function errorCallback(response) {
-
-            //  console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        //console.log(value);
+        //console.log(index);
+        //var test = role.role;
+        // $http({
+        //     method: 'DELETE',
+        //     url: 'http://localhost:3000/delete_opening/' + value ,
+        //
+        // }).then(function successCallback(response) {
+        //
+        //     console.log('role deleted');
+        //
+        // }, function errorCallback(response) {
+        //
+        //     //  console.log(response);
+        //     // called asynchronously if an error occurs
+        //     // or server returns response with an error status.
+        // });
 
     };
 
@@ -230,11 +226,11 @@ function TeamService($http, peopleService) {
             }
         }).then(function successCallback(response) {
 
-           console.log('role added');
+            console.log('role added');
 
         }, function errorCallback(response) {
 
-              console.log(response);
+            console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
@@ -269,10 +265,10 @@ function TeamService($http, peopleService) {
             // or server returns response with an error status.
         });
 
-      //console.log(roles[index]);
-      //console.log(id);
-      //console.log(role);
-      //console.log(roles[index]);
+        //console.log(roles[index]);
+        //console.log(id);
+        //console.log(role);
+        //console.log(roles[index]);
 
     };
 

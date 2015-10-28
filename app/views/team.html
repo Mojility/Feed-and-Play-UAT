@@ -68,37 +68,25 @@ Looking for team roles:
 
  <div ng-repeat="application in team.applications">
 
-      <ol>
+     <ol>
 
+          <span ng-if="team.getOpening(application.opening_id).team_id == team.teamId">
 
+              {{team.getFirstName(application.person_id)}}
 
-              <!--{{role}}-->
+              role: {{team.getOpening(application.opening_id).role}}
+              <input type="submit"
+                     ng-click="team.acceptApplicant(team.getOpening(application.opening_id),application.person_id)"
+                     value="accept"/>
+              <input type="submit"
+                     ng-click="team.rejectApplicant(team.getOpening(application.opening_id).role,application.person_id)"
+                     value="reject"/>
+              <!--{{application}}-->
+          </span>
 
-                <!--<span ng-repeat="role in team.getRolesApplied(person.id)">-->
+     </ol>
 
-                 <span ng-if="team.getOpening(application.opening_id).team_id == team.teamId">
-
-
-                     {{team.getFirstName(application.person_id)}}
-                     <!--{{application.person_id}}-->
-                  role: {{team.getOpening(application.opening_id).role}}
-                       <input type="submit" ng-click="team.acceptApplicant(team.getOpening(application.opening_id).role,application.person_id)" value="accept"/>
-                     <input type="submit" ng-click="team.rejectApplicant(team.getOpening(application.opening_id).role,application.person_id)" value="reject"/>
-                   <!--{{application}}-->
-                 </span>
-                    <!--</span>-->
-
-          <!--<span ng-repeat="bla in team.lookingForRoles">-->
-              <!--{{bla.role}}-->
-                 <!--&lt;!&ndash;Name: {{person.first_name}}&ndash;&gt;-->
-              <!--&lt;!&ndash;Role(s):  {{ role.role }}&ndash;&gt;-->
-
-              <!--<input type="submit" ng-click="team.rejectApplicant(role.role,person.id)" value="reject"/>
-              <!--</span>-->
-
-      </ol>
-
-  </div>
+ </div>
     </div>
 
 </span>
