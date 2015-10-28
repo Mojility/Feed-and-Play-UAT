@@ -90,7 +90,6 @@ function PeopleService($http) {
 
         service.applications = applications;
 
-
     };
 
     service.getRolesApplied = function (id) {
@@ -143,25 +142,48 @@ function PeopleService($http) {
 
     };
 
-    service.removeTeamMembershipApplications = function (role, personId) {
+    service.removeTeamMembershipApplications = function (application, personId) {
 
-        var rolesApplied = service.getRolesApplied(personId);
-        var index = rolesApplied.indexOf(role);
+
+
+        //var rolesApplied = service.getRolesApplied(personId);
+
         // console.log(index);
-        rolesApplied.splice(index, 1);
 
+
+
+        var index = service.applications.indexOf(application);
+        var value = service.applications[index].id;
+        var id = service.applications[index].opening_id;
+
+//        console.log(service.applications);
+
+        service.applications.forEach(function (application) {
+
+          //  console.log(application);
+            if (application.opening_id === id) {
+
+                console.log(application);
+
+            }
+
+        });
+
+        service.applications.splice(index, 1);
+
+      console.log(value);
 
         $http({
             method: 'DELETE',
-            url: 'http://localhost:3000/delete_application/' + value,
+            url: 'http://localhost:3000/delete_application/' + value
 
         }).then(function successCallback(response) {
 
-            console.log('role deleted');
+            console.log('application deleted');
 
         }, function errorCallback(response) {
 
-            //  console.log(response);
+              console.log(response);
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });

@@ -189,23 +189,24 @@ function TeamService($http, peopleService) {
         service.openings.splice(index, 1);
 
 
-        //console.log(value);
-        //console.log(index);
-        //var test = role.role;
-        // $http({
-        //     method: 'DELETE',
-        //     url: 'http://localhost:3000/delete_opening/' + value ,
-        //
-        // }).then(function successCallback(response) {
-        //
-        //     console.log('role deleted');
-        //
-        // }, function errorCallback(response) {
-        //
-        //     //  console.log(response);
-        //     // called asynchronously if an error occurs
-        //     // or server returns response with an error status.
-        // });
+
+        console.log(value);
+        console.log(index);
+       // var test = role.role;
+         $http({
+             method: 'DELETE',
+             url: 'http://localhost:3000/delete_opening/' + value ,
+
+         }).then(function successCallback(response) {
+
+             console.log('role deleted');
+
+         }, function errorCallback(response) {
+
+               console.log(response);
+             // called asynchronously if an error occurs
+             // or server returns response with an error status.
+         });
 
     };
 
@@ -279,6 +280,25 @@ function TeamService($http, peopleService) {
             "person_id": personId,
             "team_id": teamId,
             "role": role
+        });
+
+        $http({
+            method: 'PUT',
+            url: 'http://localhost:3000/create_membership',
+            data: {
+                person_id: personId,
+                team_id: teamId,
+                role: role
+            }
+        }).then(function successCallback(response) {
+
+            console.log('role added');
+
+        }, function errorCallback(response) {
+
+            console.log(response);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
         });
 
     };

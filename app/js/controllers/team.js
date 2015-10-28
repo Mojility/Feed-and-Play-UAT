@@ -91,9 +91,10 @@ function TeamController($stateParams, teamService, peopleService) {
 
     };
 
-    vm.acceptApplicant = function (opening, personId) {
+    vm.acceptApplicant = function (application, personId) {
 
-        peopleService.removeTeamMembershipApplications(opening.role, personId);
+        var opening = vm.getOpening(application.opening_id);
+        peopleService.removeTeamMembershipApplications(application, personId);
         teamService.addMember(vm.teamId, personId, opening.role);
         vm.teamMembers = teamService.getMembersInTeam(vm.teamId);
 
