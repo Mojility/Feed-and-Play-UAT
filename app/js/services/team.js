@@ -189,24 +189,23 @@ function TeamService($http, peopleService) {
         service.openings.splice(index, 1);
 
 
-
         console.log(value);
         console.log(index);
-       // var test = role.role;
-         $http({
-             method: 'DELETE',
-             url: 'http://localhost:3000/delete_opening/' + value ,
+        // var test = role.role;
+        $http({
+            method: 'DELETE',
+            url: 'http://localhost:3000/delete_opening/' + value,
 
-         }).then(function successCallback(response) {
+        }).then(function successCallback(response) {
 
-             console.log('role deleted');
+            console.log('role deleted');
 
-         }, function errorCallback(response) {
+        }, function errorCallback(response) {
 
-               console.log(response);
-             // called asynchronously if an error occurs
-             // or server returns response with an error status.
-         });
+            console.log(response);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
 
     };
 
@@ -244,16 +243,16 @@ function TeamService($http, peopleService) {
         var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);
         var value = roles[index].id;
-        console.log(role);
+        console.log(newRole);
 
         roles[index].role = newRole;
 
         $http({
             method: 'POST',
-            url: 'http://localhost:3000/update/' + value,
+            url: 'http://localhost:3000/update/' + newRole + "/" + value,
             data: {
 
-                role: role
+                role: newRole
             }
         }).then(function successCallback(response) {
 

@@ -151,7 +151,6 @@ function PeopleService($http) {
         // console.log(index);
 
 
-
         var index = service.applications.indexOf(application);
         var value = service.applications[index].id;
         var id = service.applications[index].opening_id;
@@ -160,10 +159,10 @@ function PeopleService($http) {
 
         service.applications.forEach(function (application) {
 
-          //  console.log(application);
+            //  console.log(application);
             if (application.opening_id === id) {
-                 index = service.applications.indexOf(application);
-                 value = service.applications[index].id;
+                index = service.applications.indexOf(application);
+                value = service.applications[index].id;
 
                 $http({
                     method: 'DELETE',
@@ -180,16 +179,15 @@ function PeopleService($http) {
                     // or server returns response with an error status.
                 });
 
-               // service.applications.splice(index);
+                // service.applications.splice(index);
 
             }
 
         });
 
-       // service.applications.splice(index, 1);
+        // service.applications.splice(index, 1);
 
-      console.log(value);
-
+        console.log(value);
 
 
     };
