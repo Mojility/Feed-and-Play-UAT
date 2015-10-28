@@ -162,31 +162,35 @@ function PeopleService($http) {
 
           //  console.log(application);
             if (application.opening_id === id) {
+                 index = service.applications.indexOf(application);
+                 value = service.applications[index].id;
 
-                console.log(application);
+                $http({
+                    method: 'DELETE',
+                    url: 'http://localhost:3000/delete_application/' + value
+
+                }).then(function successCallback(response) {
+
+                    console.log('application deleted');
+
+                }, function errorCallback(response) {
+
+                    console.log(response);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+
+               // service.applications.splice(index);
 
             }
 
         });
 
-        service.applications.splice(index, 1);
+       // service.applications.splice(index, 1);
 
       console.log(value);
 
-        $http({
-            method: 'DELETE',
-            url: 'http://localhost:3000/delete_application/' + value
 
-        }).then(function successCallback(response) {
-
-            console.log('application deleted');
-
-        }, function errorCallback(response) {
-
-              console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
 
     };
 
