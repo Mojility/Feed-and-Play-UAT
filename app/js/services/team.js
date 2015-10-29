@@ -189,8 +189,8 @@ function TeamService($http, peopleService) {
         service.openings.splice(index, 1);
 
 
-        console.log(value);
-        console.log(index);
+        //console.log(value);
+        //console.log(index);
         // var test = role.role;
         $http({
             method: 'DELETE',
@@ -211,13 +211,14 @@ function TeamService($http, peopleService) {
 
     service.addAdvertisedRole = function (id, role) {
 
-        var roles = service.getAdvertisedRoles(id);
+        //var roles = service.getAdvertisedRoles(id);
 
         service.openings.push({
+            "team_id": id,
             "role": role
         });
 
-        console.log(service.openings);
+       // console.log(service.openings);
         $http({
             method: 'PUT',
             url: 'http://localhost:3000/create_opening',
