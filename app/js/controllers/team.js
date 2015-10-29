@@ -56,6 +56,7 @@ function TeamController($stateParams, teamService, peopleService) {
         // console.log(vm.newRole);
         teamService.addAdvertisedRole(vm.teamId, vm.newRole);
         vm.newRole = "";
+        vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
 
     };
 
@@ -70,6 +71,7 @@ function TeamController($stateParams, teamService, peopleService) {
     vm.deleteAdvertisedRole = function (role) {
 
         teamService.deleteAdvertisedRole(vm.teamId, role);
+        vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
 
     };
 
