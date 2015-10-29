@@ -212,11 +212,12 @@ function TeamService($http, peopleService) {
     service.addAdvertisedRole = function (id, role) {
 
         var roles = service.getAdvertisedRoles(id);
-        // console.log(roles);
-        roles.push({
+
+        service.openings.push({
             "role": role
         });
 
+        console.log(service.openings);
         $http({
             method: 'PUT',
             url: 'http://localhost:3000/create_opening',
@@ -226,7 +227,7 @@ function TeamService($http, peopleService) {
             }
         }).then(function successCallback(response) {
 
-            console.log('role added');
+           // console.log(response);
 
         }, function errorCallback(response) {
 
