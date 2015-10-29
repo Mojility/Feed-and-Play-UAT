@@ -7,7 +7,7 @@ Name: {{person.currentUserName}}
     <br><br>
     Teams: <br><br>
     <div ng-repeat="team in person.teams">
-        Team Name: {{person.getTeamName(team)}} <br>
+        Team Name:  <a href="/team/{{team}}"> {{person.getTeamName(team)}} </a>  <br>
         Role: {{person.getTeamRole(team)}}<br>
         <br>
     </div>

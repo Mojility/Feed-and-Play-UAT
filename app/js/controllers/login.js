@@ -31,12 +31,17 @@ function LoginController($location, peopleService, sessionService) {
             function(data) {
                 var person = data.person;
                 var token = data.auth_token;
+              //  console.log(data);
+
+
 
                 sessionService.initialize(token, person);
 
                 var url = "/person/" + person.id;
                 console.log("Redirecting person to " + url);
                 $location.url(url);
+
+
             },
             function(errorCode) {
                 console.log("Problem! " + errorCode);
@@ -45,7 +50,6 @@ function LoginController($location, peopleService, sessionService) {
         );
 
     };
-
 
 }
 

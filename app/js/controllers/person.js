@@ -90,7 +90,7 @@ function PersonController($http, $stateParams, peopleService, teamService) {
     function initialize() {
         vm.person = peopleService.getPerson($stateParams.id);
         console.log(vm.person);
-        peopleService.setCurrentUserId(vm.person.id);
+       // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {
            // vm.updateAdvertisedRoles();
