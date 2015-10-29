@@ -198,7 +198,7 @@ function TeamService($http, peopleService) {
 
         }).then(function successCallback(response) {
 
-            console.log('role deleted');
+          //  console.log('role deleted');
 
         }, function errorCallback(response) {
 
@@ -245,7 +245,7 @@ function TeamService($http, peopleService) {
         var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);
         var value = roles[index].id;
-        console.log(newRole);
+    //    console.log(newRole);
 
         roles[index].role = newRole;
 
@@ -258,7 +258,7 @@ function TeamService($http, peopleService) {
             }
         }).then(function successCallback(response) {
 
-            console.log('role updated');
+      //      console.log('role updated');
 
         }, function errorCallback(response) {
 

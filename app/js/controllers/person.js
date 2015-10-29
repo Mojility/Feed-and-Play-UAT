@@ -10,6 +10,8 @@ function PersonController($http, $stateParams, peopleService, teamService) {
     // ViewModel
     var vm = this;
 
+
+
     // console.log("personController");
 
     vm.personIsNotEmpty = function () {

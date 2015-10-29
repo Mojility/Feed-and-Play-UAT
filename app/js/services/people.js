@@ -113,9 +113,10 @@ function PeopleService($http) {
 
     service.addTeamMembershipApplication = function (role, teamId, personId) {
 
-        var rolesApplied = service.getRolesApplied(personId);
+       // var rolesApplied = service.getRolesApplied(personId);
 
-        rolesApplied.push({
+      service.applications.push({
+          person_id: personId,
             "team_id": teamId,
             "role": role.role
         });
@@ -130,7 +131,7 @@ function PeopleService($http) {
             }
         }).then(function successCallback(response) {
 
-            console.log('application added');
+            //console.log('application added');
 
         }, function errorCallback(response) {
 
@@ -150,10 +151,15 @@ function PeopleService($http) {
 
         // console.log(index);
 
-
+       // console.log(service.applications);
+        //console.log(application);
         var index = service.applications.indexOf(application);
+
+        //console.log(index);
         var value = service.applications[index].id;
         var id = service.applications[index].opening_id;
+
+
 
 //        console.log(service.applications);
 
@@ -179,7 +185,7 @@ function PeopleService($http) {
                     // or server returns response with an error status.
                 });
 
-                // service.applications.splice(index);
+                 service.applications.splice(index);
 
             }
 

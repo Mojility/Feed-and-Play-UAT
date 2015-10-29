@@ -79,7 +79,7 @@ Looking for team roles:
                      ng-click="team.acceptApplicant(application,application.person_id)"
                      value="accept"/>
               <input type="submit"
-                     ng-click="team.rejectApplicant(team.getOpening(application.opening_id).role,application.person_id)"
+                     ng-click="team.rejectApplicant(application,application.person_id)"
                      value="reject"/>
               <!--{{application}}-->
           </span>

@@ -10,6 +10,17 @@ function TeamController($stateParams, teamService, peopleService) {
     // ViewModel
     var vm = this;
     vm.newRole = "";
+    vm.editRole = "";
+
+    vm.team ="";
+    vm.teamName = "";
+    vm.teamId = "";
+    vm.videos = "";
+    vm.teamMembers = "";
+    vm.lookingForRoles = "";
+    vm.getAllPeople = "";
+    vm.openings = "";
+    vm.applications = "";
 
     //console.log("teamController");
 
@@ -87,9 +98,11 @@ function TeamController($stateParams, teamService, peopleService) {
 
     };
 
-    vm.rejectApplicant = function (role, id) {
+    vm.rejectApplicant = function (application, id) {
 
-        peopleService.removeTeamMembershipApplications(role, id);
+       // console.log(application);
+        peopleService.removeTeamMembershipApplications(application, id);
+
 
     };
 
