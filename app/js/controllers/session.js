@@ -5,31 +5,15 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function SessionController($http, sessionService, peopleService, teamService) {
+function SessionController(sessionService, peopleService, teamService) {
 
     // ViewModel
     var vm = this;
 
-    vm.currentUserName = peopleService.getCurrentUserName;
-    vm.allPeople = peopleService.getAllPeople;
-    vm.allTeams = teamService.getAllTeams;
-
-    //console.log("session");
-    $http({
-        method: 'GET',
-        url: 'http://localhost:3000/'
-    }).then(function successCallback(response) {
-
-        // console.log(response.data);
-        sessionService.initialize(response.data);
-
-    }, function errorCallback(response) {
-
-    //    console.log(response);
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-    });
+    //vm.currentUserName = peopleService.getCurrentUserName;
+    //vm.allPeople = peopleService.getAllPeople;
+    //vm.allTeams = teamService.getAllTeams;
 
 }
 
-controllersModule.controller('SessionController', ['$http', 'SessionService', 'PeopleService', 'TeamService', SessionController]);
+controllersModule.controller('SessionController', ['SessionService', 'PeopleService', 'TeamService', SessionController]);

@@ -16,26 +16,26 @@
 <ol>
     <li><a href="/">Home</a></li>
 </ol>
-<nav ng-controller="SessionController as session">
+<!--<nav ng-controller="SessionController as session">-->
 
-    <a href="/login">Log in</a>
+    <!--<a href="/login">Log in</a>-->
 
-    <p>Logged in: {{ session.currentUserName() }}</p>
+    <!--<p>Logged in: {{ session.currentUserName() }}</p>-->
 
-    <h1> Members</h1>
-    <ol>
-        <li ng-repeat="person in session.allPeople()">
-            <a href="/person/{{person.id}}">{{ person.first_name }}</a>
-        </li>
-    </ol>
+    <!--<h1> Members</h1>-->
+    <!--<ol>-->
+        <!--<li ng-repeat="person in session.allPeople()">-->
+            <!--<a href="/person/{{person.id}}">{{ person.first_name }}</a>-->
+        <!--</li>-->
+    <!--</ol>-->
 
-    <h1> Teams</h1>
-    <ol>
-        <li ng-repeat="team in session.allTeams()">
-            <a href="/team/{{team.id}}">{{ team.name }}</a>
-        </li>
-    </ol>
-</nav>
+    <!--<h1> Teams</h1>-->
+    <!--<ol>-->
+        <!--<li ng-repeat="team in session.allTeams()">-->
+            <!--<a href="/team/{{team.id}}">{{ team.name }}</a>-->
+        <!--</li>-->
+    <!--</ol>-->
+<!--</nav>-->
 
 <div ui-view></div>
 

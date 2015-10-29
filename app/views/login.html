@@ -1,16 +1,11 @@
 <h1>Log In View</h1>
 
-<br>
-
 <form>
+    <label for="email">Email:</label>
+    <input type="text" ng-model="login.email" id="email">
 
-    <br>
-    Email: &nbsp;&nbsp; <input type="text" ng-model="login.email">
-    <br>
-    password: <input type="password" ng-model="login.password">
-    <br>
+    <label for="password">Password:</label>
+    <input type="password" ng-model="login.password" id="password">
 
-  <span ng-if="login.buttonEnabled()">
-    <input type="submit" ng-click="login.loginUser()" value="Log In"/>
-  </span>
+    <input ng-if="login.buttonEnabled()" type="submit" ng-click="login.loginUser()" value="Log In"/>
 </form>

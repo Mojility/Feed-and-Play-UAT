@@ -2,10 +2,12 @@
 
 var controllersModule = require('./_index');
 
+var HttpInteractor = require('../util/http');
+
 /**
  * @ngInject
  */
-function LoginController($location, peopleService) {
+function LoginController($location, peopleService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -14,45 +16,37 @@ function LoginController($location, peopleService) {
     vm.password = "";
 
     vm.buttonEnabled = function () {
-
-        if (vm.email !== "" && vm.password !== "") {
-            return true;
-        }
-
+        if (vm.email !== "" && vm.password !== "") return true;
     };
 
     vm.loginUser = function () {
 
+        var http = new HttpInteractor();
+        http.post(
+            'http://localhost:3000/authenticate',
+            {
+                email: vm.email,
+                password: vm.password
+            },
+            function(data) {
+                var person = data.person;
+                var token = data.auth_token;
 
-        var userId = peopleService.getUserId(vm.email);
-        var person = peopleService.getPerson(userId);
+                sessionService.initialize(token, person);
 
-
-        //console.log(userId);
-
-        if (userId === "") {
-            console.log("invalid email");
-            //console.log(vm.userId);
-            // console.log(userId);
-        }
-        else {
-            if (person.password === vm.password ){
-                $location.url("/person/" + userId);
-                peopleService.setCurrentUserId(userId);
+                var url = "/person/" + person.id;
+                console.log("Redirecting person to " + url);
+                $location.url(url);
+            },
+            function(errorCode) {
+                console.log("Problem! " + errorCode);
             }
-            else {
-                console.log("invalid password");
-            }
 
-            // console.log($location.url());
-        }
-
-        //console.log(vm.userId);
-
+        );
 
     };
 
 
 }
 
-controllersModule.controller('LoginController', ['$location', 'PeopleService', LoginController]);
+controllersModule.controller('LoginController', ['$location', 'PeopleService', 'SessionService', LoginController]);
