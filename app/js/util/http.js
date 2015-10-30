@@ -1,3 +1,4 @@
+'use strict';
 var HttpInteractor = function() {
 
     this.successBlock = null;
@@ -5,8 +6,8 @@ var HttpInteractor = function() {
     this.token = null;
 
     this.onReadyStateChange = function() {
-        if (this.xhr.readyState == 4) {
-            if (this.xhr.status == 200) {
+        if (this.xhr.readyState === 4) {
+            if (this.xhr.status === 200) {
                 var data = JSON.parse(this.xhr.responseText);
                 this.successBlock(data);
             } else {
@@ -36,10 +37,12 @@ var HttpInteractor = function() {
         if (this.token) {
             this.xhr.setRequestHeader("X-Auth-Token", this.token);
         }
-        if (data)
+        if (data) {
             this.xhr.send(JSON.stringify(data));
-        else
+        }
+        else {
             this.xhr.send();
+        }
     }.bind(this);
 
     this.setSecret = function(token) {

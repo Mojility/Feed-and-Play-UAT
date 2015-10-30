@@ -143,11 +143,9 @@ function PeopleService($http) {
         });
 
 
-
-
     };
 
-    service.removeTeamMembershipApplications = function (application, personId) {
+    service.removeTeamMembershipApplications = function (application) {
 
 
 
@@ -162,7 +160,6 @@ function PeopleService($http) {
         //console.log(index);
         var value = service.applications[index].id;
         var id = service.applications[index].opening_id;
-
 
 
 //        console.log(service.applications);
@@ -199,7 +196,6 @@ function PeopleService($http) {
         // service.applications.splice(index, 1);
 
         console.log(value);
-
 
     };
 

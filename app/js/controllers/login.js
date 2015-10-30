@@ -16,7 +16,10 @@ function LoginController($scope, $location, peopleService, sessionService, teamS
     vm.password = "";
 
     vm.buttonEnabled = function () {
-        if (vm.email !== "" && vm.password !== "") return true;
+        if (vm.email !== "" && vm.password !== "")
+        {
+            return true;
+        }
     };
 
     vm.loginUser = function() {
@@ -27,7 +30,7 @@ function LoginController($scope, $location, peopleService, sessionService, teamS
             $location.url(url);
             $scope.$apply();
         });
-    }
+    };
 
 }
 

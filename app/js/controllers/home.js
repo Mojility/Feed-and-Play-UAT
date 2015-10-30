@@ -7,7 +7,7 @@ var controllersModule = require('./_index');
  */
 function HomeController() {
 
-  var vm = this;
+  //var vm = this;
 
 }
 

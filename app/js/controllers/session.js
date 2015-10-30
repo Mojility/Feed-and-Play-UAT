@@ -5,10 +5,10 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function SessionController(sessionService, peopleService, teamService) {
+function SessionController() {
 
     // ViewModel
-    var vm = this;
+  //  var vm = this;
 
     //vm.currentUserName = peopleService.getCurrentUserName;
     //vm.allPeople = peopleService.getAllPeople;
@@ -16,4 +16,4 @@ function SessionController(sessionService, peopleService, teamService) {
 
 }
 
-controllersModule.controller('SessionController', ['SessionService', 'PeopleService', 'TeamService', SessionController]);
+controllersModule.controller('SessionController',SessionController );

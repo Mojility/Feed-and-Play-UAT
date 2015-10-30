@@ -1,12 +1,12 @@
 'use strict';
 
 var servicesModule = require('./_index.js');
-var HttpInteractor = require('../util/http');
+//var HttpInteractor = require('../util/http');
 
 /**
  * @ngInject
  */
-function SessionService(peopleService, teamService) {
+function SessionService() {
 
     var service = {};
 
@@ -24,4 +24,4 @@ function SessionService(peopleService, teamService) {
 
 }
 
-servicesModule.service('SessionService', ['PeopleService', 'TeamService', SessionService]);
+servicesModule.service('SessionService', SessionService);

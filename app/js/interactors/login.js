@@ -1,3 +1,4 @@
+'use strict';
 var HttpInteractor = require('../util/http');
 
 function LoginInteractor(sessionService, peopleService, teamService) {
@@ -41,7 +42,7 @@ function LoginInteractor(sessionService, peopleService, teamService) {
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
             }
-        )
+        );
     }
 
     function loadCaches(data) {

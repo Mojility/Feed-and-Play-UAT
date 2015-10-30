@@ -5,7 +5,7 @@ var servicesModule = require('./_index.js');
 /**
  * @ngInject
  */
-function TeamService($http, peopleService) {
+function TeamService($http) {
 
     var service = {};
 
@@ -308,4 +308,4 @@ function TeamService($http, peopleService) {
 
 }
 
-servicesModule.service('TeamService', ['$http', 'PeopleService', TeamService]);
+servicesModule.service('TeamService', ['$http', TeamService]);
