@@ -69,7 +69,7 @@ function PersonController($http, $stateParams, peopleService, teamService) {
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.person = peopleService.getPerson($stateParams.id);
-        console.log(vm.person);
+        //console.log(vm.person);
        // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {

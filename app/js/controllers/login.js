@@ -26,7 +26,7 @@ function LoginController($scope, $location, peopleService, sessionService, teamS
         var interactor = new LoginInteractor(sessionService, peopleService, teamService);
         interactor.loginUser(vm.email, vm.password, function(id) {
             var url = "/person/" + id;
-            console.log("Redirecting person to " + url);
+            //console.log("Redirecting person to " + url);
             $location.url(url);
             $scope.$apply();
         });

@@ -136,7 +136,7 @@ function PeopleService($http,sessionService) {
                 //loadCaches(data);
                 //console.log(data);
                 service.setApplications(data.application);
-                console.log('application added');
+                //console.log('application added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
             }
@@ -167,7 +167,7 @@ function PeopleService($http,sessionService) {
                     'http://localhost:3000/delete_application/' + value,
                     function(data) {
                         //loadCaches(data);
-                        console.log('application deleted');
+                        //console.log('application deleted');
                     }, function(errorCode) {
                         console.log( errorCode);
                     }
@@ -181,7 +181,7 @@ function PeopleService($http,sessionService) {
 
         // service.applications.splice(index, 1);
 
-        console.log(value);
+        //console.log(value);
 
     };
 

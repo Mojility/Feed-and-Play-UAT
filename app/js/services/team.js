@@ -191,7 +191,7 @@ function TeamService($http,sessionService) {
             'http://localhost:3000/delete_opening/' + value,
             function(data) {
                 //loadCaches(data);
-                console.log('opening deleted');
+                //console.log('opening deleted');
             }, function(errorCode) {
                 console.log( errorCode);
             }
@@ -245,7 +245,7 @@ function TeamService($http,sessionService) {
             function(data) {
                 //loadCaches(data);
                 service.setOpenings(data.opening);
-                console.log('opening updated');
+                //console.log('opening updated');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
             }
@@ -273,7 +273,7 @@ function TeamService($http,sessionService) {
             function(data) {
                 //loadCaches(data);
                 service.setMemberships(data.memberships);
-                console.log('member added');
+                //console.log('member added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
             }
