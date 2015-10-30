@@ -1,11 +1,12 @@
 'use strict';
 
 var servicesModule = require('./_index.js');
+var HttpInteractor = require('../util/http');
 
 /**
  * @ngInject
  */
-function PeopleService($http) {
+function PeopleService($http,sessionService) {
 
     var service = {};
 
@@ -122,25 +123,43 @@ function PeopleService($http) {
             "team_id": teamId,
             "role": role.role
         });
+        //
+        //$http({
+        //    method: 'PUT',
+        //    url: 'http://localhost:3000/create_application',
+        //    data: {
+        //        person_id: personId,
+        //        role: role.role,
+        //        team_id: teamId
+        //    }
+        //}).then(function successCallback(response) {
+        //
+        //    //console.log('application added');
+        //
+        //}, function errorCallback(response) {
+        //
+        //    console.log(response);
+        //    // called asynchronously if an error occurs
+        //    // or server returns response with an error status.
+        //});
 
-        $http({
-            method: 'PUT',
-            url: 'http://localhost:3000/create_application',
-            data: {
+
+        var http = new HttpInteractor();
+        http.setSecret(sessionService.token);
+        http.put(
+            'http://localhost:3000/create_application',
+            {
                 person_id: personId,
                 role: role.role,
                 team_id: teamId
+            },
+            function(data) {
+                //loadCaches(data);
+                console.log('application added');
+            }, function(errorCode) {
+                console.log("Error: " + errorCode);
             }
-        }).then(function successCallback(response) {
-
-            //console.log('application added');
-
-        }, function errorCallback(response) {
-
-            console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        );
 
 
     };
@@ -170,22 +189,34 @@ function PeopleService($http) {
             if (application.opening_id === id) {
                 index = service.applications.indexOf(application);
                 value = service.applications[index].id;
+                //
+                //$http({
+                //    method: 'DELETE',
+                //    url: 'http://localhost:3000/delete_application/' + value
+                //
+                //}).then(function successCallback(response) {
+                //
+                //    console.log('application deleted');
+                //
+                //
+                //}, function errorCallback(response) {
+                //
+                //    console.log(response);
+                //    // called asynchronously if an error occurs
+                //    // or server returns response with an error status.
+                //});
 
-                $http({
-                    method: 'DELETE',
-                    url: 'http://localhost:3000/delete_application/' + value
-
-                }).then(function successCallback(response) {
-
-                    console.log('application deleted');
-                 
-
-                }, function errorCallback(response) {
-
-                    console.log(response);
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
+                var http = new HttpInteractor();
+                http.setSecret(sessionService.token);
+                http.delete(
+                    'http://localhost:3000/delete_application/' + value,
+                    function(data) {
+                        //loadCaches(data);
+                        console.log('application deleted');
+                    }, function(errorCode) {
+                        console.log( errorCode);
+                    }
+                );
 
                  service.applications.splice(index);
 
@@ -203,4 +234,4 @@ function PeopleService($http) {
 
 }
 
-servicesModule.service('PeopleService', ['$http', PeopleService]);
+servicesModule.service('PeopleService', ['$http','SessionService', PeopleService]);

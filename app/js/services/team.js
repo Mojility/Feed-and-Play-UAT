@@ -1,11 +1,12 @@
 'use strict';
 
 var servicesModule = require('./_index.js');
+var HttpInteractor = require('../util/http');
 
 /**
  * @ngInject
  */
-function TeamService($http) {
+function TeamService($http,sessionService) {
 
     var service = {};
 
@@ -192,20 +193,32 @@ function TeamService($http) {
         //console.log(value);
         //console.log(index);
         // var test = role.role;
-        $http({
-            method: 'DELETE',
-            url: 'http://localhost:3000/delete_opening/' + value,
+        //$http({
+        //    method: 'DELETE',
+        //    url: 'http://localhost:3000/delete_opening/' + value
+        //
+        //}).then(function successCallback(response) {
+        //
+        //  //  console.log('role deleted');
+        //
+        //}, function errorCallback(response) {
+        //
+        //    console.log(response);
+        //    // called asynchronously if an error occurs
+        //    // or server returns response with an error status.
+        //});
 
-        }).then(function successCallback(response) {
-
-          //  console.log('role deleted');
-
-        }, function errorCallback(response) {
-
-            console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        var http = new HttpInteractor();
+        http.setSecret(sessionService.token);
+        http.delete(
+            'http://localhost:3000/delete_opening/' + value,
+            function(data) {
+                //loadCaches(data);
+                console.log('opening deleted');
+            }, function(errorCode) {
+                console.log( errorCode);
+            }
+        );
 
     };
 
@@ -219,24 +232,39 @@ function TeamService($http) {
         });
 
        // console.log(service.openings);
-        $http({
-            method: 'PUT',
-            url: 'http://localhost:3000/create_opening',
-            data: {
+       // $http({
+       //     method: 'PUT',
+       //     url: 'http://localhost:3000/create_opening',
+       //     data: {
+       //         team_id: id,
+       //         role: role
+       //     }
+       // }).then(function successCallback(response) {
+       //
+       //    // console.log(response);
+       //
+       // }, function errorCallback(response) {
+       ////
+       //     console.log(response);
+       //     // called asynchronously if an error occurs
+       //     // or server returns response with an error status.
+       // });
+
+        var http = new HttpInteractor();
+        http.setSecret(sessionService.token);
+        http.put(
+            'http://localhost:3000/create_opening',
+            {
                 team_id: id,
                 role: role
+            },
+            function(data) {
+                //loadCaches(data);
+                console.log('opening added');
+            }, function(errorCode) {
+                console.log("Error: " + errorCode);
             }
-        }).then(function successCallback(response) {
-
-           // console.log(response);
-
-        }, function errorCallback(response) {
-
-            console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
-
+        );
     };
 
 
@@ -249,23 +277,38 @@ function TeamService($http) {
 
         roles[index].role = newRole;
 
-        $http({
-            method: 'POST',
-            url: 'http://localhost:3000/update/' + newRole + "/" + value,
-            data: {
+      //  $http({
+      //      method: 'POST',
+      //      url: 'http://localhost:3000/update/' + newRole + "/" + value,
+      //      data: {
+      //
+      //          role: newRole
+      //      }
+      //  }).then(function successCallback(response) {
+      //
+      ////      console.log('role updated');
+      //
+      //  }, function errorCallback(response) {
+      //
+      //      console.log(response);
+      //      // called asynchronously if an error occurs
+      //      // or server returns response with an error status.
+      //  });
 
+        var http = new HttpInteractor();
+        http.setSecret(sessionService.token);
+        http.post(
+            'http://localhost:3000/update/' + newRole + "/" + value,
+            {
                 role: newRole
+            },
+            function(data) {
+                //loadCaches(data);
+                console.log('opening updated');
+            }, function(errorCode) {
+                console.log("Error: " + errorCode);
             }
-        }).then(function successCallback(response) {
-
-      //      console.log('role updated');
-
-        }, function errorCallback(response) {
-
-            console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        );
 
         //console.log(roles[index]);
         //console.log(id);
@@ -283,24 +326,42 @@ function TeamService($http) {
             "role": role
         });
 
-        $http({
-            method: 'PUT',
-            url: 'http://localhost:3000/create_membership',
-            data: {
-                person_id: personId,
-                team_id: teamId,
-                role: role
+        //$http({
+        //    method: 'PUT',
+        //    url: 'http://localhost:3000/create_membership',
+        //    data: {
+        //        person_id: personId,
+        //        team_id: teamId,
+        //        role: role
+        //    }
+        //}).then(function successCallback(response) {
+        //
+        //    console.log('role added');
+        //
+        //}, function errorCallback(response) {
+        //
+        //    console.log(response);
+        //    // called asynchronously if an error occurs
+        //    // or server returns response with an error status.
+        //});
+
+        var http = new HttpInteractor();
+        http.setSecret(sessionService.token);
+        http.put(
+            'http://localhost:3000/create_membership',
+            {
+                        person_id: personId,
+                        team_id: teamId,
+                        role: role
+            },
+            function(data) {
+                //loadCaches(data);
+                console.log('member added');
+            }, function(errorCode) {
+                console.log("Error: " + errorCode);
             }
-        }).then(function successCallback(response) {
+        );
 
-            console.log('role added');
-
-        }, function errorCallback(response) {
-
-            console.log(response);
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
 
     };
 
@@ -308,4 +369,4 @@ function TeamService($http) {
 
 }
 
-servicesModule.service('TeamService', ['$http', TeamService]);
+servicesModule.service('TeamService', ['$http','SessionService', TeamService]);

@@ -17,11 +17,15 @@ var HttpInteractor = function() {
     }.bind(this);
 
     this.delete = function(url, successBlock, failBlock) {
-        this.request("DELETE", url, successBlock, failBlock);
+        this.request("DELETE", url, null, successBlock, failBlock);
     };
 
     this.post = function(url, data, successBlock, failBlock) {
         this.request("POST", url, data, successBlock, failBlock);
+    }.bind(this);
+
+    this.put = function(url, data, successBlock, failBlock) {
+        this.request("PUT", url, data, successBlock, failBlock);
     }.bind(this);
 
     this.get = function(url, successBlock, failBlock) {
