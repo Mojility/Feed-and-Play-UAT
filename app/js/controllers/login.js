@@ -2,12 +2,12 @@
 
 var controllersModule = require('./_index');
 
-var HttpInteractor = require('../util/http');
+var LoginInteractor = require('../interactors/login');
 
 /**
  * @ngInject
  */
-function LoginController($location, peopleService, sessionService) {
+function LoginController($scope, $location, peopleService, sessionService, teamService) {
 
     // ViewModel
     var vm = this;
@@ -19,38 +19,16 @@ function LoginController($location, peopleService, sessionService) {
         if (vm.email !== "" && vm.password !== "") return true;
     };
 
-    vm.loginUser = function () {
-
-        var http = new HttpInteractor();
-        http.post(
-            'http://localhost:3000/authenticate',
-            {
-                email: vm.email,
-                password: vm.password
-            },
-            function(data) {
-                var person = data.person;
-                var token = data.auth_token;
-              //  console.log(data);
-
-
-
-                sessionService.initialize(token, person);
-
-                var url = "/person/" + person.id;
-                console.log("Redirecting person to " + url);
-                $location.url(url);
-
-
-            },
-            function(errorCode) {
-                console.log("Problem! " + errorCode);
-            }
-
-        );
-
-    };
+    vm.loginUser = function() {
+        var interactor = new LoginInteractor(sessionService, peopleService, teamService);
+        interactor.loginUser(vm.email, vm.password, function(id) {
+            var url = "/person/" + id;
+            console.log("Redirecting person to " + url);
+            $location.url(url);
+            $scope.$apply();
+        });
+    }
 
 }
 
-controllersModule.controller('LoginController', ['$location', 'PeopleService', 'SessionService', LoginController]);
+controllersModule.controller('LoginController', ['$scope', '$location', 'PeopleService', 'SessionService', 'TeamService', LoginController]);
