@@ -162,8 +162,6 @@ function TeamService($http,sessionService) {
 
     service.getAdvertisedRoles = function (id) {
 
-        //console.log(service.openings);
-        //    console.log(service.getTeam(id).team_roles);
         var roles = [];
 
         service.openings.forEach(function (opening) {
@@ -176,37 +174,16 @@ function TeamService($http,sessionService) {
 
         });
 
-        // console.log(roles);
-
         return roles;
 
     };
 
     service.deleteAdvertisedRole = function (id, role) {
 
-
         var index = service.openings.indexOf(role);
         var value = service.openings[index].id;
         service.openings.splice(index, 1);
 
-
-        //console.log(value);
-        //console.log(index);
-        // var test = role.role;
-        //$http({
-        //    method: 'DELETE',
-        //    url: 'http://localhost:3000/delete_opening/' + value
-        //
-        //}).then(function successCallback(response) {
-        //
-        //  //  console.log('role deleted');
-        //
-        //}, function errorCallback(response) {
-        //
-        //    console.log(response);
-        //    // called asynchronously if an error occurs
-        //    // or server returns response with an error status.
-        //});
 
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
@@ -231,25 +208,6 @@ function TeamService($http,sessionService) {
             "role": role
         });
 
-       // console.log(service.openings);
-       // $http({
-       //     method: 'PUT',
-       //     url: 'http://localhost:3000/create_opening',
-       //     data: {
-       //         team_id: id,
-       //         role: role
-       //     }
-       // }).then(function successCallback(response) {
-       //
-       //    // console.log(response);
-       //
-       // }, function errorCallback(response) {
-       ////
-       //     console.log(response);
-       //     // called asynchronously if an error occurs
-       //     // or server returns response with an error status.
-       // });
-
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
         http.put(
@@ -269,33 +227,13 @@ function TeamService($http,sessionService) {
         );
     };
 
-
     service.editAdvertisedRole = function (id, role, newRole) {
 
         var roles = service.getAdvertisedRoles(id);
         var index = roles.indexOf(role);
         var value = roles[index].id;
-    //    console.log(newRole);
 
         roles[index].role = newRole;
-
-      //  $http({
-      //      method: 'POST',
-      //      url: 'http://localhost:3000/update/' + newRole + "/" + value,
-      //      data: {
-      //
-      //          role: newRole
-      //      }
-      //  }).then(function successCallback(response) {
-      //
-      ////      console.log('role updated');
-      //
-      //  }, function errorCallback(response) {
-      //
-      //      console.log(response);
-      //      // called asynchronously if an error occurs
-      //      // or server returns response with an error status.
-      //  });
 
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
@@ -313,13 +251,7 @@ function TeamService($http,sessionService) {
             }
         );
 
-        //console.log(roles[index]);
-        //console.log(id);
-        //console.log(role);
-        //console.log(roles[index]);
-
     };
-
 
     service.addMember = function (teamId, personId, role) {
 
@@ -328,25 +260,6 @@ function TeamService($http,sessionService) {
             "team_id": teamId,
             "role": role
         });
-
-        //$http({
-        //    method: 'PUT',
-        //    url: 'http://localhost:3000/create_membership',
-        //    data: {
-        //        person_id: personId,
-        //        team_id: teamId,
-        //        role: role
-        //    }
-        //}).then(function successCallback(response) {
-        //
-        //    console.log('role added');
-        //
-        //}, function errorCallback(response) {
-        //
-        //    console.log(response);
-        //    // called asynchronously if an error occurs
-        //    // or server returns response with an error status.
-        //});
 
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
@@ -365,7 +278,6 @@ function TeamService($http,sessionService) {
                 console.log("Error: " + errorCode);
             }
         );
-
 
     };
 

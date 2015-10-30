@@ -114,35 +114,14 @@ function PeopleService($http,sessionService) {
 
     service.addTeamMembershipApplication = function (role, teamId, personId) {
 
-       // var rolesApplied = service.getRolesApplied(personId);
 
-        console.log(personId);
+   //     console.log(personId);
 
       service.applications.push({
           person_id: personId,
             "team_id": teamId,
             "role": role.role
         });
-        //
-        //$http({
-        //    method: 'PUT',
-        //    url: 'http://localhost:3000/create_application',
-        //    data: {
-        //        person_id: personId,
-        //        role: role.role,
-        //        team_id: teamId
-        //    }
-        //}).then(function successCallback(response) {
-        //
-        //    //console.log('application added');
-        //
-        //}, function errorCallback(response) {
-        //
-        //    console.log(response);
-        //    // called asynchronously if an error occurs
-        //    // or server returns response with an error status.
-        //});
-
 
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
@@ -168,22 +147,12 @@ function PeopleService($http,sessionService) {
 
     service.removeTeamMembershipApplications = function (application) {
 
-
-
-        //var rolesApplied = service.getRolesApplied(personId);
-
-        // console.log(index);
-
-       // console.log(service.applications);
-        //console.log(application);
         var index = service.applications.indexOf(application);
 
-        //console.log(index);
+
         var value = service.applications[index].id;
         var id = service.applications[index].opening_id;
 
-
-//        console.log(service.applications);
 
         service.applications.forEach(function (application) {
 
@@ -191,22 +160,6 @@ function PeopleService($http,sessionService) {
             if (application.opening_id === id) {
                 index = service.applications.indexOf(application);
                 value = service.applications[index].id;
-                //
-                //$http({
-                //    method: 'DELETE',
-                //    url: 'http://localhost:3000/delete_application/' + value
-                //
-                //}).then(function successCallback(response) {
-                //
-                //    console.log('application deleted');
-                //
-                //
-                //}, function errorCallback(response) {
-                //
-                //    console.log(response);
-                //    // called asynchronously if an error occurs
-                //    // or server returns response with an error status.
-                //});
 
                 var http = new HttpInteractor();
                 http.setSecret(sessionService.token);

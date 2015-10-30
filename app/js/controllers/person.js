@@ -10,7 +10,11 @@ function PersonController($http, $stateParams, peopleService, teamService) {
     // ViewModel
     var vm = this;
 
-
+    vm.person="";
+    vm.personId="";
+    vm.currentUserName="";
+    vm.teams="";
+    vm.allTeams="";
 
     // console.log("personController");
 
@@ -45,31 +49,7 @@ function PersonController($http, $stateParams, peopleService, teamService) {
         return teamService.getYoutubeLink(video);
 
     };
-
-    //vm.updateAdvertisedRoles = function () {
-    //
-    //    console.log("updateAdvertisedRoles");
-    //
-    //    //$http({
-    //    //    method: 'GET',
-    //    //    url: 'http://localhost:3000/'
-    //    //}).then(function successCallback(response) {
-    //    //
-    //    //    //console.log(response.data.teams);
-    //    //
-    //    //    teamService.loadCache(response.data.teams);
-    //    //
-    //    //
-    //    //}, function errorCallback(response) {
-    //    //   // console.log(response);
-    //    //    // console.log("fail"  );
-    //    //    // called asynchronously if an error occurs
-    //    //    // or server returns response with an error status.
-    //    //});
-    //
-    //};
-
-
+    
     vm.getAdvertisedRoles = function (id) {
 
       //  console.log(teamService.getAdvertisedRoles(id))
@@ -98,8 +78,6 @@ function PersonController($http, $stateParams, peopleService, teamService) {
             vm.currentUserName = peopleService.getFullName(vm.personId);
             vm.teams = teamService.getTeamsOfUser(vm.personId);
             vm.allTeams = teamService.getAllTeams();
-            //console.log(vm.allTeams);
-           // vm.rolesApplied = peopleService.getRolesApplied(vm.personId);
 
         }
     }
