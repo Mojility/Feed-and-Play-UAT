@@ -115,6 +115,8 @@ function PeopleService($http) {
 
        // var rolesApplied = service.getRolesApplied(personId);
 
+        console.log(personId);
+
       service.applications.push({
           person_id: personId,
             "team_id": teamId,
@@ -139,6 +141,8 @@ function PeopleService($http) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
         });
+
+
 
 
     };
@@ -177,6 +181,7 @@ function PeopleService($http) {
                 }).then(function successCallback(response) {
 
                     console.log('application deleted');
+                 
 
                 }, function errorCallback(response) {
 
