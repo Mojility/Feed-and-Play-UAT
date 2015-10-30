@@ -259,7 +259,9 @@ function TeamService($http,sessionService) {
                 role: role
             },
             function(data) {
-                //loadCaches(data);
+                //loadCaches(data.opening);
+           //     console.log(data);
+                service.setOpenings(data.opening);
                 console.log('opening added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
@@ -304,6 +306,7 @@ function TeamService($http,sessionService) {
             },
             function(data) {
                 //loadCaches(data);
+                service.setOpenings(data.opening);
                 console.log('opening updated');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
@@ -356,6 +359,7 @@ function TeamService($http,sessionService) {
             },
             function(data) {
                 //loadCaches(data);
+                service.setMemberships(data.memberships);
                 console.log('member added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);

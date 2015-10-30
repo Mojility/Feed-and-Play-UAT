@@ -155,6 +155,8 @@ function PeopleService($http,sessionService) {
             },
             function(data) {
                 //loadCaches(data);
+                //console.log(data);
+                service.setApplications(data.application);
                 console.log('application added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
