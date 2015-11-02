@@ -3,7 +3,14 @@
 <br>
 <span ng-if="person.personIsNotEmpty()">
 
+  <form>
     <input id="file" type="file">
+    <input type="submit" ng-click="person.userClickedUploadButton()" value="upload"/>
+  </form>
+
+
+<!-- {{person.avatar}} -->
+<img ng-src="{{person.avatar|trusted}}"/>
 
 Name: {{person.currentUserName}}
     <br><br>
@@ -50,4 +57,3 @@ Videos:
     </div>
 
 </span>
-

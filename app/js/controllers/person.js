@@ -49,7 +49,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
         return teamService.getYoutubeLink(video);
 
     };
-    
+
     vm.getAdvertisedRoles = function (id) {
 
       //  console.log(teamService.getAdvertisedRoles(id))
@@ -66,11 +66,13 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     };
 
     vm.userClickedUploadButton = function() {
+        console.log("userClickedUploadButton")
+        console.log(vm.personId);
         var customerHeaders =[['X-Auth-Token', sessionService.token]];
         uiUploader.startUpload({
-            url: "http://localhost:3000/wherever_you_put_that_new_upload_controller_method",
+            url: "http://localhost:3000/upload/" + vm.personId,
             concurrency: 2,
-            data: { id: vm.personId },
+            // data: { id: vm.personId },
             customHeaders: customerHeaders,
             onProgress: function(file) {
                 console.log(file);
@@ -82,6 +84,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
                 console.log("All files completed.");
             }
         });
+
     };
 
 
@@ -95,9 +98,16 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
             // vm.updateAdvertisedRoles();
             vm.personId        = vm.person.id;
             vm.currentUserName = peopleService.getFullName(vm.personId);
-            vm.teams           = teamService.getTeamsOfUser(vm.personId);
-            vm.allTeams        = teamService.getAllTeams();
+
+
+            vm.teams = teamService.getTeamsOfUser(vm.personId);
+            vm.allTeams = teamService.getAllTeams();
+            vm.avatar = vm.person.avatar.avatar.url;
+            console.log(vm.avatar);
+
+
         }
+
     }
 
     function initializeUploadFileField() {

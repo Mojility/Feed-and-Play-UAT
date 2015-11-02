@@ -46,6 +46,7 @@ function LoginInteractor(sessionService, peopleService, teamService) {
     }
 
     function loadCaches(data) {
+    //  console.log(data.person);
         sessionService.initialize(interactor.token, interactor.person);
 
         peopleService.loadCache([interactor.person]);
