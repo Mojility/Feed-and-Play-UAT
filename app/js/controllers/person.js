@@ -86,19 +86,31 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
 
     // initialization code can go here, to get executed when the controller is created for a view
-    function initialize() {
+    function initializeCurrentPerson() {
         vm.person = peopleService.getPerson($stateParams.id);
         //console.log(vm.person);
-       // peopleService.setCurrentUserId(vm.person.id);
+        // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {
-           // vm.updateAdvertisedRoles();
-            vm.personId = vm.person.id;
+            // vm.updateAdvertisedRoles();
+            vm.personId        = vm.person.id;
             vm.currentUserName = peopleService.getFullName(vm.personId);
-            vm.teams = teamService.getTeamsOfUser(vm.personId);
-            vm.allTeams = teamService.getAllTeams();
-
+            vm.teams           = teamService.getTeamsOfUser(vm.personId);
+            vm.allTeams        = teamService.getAllTeams();
         }
+    }
+
+    function initializeUploadFileField() {
+        var el = document.getElementById("file");
+        el.addEventListener("change", function(event) {
+            var files = event.target.files;
+            uiUploader.addFiles(files);
+        });
+    }
+
+    function initialize() {
+        initializeCurrentPerson();
+        initializeUploadFileField();
     }
 
     initialize();
