@@ -4,6 +4,8 @@ var angular = require('angular');
 
 // angular modules
 require('angular-ui-router');
+require('angular-ui-uploader');
+
 require('./templates');
 require('./controllers/_index');
 require('./services/_index');
@@ -14,13 +16,12 @@ angular.element(document).ready(function() {
 
   var requires = [
     'ui.router',
+    'ui.uploader',
     'templates',
     'app.controllers',
     'app.services',
     'app.directives'
   ];
-
-
 
   // mount on window for testing
   window.app = angular.module('app', requires);

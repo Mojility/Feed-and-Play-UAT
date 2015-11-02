@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function PersonController($http, $stateParams, peopleService, teamService) {
+function PersonController($http, $stateParams, uiUploader, peopleService, teamService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -65,6 +65,25 @@ function PersonController($http, $stateParams, peopleService, teamService) {
         //teamService.deleteAdvertisedRole(teamId, role);
     };
 
+    vm.userClickedUploadButton = function() {
+        var customerHeaders =[['X-Auth-Token', sessionService.token]];
+        uiUploader.startUpload({
+            url: "http://localhost:3000/wherever_you_put_that_new_upload_controller_method",
+            concurrency: 2,
+            data: { id: vm.personId },
+            customHeaders: customerHeaders,
+            onProgress: function(file) {
+                console.log(file);
+            },
+            onCompleted: function(file, response) {
+                console.log("Completed: " + file.name);
+            },
+            onCompletedAll: function(files) {
+                console.log("All files completed.");
+            }
+        });
+    };
+
 
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
@@ -86,4 +105,4 @@ function PersonController($http, $stateParams, peopleService, teamService) {
 
 }
 
-controllersModule.controller('PersonController', ['$http', '$stateParams', 'PeopleService', 'TeamService', PersonController]);
+controllersModule.controller('PersonController', ['$http', '$stateParams', 'uiUploader', 'PeopleService', 'TeamService', 'SessionService', PersonController]);
