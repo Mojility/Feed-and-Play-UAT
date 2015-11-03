@@ -1,0 +1,18 @@
+Teams Looking For People
+ <br> <br>
+
+
+
+<div ng-repeat="team in open.allTeams">
+
+
+    Team Name: {{team.name}}
+    <ol>
+        Role(s):
+        <li ng-repeat="role in open.getAdvertisedRoles(team.id)">
+
+            {{ role.role }}
+        </li>
+    </ol>
+
+</div>

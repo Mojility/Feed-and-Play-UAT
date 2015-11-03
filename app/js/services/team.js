@@ -58,7 +58,8 @@ function TeamService($http,sessionService) {
 
     service.getAllTeams = function () {
 
-        //console.log( service.cache);
+
+        console.log( service.cache);
         return Object.keys(service.cache).map(function (p) {
             //console.log(service.cache[p]);
             return service.cache[p];

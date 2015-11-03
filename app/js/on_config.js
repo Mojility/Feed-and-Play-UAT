@@ -37,6 +37,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             controller: 'PersonController as person',
             templateUrl: 'profile_edit.html',
             title: 'Profile Edit'
+        })
+        .state('open_positions', {
+            url: '/open_positions',
+            controller: 'OpenController as open',
+            templateUrl: 'open_positions.html',
+            title: 'open positions'
         });
 
 
