@@ -1,14 +1,14 @@
 <h1>Person View</h1>
 
 <br>
-<span ng-if="person.personIsNotEmpty()">
+
 
   <form>
     <input id="file" type="file">
     <input type="submit" ng-click="person.userClickedUploadButton()" value="upload"/>
   </form>
 
-
+<span ng-if="person.personIsNotEmpty()">
 <!-- {{person.avatar}} -->
 <img ng-src="{{person.avatar|trusted}}"/>
 
