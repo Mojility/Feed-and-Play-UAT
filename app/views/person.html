@@ -2,35 +2,8 @@
 
 <br>
 
-update profile
-<br><br>
 
-<form>
-  first  name: <input type="text" ng-model="person.newFirstName">
-  <span ng-if="person.firstNameEnabled()">
-    <input type="submit" ng-click="person.updateFirstName()" value="update"/>
- </span>
-</form>
 
-<form>
-  last  name: <input type="text" ng-model="person.newLastName">
-  <span ng-if="person.lastNameEnabled()">
-    <input type="submit" ng-click="person.updateLastName()" value="update"/>
- </span>
-</form>
-
-<form>
-    email: <input type="text" ng-model="person.newEmail">
-  <span ng-if="person.emailEnabled()">
-    <input type="submit" ng-click="person.updateEmail()" value="update"/>
- </span>
-</form>
-<form>
-    password: <input type="password" ng-model="person.newPassword">
-  <span ng-if="person.passwordEnabled()">
-    <input type="submit" ng-click="person.updatePassword()" value="update"/>
-  </span>
-</form>
 <br>
   <form>
     <input id="file" type="file">
@@ -38,6 +11,8 @@ update profile
   </form>
 <br>
 <span ng-if="person.personIsNotEmpty()">
+
+  <a href="/profile_edit/{{person.personId}}"> edit profile </a>
 <!-- {{person.avatar}} -->
 <img ng-src="{{person.avatar|trusted}}"/>
 

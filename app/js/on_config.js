@@ -30,7 +30,13 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             url: '/login',
             controller: 'LoginController as login',
             templateUrl: 'login.html',
-            title: 'Person'
+            title: 'Login'
+        })
+        .state('profile_edit', {
+            url: '/profile_edit/:id',
+            controller: 'PersonController as person',
+            templateUrl: 'profile_edit.html',
+            title: 'Profile Edit'
         });
 
 

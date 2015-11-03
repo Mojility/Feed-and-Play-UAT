@@ -151,6 +151,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     // initialization code can go here, to get executed when the controller is created for a view
     function initializeCurrentPerson() {
+
         vm.person = peopleService.getPerson($stateParams.id);
         //console.log(vm.person);
         // peopleService.setCurrentUserId(vm.person.id);
@@ -158,13 +159,14 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
         if (vm.person !== undefined) {
             // vm.updateAdvertisedRoles();
             vm.personId        = vm.person.id;
+
             vm.currentUserName = peopleService.getFullName(vm.personId);
 
 
             vm.teams = teamService.getTeamsOfUser(vm.personId);
             vm.allTeams = teamService.getAllTeams();
             vm.avatar = vm.person.avatar.avatar.url;
-            console.log(vm.avatar);
+        //    console.log(vm.avatar);
 
 
         }
