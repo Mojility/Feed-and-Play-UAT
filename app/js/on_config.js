@@ -43,6 +43,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             controller: 'OpenController as open',
             templateUrl: 'open_positions.html',
             title: 'open positions'
+        })
+        .state('team_management', {
+            url: '/team_management/:id',
+            controller: 'TeamController as team',
+            templateUrl: 'team_management.html',
+            title: 'team management'
         });
 
 

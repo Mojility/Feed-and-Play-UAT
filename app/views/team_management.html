@@ -1,0 +1,63 @@
+<h1>Team Management</h1>
+
+Looking for team roles:
+
+
+<br>
+<table>
+    <thead>
+    <th>Role</th>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="role in team.lookingForRoles">
+        <td> {{role.role}}</td>
+
+        <td>
+            <button ng-click="team.deleteAdvertisedRole(role)">remove</button>
+        </td>
+        <td>
+            <form>
+                <input type="text" ng-model="team.editRole">
+        <span ng-if="team.editEnabled()">
+            <input type="submit" ng-click="team.editAdvertisedRole(role)" value="edit"/>
+        </span>
+            </form>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+    <form>
+        Role: <input type="text" ng-model="team.newRole">
+  <span ng-if="team.addEnabled()">
+    <input type="submit" ng-click="team.addAdvertisedRole()" value="add"/>
+ </span>
+    </form>
+
+    <br>
+
+ People Applied For Roles
+
+ <div ng-repeat="application in team.applications">
+
+     <ol>
+
+          <span ng-if="team.getOpening(application.opening_id).team_id == team.teamId">
+
+              {{team.getFirstName(application.person_id)}}
+
+              role: {{team.getOpening(application.opening_id).role}}
+              <input type="submit"
+                     ng-click="team.acceptApplicant(application,application.person_id)"
+                     value="accept"/>
+              <input type="submit"
+                     ng-click="team.rejectApplicant(application,application.person_id)"
+                     value="reject"/>
+              <!--{{application}}-->
+          </span>
+
+     </ol>
+
+ </div>
