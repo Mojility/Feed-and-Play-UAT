@@ -9,6 +9,10 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     // ViewModel
     var vm = this;
+    vm.newFirstName = "";
+    vm.newLastName = "";
+    vm.newEmail = "";
+    vm.newPassword = "";
 
     vm.person="";
     vm.personId="";
@@ -18,8 +22,65 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     // console.log("personController");
 
+
     vm.personIsNotEmpty = function () {
         return vm.person !== null;
+    };
+
+    vm.firstNameEnabled = function () {
+
+        if (vm.newFirstName !== "") {
+            return true;
+        }
+    };
+
+    vm.lastNameEnabled = function () {
+
+        if (vm.newLastName !== "") {
+            return true;
+        }
+    };
+
+    vm.emailEnabled = function () {
+
+        if (vm.newEmail !== "") {
+            return true;
+        }
+    };
+
+    vm.passwordEnabled = function () {
+
+        if (vm.newPassword !== "") {
+            return true;
+        }
+    };
+
+    vm.updateFirstName = function() {
+
+      peopleService.updateFirstName(vm.personId, vm.newFirstName);
+      vm.newFirstName = "";
+
+    };
+
+    vm.updateLastName = function() {
+
+      peopleService.updateLastName(vm.personId, vm.newLastName);
+      vm.newLastName = "";
+
+    };
+
+    vm.updateEmail = function() {
+
+      peopleService.updateEmail(vm.personId, vm.newEmail);
+      vm.newEmail = "";
+
+    };
+
+    vm.updatePassword = function() {
+
+      peopleService.updatePassword(vm.personId, vm.newPassword);
+      vm.newPassword = "";
+
     };
 
     vm.getTeamRole = function (teamId) {

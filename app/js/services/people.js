@@ -51,6 +51,8 @@ function PeopleService($http,sessionService) {
 
     };
 
+
+
     service.setCurrentUserId = function (id) {
 
         service.currentUserId = id;
@@ -85,6 +87,96 @@ function PeopleService($http,sessionService) {
         });
 
         return userId;
+    };
+
+
+    service.updateFirstName = function (personId, newFirstName) {
+
+
+       var http = new HttpInteractor();
+       http.setSecret(sessionService.token);
+       http.post(
+           'http://localhost:3000/updateFirstName/' + newFirstName + "/" + personId,
+           {
+              //  name: newFirstName
+           },
+           function(data) {
+               //loadCaches(data);
+            //   service.setOpenings(data.opening);
+               console.log('first name updated');
+           }, function(errorCode) {
+               console.log("Error: " + errorCode);
+           }
+       );
+
+
+    };
+
+    service.updateLastName = function (personId, newLastName) {
+
+        console.log(personId);
+
+       var http = new HttpInteractor();
+       http.setSecret(sessionService.token);
+       http.post(
+           'http://localhost:3000/updateLastName/' + newLastName + "/" + personId,
+           {
+              //  name: newFirstName
+           },
+           function(data) {
+               //loadCaches(data);
+            //   service.setOpenings(data.opening);
+               console.log('last name updated');
+           }, function(errorCode) {
+               console.log("Error: " + errorCode);
+           }
+       );
+
+
+    };
+
+    service.updateEmail = function (personId, newEmail) {
+
+
+       var http = new HttpInteractor();
+       http.setSecret(sessionService.token);
+       http.post(
+           'http://localhost:3000/updateEmail/' + newEmail + "/" + personId,
+           {
+              //  name: newFirstName
+           },
+           function(data) {
+               //loadCaches(data);
+            //   service.setOpenings(data.opening);
+               console.log('email updated');
+           }, function(errorCode) {
+               console.log("Error: " + errorCode);
+           }
+       );
+
+
+    };
+
+    service.updatePassword = function (personId, newPassword) {
+
+console.log("hello");
+       var http = new HttpInteractor();
+       http.setSecret(sessionService.token);
+       http.post(
+           'http://localhost:3000/updatePassword/' + newPassword + "/" + personId,
+           {
+              //  name: newFirstName
+           },
+           function(data) {
+               //loadCaches(data);
+            //   service.setOpenings(data.opening);
+               console.log('password updated');
+           }, function(errorCode) {
+               console.log("Error: " + errorCode);
+           }
+       );
+
+
     };
 
     service.setApplications = function (applications) {
