@@ -20,9 +20,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     vm.teams="";
     vm.allTeams="";
 
-    // console.log("personController");
-
-
+    // console.log("personController");  vm.allTeams = teamService.getAllTeams();
     vm.personIsNotEmpty = function () {
         return vm.person !== null;
     };
@@ -166,7 +164,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
             vm.teams = teamService.getTeamsOfUser(vm.personId);
             vm.allTeams = teamService.getAllTeams();
             vm.avatar = vm.person.avatar.avatar.url;
-        //    console.log(vm.avatar);
+        //      console.log(vm.avatar);
 
 
         }
