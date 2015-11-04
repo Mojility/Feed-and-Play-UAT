@@ -14,8 +14,10 @@
 <span ng-if="person.personIsNotEmpty()">
 
   <a href="/profile_edit/{{person.personId}}"> edit profile </a>
-<!-- {{person.avatar}} -->
-<img ng-src="{{person.avatar|trusted}}"/>
+  <br><br>
+<!-- http://localhost:3000/{{person.avatar}} -->
+<img ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
+<br><br>
 
 Name: {{person.currentUserName}}
     <br><br>
@@ -43,7 +45,7 @@ Videos:
 
 </div>
 
-  
+
      <br> <br>
 
 
