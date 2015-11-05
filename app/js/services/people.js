@@ -206,14 +206,14 @@ console.log("hello");
 
     service.addTeamMembershipApplication = function (role, teamId, personId) {
 
-
+  console.log(service.applications);
    //     console.log(personId);
 
-      service.applications.push({
-          person_id: personId,
-            "team_id": teamId,
-            "role": role.role
-        });
+      // service.applications.push({
+      //     person_id: personId,
+      //       "team_id": teamId,
+      //       "role": role.role
+      //   });
 
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
@@ -227,8 +227,12 @@ console.log("hello");
             function(data) {
                 //loadCaches(data);
                 //console.log(data);
-                service.setApplications(data.application);
-                //console.log('application added');
+                // service.setApplications(data.application);
+                console.log(data.application);
+                service.applications.push(
+                  data.application
+                  );
+
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
             }

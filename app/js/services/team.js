@@ -244,8 +244,8 @@ function TeamService($http,sessionService) {
                 role: newRole
             },
             function(data) {
-                //loadCaches(data);
-                service.setOpenings(data.opening);
+              //  loadCaches(data.opening);
+                service.openings.push(data.openings)
                 //console.log('opening updated');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
@@ -256,11 +256,11 @@ function TeamService($http,sessionService) {
 
     service.addMember = function (teamId, personId, role) {
 
-        service.memberships.push({
-            "person_id": personId,
-            "team_id": teamId,
-            "role": role
-        });
+        // service.memberships.push({
+        //     "person_id": personId,
+        //     "team_id": teamId,
+        //     "role": role
+        // });
 
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
@@ -273,7 +273,8 @@ function TeamService($http,sessionService) {
             },
             function(data) {
                 //loadCaches(data);
-                service.setMemberships(data.memberships);
+                service.memberships.push(data.membership);
+
                 //console.log('member added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
