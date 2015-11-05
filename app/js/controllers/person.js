@@ -125,7 +125,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     };
 
     vm.userClickedUploadButton = function() {
-        console.log("userClickedUploadButton")
+        // console.log("userClickedUploadButton")
         console.log(vm.personId);
         var customerHeaders =[['X-Auth-Token', sessionService.token]];
         uiUploader.startUpload({
