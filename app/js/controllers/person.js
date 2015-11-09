@@ -53,33 +53,39 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
         }
     };
 
-    vm.updateFirstName = function() {
+    // vm.updateFirstName = function() {
+    //
+    //   peopleService.updateFirstName(vm.personId, vm.newFirstName);
+    //   vm.newFirstName = "";
+    //
+    // };
+    //
+    // vm.updateLastName = function() {
+    //
+    //   peopleService.updateLastName(vm.personId, vm.newLastName);
+    //   vm.newLastName = "";
+    //
+    // };
+    //
+    // vm.updateEmail = function() {
+    //
+    //   peopleService.updateEmail(vm.personId, vm.newEmail);
+    //   vm.newEmail = "";
+    //
+    // };
+    //
+    // vm.updatePassword = function() {
+    //
+    //   peopleService.updatePassword(vm.personId, vm.newPassword);
+    //   vm.newPassword = "";
+    //
+    // };
 
-      peopleService.updateFirstName(vm.personId, vm.newFirstName);
-      vm.newFirstName = "";
+    vm.updatePerson = function() {
 
-    };
+      peopleService.updatePerson(vm.personId, vm.password,vm.firstName, vm.lastName, vm.email)
 
-    vm.updateLastName = function() {
-
-      peopleService.updateLastName(vm.personId, vm.newLastName);
-      vm.newLastName = "";
-
-    };
-
-    vm.updateEmail = function() {
-
-      peopleService.updateEmail(vm.personId, vm.newEmail);
-      vm.newEmail = "";
-
-    };
-
-    vm.updatePassword = function() {
-
-      peopleService.updatePassword(vm.personId, vm.newPassword);
-      vm.newPassword = "";
-
-    };
+    }
 
     vm.getTeamRole = function (teamId) {
 
@@ -151,7 +157,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     function initializeCurrentPerson() {
 
         vm.person = peopleService.getPerson($stateParams.id);
-        //console.log(vm.person);
+      //  console.log(vm.person);
         // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {
@@ -159,7 +165,10 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
             vm.personId        = vm.person.id;
 
             vm.currentUserName = peopleService.getFullName(vm.personId);
-
+            vm.firstName = vm.person.first_name;
+            vm.lastName = vm.person.last_name;
+            vm.password = vm.person.password;
+            vm.email = vm.person.email
 
             vm.teams = teamService.getTeamsOfUser(vm.personId);
             vm.allTeams = teamService.getAllTeams();
