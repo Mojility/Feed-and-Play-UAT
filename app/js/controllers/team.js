@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function TeamController($stateParams, teamService, peopleService) {
+function TeamController($stateParams, teamService, peopleService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -115,10 +115,33 @@ function TeamController($stateParams, teamService, peopleService) {
 
     };
 
+
+    vm.isPartOfTeam = function() {
+
+      // console.log(vm.teamMembers);
+      var found;
+     vm.teamMembers.forEach (function (member) {
+      //console.log(member);
+      //  console.log(member);
+
+       if (sessionService.person.id === member ){
+
+         found =  true;
+       }
+       else {
+        // console.log("wrong user");
+       }
+
+     });
+
+      return found;
+
+    };
+
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.team = teamService.getTeam($stateParams.id);
-        
+
         if (vm.team !== undefined) {
             vm.teamName = vm.team.name;
             vm.teamId = vm.team.id;
@@ -138,4 +161,4 @@ function TeamController($stateParams, teamService, peopleService) {
 
 }
 
-controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', TeamController]);
+controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', 'SessionService', TeamController]);

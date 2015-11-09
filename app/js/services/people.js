@@ -201,7 +201,7 @@ function PeopleService($http,sessionService) {
          );
 
 
-    }
+    };
 
     service.setApplications = function (applications) {
 

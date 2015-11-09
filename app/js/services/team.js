@@ -245,7 +245,7 @@ function TeamService($http,sessionService) {
             },
             function(data) {
               //  loadCaches(data.opening);
-                service.openings.push(data.openings)
+                service.openings.push(data.openings);
                 //console.log('opening updated');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);

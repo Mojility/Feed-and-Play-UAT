@@ -83,9 +83,9 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     vm.updatePerson = function() {
 
-      peopleService.updatePerson(vm.personId, vm.password,vm.firstName, vm.lastName, vm.email)
+      peopleService.updatePerson(vm.personId, vm.password,vm.firstName, vm.lastName, vm.email);
 
-    }
+    };
 
     vm.getTeamRole = function (teamId) {
 
@@ -157,22 +157,31 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     function initializeCurrentPerson() {
 
         vm.person = peopleService.getPerson($stateParams.id);
-      //  console.log(vm.person);
+
         // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {
             // vm.updateAdvertisedRoles();
-            vm.personId        = vm.person.id;
+            console.log(vm.person.id);
+            console.log(sessionService.person.id);
+            if (sessionService.person.id === vm.person.id) {
+              vm.personId = vm.person.id;
 
-            vm.currentUserName = peopleService.getFullName(vm.personId);
-            vm.firstName = vm.person.first_name;
-            vm.lastName = vm.person.last_name;
-            vm.password = vm.person.password;
-            vm.email = vm.person.email
+              vm.currentUserName = peopleService.getFullName(vm.personId);
+              vm.firstName = vm.person.first_name;
+              vm.lastName = vm.person.last_name;
+              vm.password = vm.person.password;
+              vm.email = vm.person.email;
 
-            vm.teams = teamService.getTeamsOfUser(vm.personId);
-            vm.allTeams = teamService.getAllTeams();
-            vm.avatar = vm.person.avatar.avatar.url;
+              vm.teams = teamService.getTeamsOfUser(vm.personId);
+              vm.allTeams = teamService.getAllTeams();
+              vm.avatar = vm.person.avatar.avatar.url;
+
+
+            }  else {
+
+            console.log("wrong user");
+            }
         //      console.log(vm.avatar);
 
 
