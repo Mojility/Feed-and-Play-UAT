@@ -24,12 +24,18 @@ videos:
 
         <iframe width="280" height="157" ng-src="{{team.getYoutubeLink(video.youtube_link)|trusted}}" frameborder="0"
                 allowfullscreen></iframe>
-                <br>
-                {{video.votes}}
-                  <br>
-        thumbs up
         <br>
-        thumbs down
+        votes:
+        {{video.votes}}
+        <br>
+      
+        <input type="submit"
+               ng-click="team.thumbsUp(video)"
+               value="thumbs up"/>
+        <br>
+        <input type="submit"
+               ng-click="team.thumbsDown(video)"
+               value="thumbs down"/>
     </li>
 </ol>
 Looking for team roles:

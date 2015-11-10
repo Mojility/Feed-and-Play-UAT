@@ -138,6 +138,21 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     };
 
+    vm.thumbsUp = function(video) {
+
+        video.votes++;
+        teamService.updateVotes(video);
+      //  console.log("test");
+
+    };
+
+    vm.thumbsDown = function(video) {
+
+        video.votes--;
+        teamService.updateVotes(video);
+
+    };
+
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.team = teamService.getTeam($stateParams.id);

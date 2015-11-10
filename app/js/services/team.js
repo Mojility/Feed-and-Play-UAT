@@ -257,12 +257,6 @@ function TeamService($http,sessionService) {
 
     service.addMember = function (teamId, personId, role) {
 
-        // service.memberships.push({
-        //     "person_id": personId,
-        //     "team_id": teamId,
-        //     "role": role
-        // });
-
         var http = new HttpInteractor();
         http.setSecret(sessionService.token);
         http.put(
@@ -283,6 +277,33 @@ function TeamService($http,sessionService) {
         );
 
     };
+
+    service.updateVotes = function (video) {
+
+
+
+      var http = new HttpInteractor();
+      http.setSecret(sessionService.token);
+      http.post(
+          'http://localhost:3000/updateVotes',
+          {
+                    id: video.id,
+                    votes: video.votes
+          },
+          function(data) {
+              //loadCaches(data);
+            //  service.memberships.push(data.membership);
+
+          //    console.log('votes updated');
+          }, function(errorCode) {
+              console.log("Error: " + errorCode);
+          }
+      );
+
+
+    };
+
+
 
     return service;
 
