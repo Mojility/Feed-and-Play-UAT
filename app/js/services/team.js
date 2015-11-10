@@ -221,6 +221,7 @@ function TeamService($http,sessionService) {
                 //loadCaches(data.opening);
            //     console.log(data);
                 service.setOpenings(data.opening);
+                console.log(data.opening);
                 console.log('opening added');
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
