@@ -1,7 +1,7 @@
 <h1>update profile</h1>
 <br><br>
-
-{{person.currentUserName}}
+{{person.validUser}}
+<span ng-if="person.validUser">
 
 <br><br>
 <form>
@@ -16,6 +16,8 @@
   <input type="submit" ng-click="person.updatePerson()" value="update"/>
 </form>
 <br>
+
+</span>
 <form>
   <input id="file" type="file">
   <input type="submit" ng-click="person.userClickedUploadButton()" value="upload"/>

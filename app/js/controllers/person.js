@@ -14,11 +14,14 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     vm.newEmail = "";
     vm.newPassword = "";
 
+    vm.validUser = false;
+
     vm.person="";
     vm.personId="";
     vm.currentUserName="";
     vm.teams="";
     vm.allTeams="";
+    vm.avatar = '';
 
     // console.log("personController");  vm.allTeams = teamService.getAllTeams();
     vm.personIsNotEmpty = function () {
@@ -162,9 +165,12 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
         if (vm.person !== undefined) {
             // vm.updateAdvertisedRoles();
-            console.log(vm.person.id);
-            console.log(sessionService.person.id);
+            // console.log(vm.person.id);
+            // console.log(sessionService.person.id);
             if (sessionService.person.id === vm.person.id) {
+                 vm.validUser = true
+                 console.log("valid");
+            }
               vm.personId = vm.person.id;
 
               vm.currentUserName = peopleService.getFullName(vm.personId);
@@ -178,10 +184,10 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
               vm.avatar = vm.person.avatar.avatar.url;
 
 
-            }  else {
-
-            console.log("wrong user");
-            }
+            // }  else {
+            //
+            // console.log("wrong user");
+            // }
         //      console.log(vm.avatar);
 
 
