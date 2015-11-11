@@ -140,16 +140,28 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     vm.thumbsUp = function(video) {
 
-        video.votes++;
-        teamService.updateVotes(video);
+        var value = 1;
+        teamService.updateVotes(video, value );
       //  console.log("test");
 
     };
 
     vm.thumbsDown = function(video) {
 
-        video.votes--;
-        teamService.updateVotes(video);
+        var value = -1;
+        teamService.updateVotes(video, value);
+
+    };
+
+    vm.getScore = function(video) {
+
+      return teamService.getScore(video);
+
+    };
+
+    vm.getNumberOfVotes = function(video) {
+       console.log("number");
+      return teamService.getNumberOfVotes(video);
 
     };
 
