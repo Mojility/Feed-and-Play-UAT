@@ -288,7 +288,7 @@ function TeamService($http,sessionService) {
 
     };
 
-    service.updateVotes = function (video, value) {
+    service.updateVotes = function (video, value, onComplete) {
 
 
 
@@ -304,6 +304,7 @@ function TeamService($http,sessionService) {
           function(data) {
 
               service.votes.push(data.vote);
+              onComplete();
 
 
           }, function(errorCode) {
@@ -335,7 +336,7 @@ function TeamService($http,sessionService) {
    service.getNumberOfVotes = function(video) {
 
      var value = 0;
-            console.log("number");
+
      service.votes.forEach(function (vote) {
         // console.log(vote.video_id);
          if (vote.video_id === video.id) {

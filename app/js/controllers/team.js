@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function TeamController($stateParams, teamService, peopleService, sessionService) {
+function TeamController($scope, $stateParams, teamService, peopleService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -141,7 +141,9 @@ function TeamController($stateParams, teamService, peopleService, sessionService
     vm.thumbsUp = function(video) {
 
         var value = 1;
-        teamService.updateVotes(video, value );
+        teamService.updateVotes(video, value, function() {
+          $scope.$apply();
+        });
       //  console.log("test");
 
     };
@@ -149,7 +151,9 @@ function TeamController($stateParams, teamService, peopleService, sessionService
     vm.thumbsDown = function(video) {
 
         var value = -1;
-        teamService.updateVotes(video, value);
+        teamService.updateVotes(video, value,function() {
+          $scope.$apply();
+        });
 
     };
 
@@ -160,7 +164,7 @@ function TeamController($stateParams, teamService, peopleService, sessionService
     };
 
     vm.getNumberOfVotes = function(video) {
-       console.log("number");
+
       return teamService.getNumberOfVotes(video);
 
     };
@@ -188,4 +192,4 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
 }
 
-controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', 'SessionService', TeamController]);
+controllersModule.controller('TeamController', ['$scope', '$stateParams', 'TeamService', 'PeopleService', 'SessionService', TeamController]);
