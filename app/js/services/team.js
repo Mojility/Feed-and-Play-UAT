@@ -9,6 +9,10 @@ function TeamService(mainGateway) {
 
     var service = {};
 
+    service.memberships = null;
+    service.openings = null;
+    service.votes = null;
+
     service.baseYoutubeLink = "https://www.youtube.com/embed/";
 
     service.openings = [];
@@ -34,6 +38,12 @@ function TeamService(mainGateway) {
     service.setOpenings = function (openings) {
 
         service.openings = openings;
+
+    };
+
+    service.setVotes = function (votes) {
+
+        service.votes = votes;
 
     };
 
@@ -197,6 +207,70 @@ function TeamService(mainGateway) {
     service.deleteAdvertisedRole = mainGateway.deleteAdvertisedRole;
     service.editAdvertisedRole = mainGateway.editAdvertisedRole;
     service.addMember = mainGateway.addMember;
+
+    service.updateVotes = function (video, value, onComplete) {
+
+
+
+      var http = new HttpInteractor();
+      http.setSecret(sessionService.token);
+      http.put(
+          'http://localhost:3000/createVotes',
+          {
+                    video_id: video.id,
+                    value: value,
+                    person_id: sessionService.person.id
+          },
+          function(data) {
+
+              service.votes.push(data.vote);
+              onComplete();
+
+
+          }, function(errorCode) {
+              console.log("Error: " + errorCode);
+          }
+      );
+
+
+    };
+
+   service.getScore = function(video) {
+
+     var score = 0;
+
+     service.votes.forEach(function (vote) {
+        // console.log(vote.video_id);
+         if (vote.video_id === video.id) {
+
+             score = score + vote.value;
+
+         };
+
+     });
+      //  console.log(score);
+      return score;
+
+   };
+
+   service.getNumberOfVotes = function(video) {
+
+     var value = 0;
+
+     service.votes.forEach(function (vote) {
+        // console.log(vote.video_id);
+         if (vote.video_id === video.id) {
+
+             value = value + 1;
+
+         };
+
+     });
+      //  console.log(score);
+      return value;
+
+   };
+
 
     return service;
 

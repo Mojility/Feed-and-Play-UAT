@@ -57,6 +57,7 @@ function LoginInteractor(sessionService, peopleService, teamService) {
         teamService.loadCache(data.teams);
         teamService.setMemberships(data.team_memberships);
         teamService.setOpenings(data.openings);
+        teamService.setVotes(data.votes);
 
         interactor.didCompleteFunction(interactor.person.id);
     }

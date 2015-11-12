@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function TeamController($stateParams, teamService, peopleService, sessionService) {
+function TeamController($scope, $stateParams, teamService, peopleService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -138,6 +138,37 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
     };
 
+    vm.thumbsUp = function(video) {
+
+        var value = 1;
+        teamService.updateVotes(video, value, function() {
+          $scope.$apply();
+        });
+      //  console.log("test");
+
+    };
+
+    vm.thumbsDown = function(video) {
+
+        var value = -1;
+        teamService.updateVotes(video, value,function() {
+          $scope.$apply();
+        });
+
+    };
+
+    vm.getScore = function(video) {
+
+      return teamService.getScore(video);
+
+    };
+
+    vm.getNumberOfVotes = function(video) {
+
+      return teamService.getNumberOfVotes(video);
+
+    };
+
     // initialization code can go here, to get executed when the controller is created for a view
     function initialize() {
         vm.team = teamService.getTeam($stateParams.id);
@@ -161,4 +192,4 @@ function TeamController($stateParams, teamService, peopleService, sessionService
 
 }
 
-controllersModule.controller('TeamController', ['$stateParams', 'TeamService', 'PeopleService', 'SessionService', TeamController]);
+controllersModule.controller('TeamController', ['$scope', '$stateParams', 'TeamService', 'PeopleService', 'SessionService', TeamController]);

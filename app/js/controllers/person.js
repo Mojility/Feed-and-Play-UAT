@@ -168,7 +168,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
             // console.log(vm.person.id);
             // console.log(sessionService.person.id);
             if (sessionService.person.id === vm.person.id) {
-                 vm.validUser = true
+                 vm.validUser = true;
                  console.log("valid");
             }
               vm.personId = vm.person.id;

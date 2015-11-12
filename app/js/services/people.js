@@ -194,6 +194,7 @@ function PeopleService($http,sessionService) {
              function(data) {
                  //loadCaches(data);
               //   service.setOpenings(data.opening);
+                  
                  console.log('person updated');
              }, function(errorCode) {
                  console.log("Error: " + errorCode);
@@ -201,7 +202,7 @@ function PeopleService($http,sessionService) {
          );
 
 
-    }; 
+    };
 
     service.setApplications = function (applications) {
 
@@ -230,7 +231,7 @@ function PeopleService($http,sessionService) {
 
     service.addTeamMembershipApplication = function (role, teamId, personId) {
 
-  console.log(service.applications);
+      console.log(service.applications);
    //     console.log(personId);
 
       // service.applications.push({
