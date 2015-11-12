@@ -1,16 +1,18 @@
 'use strict';
 
 var servicesModule = require('./_index.js');
-var HttpInteractor = require('../util/http');
 
 /**
  * @ngInject
  */
-function TeamService($http,sessionService) {
+function TeamService(mainGateway) {
 
     var service = {};
 
     service.baseYoutubeLink = "https://www.youtube.com/embed/";
+
+    service.openings = [];
+
 
     service.cache = {};
     // console.log("teamService");
@@ -179,112 +181,25 @@ function TeamService($http,sessionService) {
 
     };
 
-    service.deleteAdvertisedRole = function (id, role) {
-
-        var index = service.openings.indexOf(role);
-        var value = service.openings[index].id;
-        service.openings.splice(index, 1);
-
-
-        var http = new HttpInteractor();
-        http.setSecret(sessionService.token);
-        http.delete(
-            'http://localhost:3000/delete_opening/' + value,
-            function(data) {
-                //loadCaches(data);
-                //console.log('opening deleted');
-            }, function(errorCode) {
-                console.log( errorCode);
-            }
-        );
-
-    };
-
-    service.addAdvertisedRole = function (id, role) {
-
-        //var roles = service.getAdvertisedRoles(id);
-
+    service.addAdvertisedRole = function(id, role) {
         service.openings.push({
             "team_id": id,
             "role": role
         });
 
-        var http = new HttpInteractor();
-        http.setSecret(sessionService.token);
-        http.put(
-            'http://localhost:3000/create_opening',
-            {
-                team_id: id,
-                role: role
-            },
-            function(data) {
-                //loadCaches(data.opening);
-           //     console.log(data);
-                service.setOpenings(data.opening);
-                console.log('opening added');
-            }, function(errorCode) {
-                console.log("Error: " + errorCode);
-            }
-        );
+        mainGateway.addAdvertisedRole(id, role, service.setOpeningsCallback);
     };
 
-    service.editAdvertisedRole = function (id, role, newRole) {
-
-        var roles = service.getAdvertisedRoles(id);
-        var index = roles.indexOf(role);
-        var value = roles[index].id;
-
-        roles[index].role = newRole;
-
-        var http = new HttpInteractor();
-        http.setSecret(sessionService.token);
-        http.post(
-            'http://localhost:3000/update/' + newRole + "/" + value,
-            {
-                role: newRole
-            },
-            function(data) {
-              //  loadCaches(data.opening);
-                service.openings.push(data.openings);
-                //console.log('opening updated');
-            }, function(errorCode) {
-                console.log("Error: " + errorCode);
-            }
-        );
-
+    service.setOpeningsCallback = function(data) {
+        service.setOpenings(data.opening);
     };
 
-    service.addMember = function (teamId, personId, role) {
-
-        // service.memberships.push({
-        //     "person_id": personId,
-        //     "team_id": teamId,
-        //     "role": role
-        // });
-
-        var http = new HttpInteractor();
-        http.setSecret(sessionService.token);
-        http.put(
-            'http://localhost:3000/create_membership',
-            {
-                        person_id: personId,
-                        team_id: teamId,
-                        role: role
-            },
-            function(data) {
-                //loadCaches(data);
-                service.memberships.push(data.membership);
-
-                //console.log('member added');
-            }, function(errorCode) {
-                console.log("Error: " + errorCode);
-            }
-        );
-
-    };
+    service.deleteAdvertisedRole = mainGateway.deleteAdvertisedRole;
+    service.editAdvertisedRole = mainGateway.editAdvertisedRole;
+    service.addMember = mainGateway.addMember;
 
     return service;
 
 }
 
-servicesModule.service('TeamService', ['$http','SessionService', TeamService]);
+servicesModule.service('TeamService', ['MainGateway', TeamService]);
