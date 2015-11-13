@@ -8,7 +8,7 @@
 <br>
   <form>
     <input id="file" type="file">
-    <input type="submit" ng-click="person.userClickedUploadButton()" value="upload"/>
+    <button class="small" ng-click="person.userClickedUploadButton()"> upload </button>
   </form>
 <br>
 <span ng-if="person.personIsNotEmpty()">
@@ -56,8 +56,8 @@ Videos:
             Role(s):
             <li ng-repeat="role in person.getAdvertisedRoles(team.id)">
 
-                {{ role.role }} <input type="submit" ng-click="person.addTeamMembershipApplication(role,team.id)"
-                                       value="apply"/>
+                {{ role.role }} <button class="small" ng-click="person.addTeamMembershipApplication(role,team.id)">
+                                       apply </button>
             </li>
         </ol>
 

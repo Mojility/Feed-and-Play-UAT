@@ -5,20 +5,26 @@
 
 <br><br>
 <form>
-  first  name: <input type="text" ng-model="person.firstName">
-  <br>
-  last  name: <input type="text" ng-model="person.lastName">
-  <br>
-  email: <input type="text" ng-model="person.email">
-  <br>
-  password: <input type="password" ng-model="person.password">
-  <br>
-  <input type="submit" ng-click="person.updatePerson()" value="update"/>
+  <ol>
+    <li>
+      first  name: <input type="text" ng-model="person.firstName">
+    </li>
+    <li>
+      last  name: <input type="text" ng-model="person.lastName">
+    </li>
+    <li>
+      email: <input type="text" ng-model="person.email">
+    </li>
+    <li>
+      password: <input type="password" ng-model="person.password">
+    </li>
+    <button class="small" ng-click="person.updatePerson()"> update </button>
+  </ol>
 </form>
 <br>
 
 </span>
 <form>
   <input id="file" type="file">
-  <input type="submit" ng-click="person.userClickedUploadButton()" value="upload"/>
+  <button class="small" ng-click="person.userClickedUploadButton()">upload </button>
 </form>
