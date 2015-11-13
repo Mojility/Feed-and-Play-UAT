@@ -2,27 +2,82 @@
 @import 'typography';
 
 body {
-  font-family: Helvetica, sans-serif;
-  color: $font-color--dark;
-  background-color: $background--light;
-  padding: $half-space;
+  font-family:      $default-font;
+  font-size:        $font-size-small;
+  color:            $brightWhite;
+  background-color: $backgroundColour;
+  margin:           0; padding: 0;
 }
 
-ol {
-  list-style: none;
+a {
+  color:           $brightWhite;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
-  li {
-    display: inline-block;
-    padding: 0 12pt;
+.text-block {
+  @include border-radius($defaultRadius);
+  background-color: $lightGray;
+  padding:          $half-space 4*$half-space;
+  margin:           8*$half-space;
+}
 
+nav {
+  ol {
+    margin:           0; padding: 0;
+    list-style:       none;
+    background-color: darken($backgroundColour, 20%);
+    border-bottom: 2px solid $highlight2;
 
+    li {
+      display: inline-block;
+      padding: 8pt 12pt;
 
+      a {
+        color:           $brightWhite;
+        text-decoration: none;
+      }
 
-
-    a {
-
-      font-weight: bold;
-      text-decoration: none;
+      &.right {
+        float: right;
+      }
     }
   }
+}
+
+form {
+  ol {
+    margin:           0; padding: 0;
+    list-style:       none;
+    li {
+      margin-bottom: 2*$half-space;
+      label {
+        display: block;
+      }
+      &.inline {
+        label {
+          display: inline-block;
+          width: 80pt;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+input {
+  font-size: $font-size-small;
+  &[type=text],&[type=password] {
+    padding: 3pt 8pt;
+  }
+}
+
+button {
+  background-color: lighten($backgroundColour, 50%);
+  font-size: $font-size-medium;
+  padding: $half-space 4*$half-space;
+  border: 2px solid darken($backgroundColour, 5%);
+  @include border-radius($defaultRadius*2);
 }
