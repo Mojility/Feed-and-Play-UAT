@@ -71,10 +71,10 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
 
     };
 
-    vm.editAdvertisedRole = function (role) {
+    vm.updateAdvertisedRole = function (role) {
 
         //console.log(role);
-        teamService.editAdvertisedRole(vm.teamId, role, vm.editRole);
+        teamService.updateAdvertisedRole(vm.teamId, role, vm.editRole);
         vm.editRole = "";
 
     };
