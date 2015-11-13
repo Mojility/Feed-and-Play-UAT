@@ -81,3 +81,22 @@ button {
   border: 2px solid darken($backgroundColour, 5%);
   @include border-radius($defaultRadius*2);
 }
+
+.round {
+  @include round(150pt);
+}
+
+img.center {
+  display: block;
+  margin: $half-space auto;
+}
+
+img.left {
+  float: left;
+  margin: $half-space $half-space*2;
+}
+
+img.right {
+  float: right;
+  margin: $half-space $half-space*2;
+}

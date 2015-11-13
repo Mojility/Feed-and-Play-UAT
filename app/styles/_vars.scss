@@ -21,3 +21,9 @@ $brightWhite: #ffffff;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
 }
+
+@mixin round($width) {
+  width: $width;
+  @include border-radius($width/2);
+  border: 3px solid $highlight1;
+}
