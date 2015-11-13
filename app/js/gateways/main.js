@@ -109,7 +109,7 @@ var MainGateway = function(sessionService) {
 
     };
 
-    gateway.updateVotes = function (video, value) {
+    gateway.updateVotes = function (video, value, onComplete) {
 
       var http = new HttpInteractor();
       http.setSecret(sessionService.token);
@@ -122,9 +122,9 @@ var MainGateway = function(sessionService) {
           },
           function(data) {
 
-            // console.log();
-              // gateway.votes.push(data.vote);
-              // onComplete(data);
+            //  console.log(data.vote);
+              //  gateway.votes.push(data.vote);
+               onComplete(data);
 
 
           }, function(errorCode) {

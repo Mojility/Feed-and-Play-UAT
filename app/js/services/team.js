@@ -231,9 +231,6 @@ function TeamService(mainGateway) {
 
     };
 
-    service.updateVotes = mainGateway.updateVotes;
-
-
     service.setVotesCallback = function (data){
       service.setVotes(data.votes);
     };
@@ -246,6 +243,24 @@ function TeamService(mainGateway) {
 
     service.loadCacheCallback = function (data){
       service.setVotes(data);
+    };
+
+
+    service.updateVotes = function (video,value){
+
+      // service.votes.push({
+      //   video_id: video.id,
+      //   value: value,
+      //   person_id: sessionService.person.id
+      // })
+      mainGateway.updateVotes(video,value, service.pushVotesCallback);
+
+    };
+
+    service.pushVotesCallback = function(data){
+
+       service.votes.push(data.vote)
+
     };
 
     // service.getAllTeams = mainGateway.getAllTeams;
