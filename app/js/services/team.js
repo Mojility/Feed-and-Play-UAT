@@ -245,7 +245,6 @@ function TeamService(mainGateway) {
       service.setVotes(data);
     };
 
-
     service.updateVotes = function (video,value){
 
       // service.votes.push({
@@ -259,7 +258,7 @@ function TeamService(mainGateway) {
 
     service.pushVotesCallback = function(data){
 
-       service.votes.push(data.vote)
+       service.votes.push(data.vote);
 
     };
 
