@@ -66,6 +66,27 @@ form {
     }
   }
 }
+.members{
+    ol {
+      list-style:       none;
+      li {
+        padding: 8pt 12pt;
+        display: inline-block;
+        padding: 8pt 12pt;
+      }
+  }
+}
+
+.video {
+    ol {
+      list-style:       none;
+      li {
+        display: inline-block;
+        margin-bottom: 2*$half-space;
+        padding: 8pt 12pt;
+      }
+  }
+}
 
 input {
   font-size: $font-size-small;

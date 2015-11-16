@@ -4,7 +4,6 @@
 
 <a href="/open_positions">open positions</a>
 
-
 <br>
   <form>
     <input id="file" type="file">
@@ -31,23 +30,21 @@ Name: {{person.currentUserName}}
 <br>
 Videos:
     <br><br>
+<div class="video">
+  <div ng-repeat="team in person.teams">
+      Team: {{person.getTeamName(team)}} <br>
+      Role: {{person.getTeamRole(team)}}<br>
+      <ol>
+          <li ng-repeat="video in person.getVideos(team)">
+              <iframe width="280" height="157" ng-src="{{person.getYoutubeLink(video.youtube_link)|trusted}}"
+                      frameborder="0"
+                      allowfullscreen></iframe>
+          </li>
+      </ol>
 
-<div ng-repeat="team in person.teams">
-    Team: {{person.getTeamName(team)}} <br>
-    Role: {{person.getTeamRole(team)}}<br>
-    <ol>
-        <li ng-repeat="video in person.getVideos(team)">
-            <iframe width="280" height="157" ng-src="{{person.getYoutubeLink(video.youtube_link)|trusted}}"
-                    frameborder="0"
-                    allowfullscreen></iframe>
-        </li>
-    </ol>
-
+  </div>
 </div>
-
-
      <br> <br>
-
 
     <div ng-repeat="team in person.allTeams">
 
