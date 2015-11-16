@@ -15,16 +15,19 @@
   <a href="/profile_edit/{{person.personId}}"> edit profile </a>
   <br><br>
 <!-- http://localhost:3000/{{person.avatar}} -->
-<img ng-src="http://localhost:3000/{{person.avatar|trusted}}" width="140" height="78"/>
+<img class="round" ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
+
 <br><br>
 
 Name: {{person.currentUserName}}
     <br><br>
     Teams: <br><br>
     <div ng-repeat="team in person.teams">
-        Team Name:  <a href="/team/{{team}}"> {{person.getTeamName(team)}} </a>  <br>
-        Role: {{person.getTeamRole(team)}}<br>
-        <br>
+
+          Team Name:  <a href="/team/{{team}}"> {{person.getTeamName(team)}} </a>  <br>
+          Role: {{person.getTeamRole(team)}}<br>
+          <br>
+
     </div>
 
 <br>

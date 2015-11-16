@@ -245,6 +245,23 @@ function TeamService(mainGateway) {
       service.setVotes(data);
     };
 
+    service.isLeader = function (teamId,personId){
+        var leadership = null;
+
+        service.memberships.forEach(function (member) {
+
+          console.log(member);
+
+            if (member.team_id === teamId && member.person_id === personId) {
+
+                leadership = member.leader;
+            }
+
+        });
+
+        return  leadership;
+    };
+
     service.updateVotes = function (video,value){
 
       // service.votes.push({

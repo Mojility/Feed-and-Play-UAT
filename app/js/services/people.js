@@ -45,6 +45,17 @@ function PeopleService($http,sessionService) {
 
     };
 
+    service.getLastName = function (id) {
+
+        return service.getPerson(id).last_name;
+
+    };
+
+    service.getAvatar = function (id) {
+        return service.getPerson(id).avatar.avatar.url;
+
+    };
+
     service.getFullName = function (id) {
 
         return service.getPerson(id).first_name + " " + service.getPerson(id).last_name;
@@ -194,7 +205,7 @@ function PeopleService($http,sessionService) {
              function(data) {
                  //loadCaches(data);
               //   service.setOpenings(data.opening);
-                  
+
                  console.log('person updated');
              }, function(errorCode) {
                  console.log("Error: " + errorCode);

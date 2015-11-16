@@ -4,18 +4,23 @@
 <br>
   <a href="/team_management/{{team.teamId}}"> team management </a>
 <br> <br>
-Members:
+
+
+
+The Crew:
 
 <span ng-if="team.teamIsNotEmpty()">
 <div class="members">
   <ol>
       <li ng-repeat="person in team.teamMembers">
-          <a href="/person/{{person}} "> {{team.getFirstName(person)}} </a> <br> Role:
-          {{team.getTeamRole(person)}}
+        <span ng-if="team.isLeader(team.teamId,person)">
+          <img class="round" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
+          <br>          <a href="/person/{{person}} ">  {{team.getFirstName(person)}} <br> {{team.getLastName(person)}} </a> <br>
+            {{team.getTeamRole(person)}}
+        </span>
       </li>
   </ol>
 </div>
-
 
 <br> <br>
 videos:
@@ -43,22 +48,5 @@ videos:
       </li>
   </ol>
 </div>
-Looking for team roles:
-
-
-<br>
-<table>
-    <thead>
-    <th>Role</th>
-    </thead>
-    <tbody>
-
-    <tr ng-repeat="role in team.lookingForRoles">
-        <td> {{role.role}}</td>
-
-    </tr>
-    </tbody>
-</table>
-
 
 </span>

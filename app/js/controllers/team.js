@@ -48,6 +48,18 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
 
     };
 
+    vm.getLastName = function (id) {
+
+        return peopleService.getLastName(id);
+
+    };
+
+    vm.getAvatar = function (id) {
+
+        return peopleService.getAvatar(id);
+
+    };
+
     vm.addEnabled = function () {
 
         if (vm.newRole !== "") {
@@ -166,6 +178,12 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
     vm.getNumberOfVotes = function(video) {
 
       return teamService.getNumberOfVotes(video);
+
+    };
+
+    vm.isLeader = function(teamId,personId) {
+
+      return teamService.isLeader(teamId,personId);
 
     };
 
