@@ -38,6 +38,7 @@ function LoginInteractor(sessionService, peopleService, teamService) {
         http.get(
             'http://localhost:3000/',
             function(data) {
+                // console.log(data);
                 loadCaches(data);
             }, function(errorCode) {
                 console.log("Error: " + errorCode);
@@ -46,13 +47,15 @@ function LoginInteractor(sessionService, peopleService, teamService) {
     }
 
     function loadCaches(data) {
-    //  console.log(data.person);
+        // console.log(data);
         sessionService.initialize(interactor.token, interactor.person);
 
         peopleService.loadCache([interactor.person]);
 
         peopleService.loadCache(data.people);
         peopleService.setApplications(data.applications);
+
+        console.log(data.teams);
 
         teamService.loadCache(data.teams);
         teamService.setMemberships(data.team_memberships);

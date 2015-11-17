@@ -7,6 +7,7 @@ describe('Unit: TeamService', function () {
     var session;
     var service;
     var mainGateway;
+    var login;
 
     beforeEach(function () {
         // instantiate the app module
@@ -17,54 +18,59 @@ describe('Unit: TeamService', function () {
             session = SessionService;
             service = TeamService;
             mainGateway = MainGateway;
+            // Login = LoginInteractor ;
         });
 
         session.initialize(sampleData()); // TODO: Fix with what we actually need!
+        // login.loadCaches(sampleData());
+        service.setMemberships(sampleData().team_memberships);
+        service.loadCache(sampleData().teams);
+
     });
 
-    xit('should exist', function () {
+    it('should exist', function () {
         expect(session).toBeDefined();
         expect(service).toBeDefined();
     });
 
-    xit('should retrieve a team by id', function () {
+    it('should retrieve a team by id', function () {
 
         var team = service.getTeam(0);
 
-        expect(team.team_id).toEqual(0);
+        expect(team.id).toEqual(0);
         expect(team.name).toEqual("Smith Productions");
-        expect(team.video_id[0]).toEqual("gNqQL-1gZF8");
+        expect(team.videos[0]).toEqual("gNqQL-1gZF8");
 
 
     });
 
 
-    xit('should get videos', function () {
+    it('should get videos', function () {
 
         expect(service.getVideos(0)).toEqual(["gNqQL-1gZF8"]);
 
     });
 
-    xit('should assemble youtube link', function () {
+    it('should assemble youtube link', function () {
 
         expect(service.getYoutubeLink("gNqQL-1gZF8")).toEqual("https://www.youtube.com/embed/gNqQL-1gZF8");
 
     });
 
 
-    xit('should find team role', function () {
+    it('should find team role', function () {
 
         expect(service.getTeamRole(0, 0)).toEqual("Lead");
 
     });
 
-    xit('should find team members', function () {
+    it('should find team members', function () {
 
         expect(service.getMembersInTeam(0)).toEqual([0, 1]);
 
     });
 
-    xit('should find teams', function () {
+    it('should find teams', function () {
 
         expect(service.getTeamsOfUser(0)).toEqual([0, 1]);
 
@@ -87,7 +93,7 @@ describe('Unit: TeamService', function () {
 
         service.addAdvertisedRole(id, role_name);
 
-        expect(mainGateway.addAdvertisedRole).toHaveBeenCalledWith(id, role_name, service.setOpeningsCallback);
+        expect(mainGateway.addAdvertisedRole).toHaveBeenCalledWith(id, role_name);
 
     });
 
@@ -107,23 +113,23 @@ describe('Unit: TeamService', function () {
             ],
             "teams": [
                 {
-                    "team_id": 0,
+                    "id": 0,
                     "name": "Smith Productions",
-                    "video_id": [
+                    "videos": [
                         "gNqQL-1gZF8"
                     ]
                 },
                 {
-                    "team_id": 1,
+                    "id": 1,
                     "name": "John Solo",
-                    "video_id": [
+                    "videos": [
                         "st8-EY71K84"
                     ]
                 },
                 {
-                    "team_id": 2,
+                    "id": 2,
                     "name": "Ze Frank Team",
-                    "video_id": [
+                    "videos": [
                         "110iUX1Ursk", "GDwOi7HpHtQ", "ndQZBQJf034"
                     ]
                 }
