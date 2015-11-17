@@ -1,7 +1,5 @@
-Teams Looking For People
+Opportunities
  <br> <br>
-
-
 
 <div ng-repeat="team in open.allTeams">
 
@@ -11,7 +9,8 @@ Teams Looking For People
         Role(s):
         <li ng-repeat="role in open.getAdvertisedRoles(team.id)">
 
-            {{ role.role }}
+            {{ role.role }} <button class="small" ng-click="open.addTeamMembershipApplication(role,team.id)">
+                                   apply </button>
         </li>
     </ol>
 

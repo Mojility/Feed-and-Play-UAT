@@ -147,7 +147,7 @@ function PeopleService($http,sessionService) {
 
     };
 
-    service.addTeamMembershipApplication = function (role, teamId, personId) {
+    service.addTeamMembershipApplication = function (role, teamId) {
 
       console.log(service.applications);
    //     console.log(personId);
@@ -163,7 +163,7 @@ function PeopleService($http,sessionService) {
         http.put(
             'http://localhost:3000/create_application',
             {
-                person_id: personId,
+                person_id: sessionService.person.id,
                 role: role.role,
                 team_id: teamId
             },

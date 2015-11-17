@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function OpenController(teamService) {
+function OpenController(teamService,peopleService) {
  var vm = this;
 
    vm.getAdvertisedRoles = function (id) {
@@ -13,6 +13,14 @@ function OpenController(teamService) {
       //  console.log("getAdvertisedRole")
        return teamService.getAdvertisedRoles(id);
 
+   };
+
+   vm.addTeamMembershipApplication = function (role, teamId) {
+
+       console.log("test");
+
+       peopleService.addTeamMembershipApplication(role, teamId);
+       //teamService.deleteAdvertisedRole(teamId, role);
    };
 
    function initialize() {
@@ -24,4 +32,4 @@ function OpenController(teamService) {
     initialize();
 }
 
-controllersModule.controller('OpenController', ['TeamService', OpenController ]);
+controllersModule.controller('OpenController', ['TeamService','PeopleService', OpenController ]);

@@ -125,13 +125,13 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     };
 
-    vm.addTeamMembershipApplication = function (role, teamId) {
-
-        //console.log(role.role);
-
-        peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
-        //teamService.deleteAdvertisedRole(teamId, role);
-    };
+    // vm.addTeamMembershipApplication = function (role, teamId) {
+    //
+    //     //console.log(role.role);
+    //
+    //     peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
+    //     //teamService.deleteAdvertisedRole(teamId, role);
+    // };
 
     vm.userClickedUploadButton = function() {
         // console.log("userClickedUploadButton")

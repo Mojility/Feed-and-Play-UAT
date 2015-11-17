@@ -2,7 +2,7 @@
 
 <br>
 
-<a href="/open_positions">open positions</a>
+<a href="/open_positions">Opportunities</a>
 
 <br>
   <form>
@@ -47,20 +47,5 @@ Videos:
 
   </div>
 </div>
-     <br> <br>
-
-    <div ng-repeat="team in person.allTeams">
-
-        Team Name: {{team.name}}
-        <ol>
-            Role(s):
-            <li ng-repeat="role in person.getAdvertisedRoles(team.id)">
-
-                {{ role.role }} <button class="small" ng-click="person.addTeamMembershipApplication(role,team.id)">
-                                       apply </button>
-            </li>
-        </ol>
-
-    </div>
 
 </span>
