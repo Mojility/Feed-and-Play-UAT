@@ -1,4 +1,4 @@
-<h1>Person View</h1>
+<h1>Back  Stage</h1>
 
 <br>
 
@@ -29,23 +29,5 @@ Name: {{person.currentUserName}}
           <br>
 
     </div>
-
-<br>
-Videos:
-    <br><br>
-<div class="video">
-  <div ng-repeat="team in person.teams">
-      Team: {{person.getTeamName(team)}} <br>
-      Role: {{person.getTeamRole(team)}}<br>
-      <ol>
-          <li ng-repeat="video in person.getVideos(team)">
-              <iframe width="280" height="157" ng-src="{{person.getYoutubeLink(video.youtube_link)|trusted}}"
-                      frameborder="0"
-                      allowfullscreen></iframe>
-          </li>
-      </ol>
-
-  </div>
-</div>
 
 </span>

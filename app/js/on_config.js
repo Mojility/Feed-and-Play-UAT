@@ -49,6 +49,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             controller: 'TeamController as team',
             templateUrl: 'team_management.html',
             title: 'team management'
+        })
+        .state('video', {
+            url: '/video/:id',
+            controller: 'VideoController as video',
+            templateUrl: 'video.html',
+            title: 'video view'
         });
 
 

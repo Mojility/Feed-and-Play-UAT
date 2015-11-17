@@ -55,12 +55,13 @@ function LoginInteractor(sessionService, peopleService, teamService) {
         peopleService.loadCache(data.people);
         peopleService.setApplications(data.applications);
 
-        console.log(data.teams);
+        // console.log(data.teams);
 
         teamService.loadCache(data.teams);
         teamService.setMemberships(data.team_memberships);
         teamService.setOpenings(data.openings);
         teamService.setVotes(data.votes);
+        teamService.setVideos(data.videos);
 
         interactor.didCompleteFunction(interactor.person.id);
     }

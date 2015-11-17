@@ -12,6 +12,7 @@ function TeamService(mainGateway) {
     service.memberships = null;
     service.openings = null;
     service.votes = null;
+    service.videos = null;
     service.baseYoutubeLink = "https://www.youtube.com/embed/";
     service.openings = [];
     service.cache = {};
@@ -63,6 +64,33 @@ function TeamService(mainGateway) {
     service.setVotes = function (votes) {
 
         service.votes = votes;
+
+    };
+
+    service.setVideos = function (videos) {
+
+        service.videos = videos;
+
+    };
+
+    service.findVideo = function (id) {
+
+      var found = null;
+
+        service.videos.forEach(function (video) {
+
+
+
+            if (video.id == id) {
+                found = video
+
+            }
+
+        });
+        console.log(found);
+        return found;
+
+
 
     };
 
@@ -282,22 +310,6 @@ function TeamService(mainGateway) {
        service.votes.push(data.vote);
 
     };
-
-    // service.getAllTeams = mainGateway.getAllTeams;
-    // service.getYoutubeLink = mainGateway.getYoutubeLink;
-    // service.getVideos = mainGateway.getVideos;
-    // service.getOpening = mainGateway.getOpening;
-    // service.getMembersInTeam = mainGateway.getMembersInTeam;
-    // service.getTeamRole = mainGateway.getTeamRole;
-    // service.getTeam = mainGateway.getTeam
-    // service.getTeamsOfUser = mainGateway.getTeamsOfUser;
-    // service.loadCache = mainGateway.loadCache
-    // service.setMemberships = mainGateway.setMemberships;
-    // service.getNumberOfVotes = mainGateway.getNumberOfVotes;
-    // service.getScore = mainGateway.getScore;
-    // service.setVotes = mainGateway.setVotes;
-    // service.setOpenings = mainGateway.setOpenings;
-    // service.getAdvertisedRoles = mainGateway.getAdvertisedRoles;
 
     return service;
 
