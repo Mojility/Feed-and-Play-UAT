@@ -5,6 +5,17 @@
   <a href="/team_management/{{team.teamId}}"> team management </a>
 <br> <br>
 
+<div class="leader">
+  <ol>
+      <li ng-repeat="person in team.teamMembers">
+        <span ng-if="team.isLeader(team.teamId,person)">
+
+            <img class="round" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
+            <a href="/person/{{person}} ">  {{team.getFirstName(person)}} {{team.getLastName(person)}} </a>
+        </span>
+      </li>
+  </ol>
+</div>
 
 
 The Crew:
@@ -13,7 +24,7 @@ The Crew:
 <div class="members">
   <ol>
       <li ng-repeat="person in team.teamMembers">
-        <span ng-if="team.isLeader(team.teamId,person)">
+        <span ng-if="team.isLeader(team.teamId,person)==false">
           <img class="round" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
           <br>          <a href="/person/{{person}} ">  {{team.getFirstName(person)}} <br> {{team.getLastName(person)}} </a> <br>
             {{team.getTeamRole(person)}}

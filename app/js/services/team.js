@@ -46,7 +46,7 @@ function TeamService(mainGateway) {
 
     service.getAllTeams = function () {
 
-        console.log( service.cache);
+        // console.log( service.cache);
         return Object.keys(service.cache).map(function (p) {
                 //console.log(service.cache[p]);
                 return service.cache[p];
@@ -248,11 +248,15 @@ function TeamService(mainGateway) {
     service.isLeader = function (teamId,personId){
         var leadership = null;
 
+
+
         service.memberships.forEach(function (member) {
 
-          console.log(member);
+          //  console.log(member);
 
             if (member.team_id === teamId && member.person_id === personId) {
+
+                //  console.log(member);
 
                 leadership = member.leader;
             }
