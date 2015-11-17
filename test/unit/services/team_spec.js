@@ -41,9 +41,7 @@ describe('Unit: TeamService', function () {
         expect(team.name).toEqual("Smith Productions");
         expect(team.videos[0]).toEqual("gNqQL-1gZF8");
 
-
     });
-
 
     it('should get videos', function () {
 
@@ -56,7 +54,6 @@ describe('Unit: TeamService', function () {
         expect(service.getYoutubeLink("gNqQL-1gZF8")).toEqual("https://www.youtube.com/embed/gNqQL-1gZF8");
 
     });
-
 
     it('should find team role', function () {
 
@@ -77,12 +74,6 @@ describe('Unit: TeamService', function () {
     });
 
 
-    //
-    //
-    //
-    //
-    //
-
     it('should add an advertised role', function() {
 
         spyOn(mainGateway, 'addAdvertisedRole');
@@ -96,12 +87,6 @@ describe('Unit: TeamService', function () {
         expect(mainGateway.addAdvertisedRole).toHaveBeenCalledWith(id, role_name);
 
     });
-
-    //
-    //
-    //
-    //
-    //
 
 
     function sampleData() {

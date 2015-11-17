@@ -19,9 +19,9 @@ var MainGateway = function(sessionService) {
         http.delete(
             'http://localhost:3000/delete_opening/' + value,
             function(data) {
-                //loadCaches(data);
+
                 // onComplete(data);
-                //console.log('opening deleted');
+
             }, function(errorCode) {
                 console.log( errorCode);
             }
@@ -56,8 +56,7 @@ var MainGateway = function(sessionService) {
                 role: newRole
             },
             function(data) {
-                //  loadCaches(data.opening);
-                // gateway.openings.push(data.openings);
+
                   // onComplete(data);
                 //console.log('opening updated');
             }, function(errorCode) {
@@ -82,7 +81,6 @@ var MainGateway = function(sessionService) {
                 //loadCaches(data);
                 console.log(data);
                 // onComplete(data);
-                // gateway.memberships.push(data.membership);
 
                 //console.log('member added');
             }, function(errorCode) {
@@ -106,9 +104,7 @@ var MainGateway = function(sessionService) {
           function(data) {
 
             //  console.log(data.vote);
-              //  gateway.votes.push(data.vote);
                onComplete(data);
-
 
           }, function(errorCode) {
               console.log("Error: " + errorCode);
