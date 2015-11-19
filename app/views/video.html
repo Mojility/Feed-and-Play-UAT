@@ -17,15 +17,17 @@
                ng-click="video.thumbsDown()"
                value="thumbs down"/>
 
+<div class="comment-block">
+  <div ng-repeat="comment in video.getComments()">
 
-<div ng-repeat="comment in video.getComments()">
-
-name: {{video.getFullName(comment.person_id)}}
-<br>
-comment: {{comment.text}}
-<br>
-date: {{comment.created_at| date:'MMMM d yyyy | h:m a'}}
+   {{video.getFullName(comment.person_id)}}
+  <br>
+   {{comment.text}}
+  <br>
+  <span class="right"> {{comment.created_at| date:'MMMM d yyyy | h:m a'}} </span>
 
 
+  <img class="round left" ng-src="http://localhost:3000/{{video.getAvatar(comment.person_id)|trusted}}"/>
 
+  </div>
 </div>

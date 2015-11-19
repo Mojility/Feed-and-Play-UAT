@@ -61,6 +61,15 @@ function VideoController($stateParams, teamService, peopleService) {
 
   };
 
+  vm.getAvatar = function(personId) {
+
+  
+
+    return peopleService.getAvatar(personId);
+
+  };
+
+
 
   function initialize() {
 

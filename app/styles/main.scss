@@ -17,11 +17,27 @@ a {
   }
 }
 
+.black{
+  color:#000000 ;
+}
+
+.right{
+  float: right;
+}
+
 .text-block {
   @include border-radius($defaultRadius);
   background-color: $lightGray;
   padding:          $half-space 4*$half-space;
   margin:           8*$half-space;
+}
+
+.comment-block {
+  @include border-radius($defaultRadius);
+  background-color: $lightGray;
+  padding:          $half-space 4*$half-space;
+  margin:           8*$half-space;
+
 }
 
 nav {

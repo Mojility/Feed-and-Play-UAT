@@ -125,14 +125,6 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     };
 
-    // vm.addTeamMembershipApplication = function (role, teamId) {
-    //
-    //     //console.log(role.role);
-    //
-    //     peopleService.addTeamMembershipApplication(role, teamId, vm.personId);
-    //     //teamService.deleteAdvertisedRole(teamId, role);
-    // };
-
     vm.userClickedUploadButton = function() {
         // console.log("userClickedUploadButton")
         console.log(vm.personId);
@@ -197,10 +189,12 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
     function initializeUploadFileField() {
         var el = document.getElementById("file");
-        el.addEventListener("change", function(event) {
-            var files = event.target.files;
-            uiUploader.addFiles(files);
-        });
+        if (el != null) {
+          el.addEventListener("change", function(event) {
+              var files = event.target.files;
+              uiUploader.addFiles(files);
+          });
+        };
     }
 
     function initialize() {

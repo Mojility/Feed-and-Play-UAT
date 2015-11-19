@@ -4,30 +4,20 @@
 
 <a href="/open_positions">Opportunities</a>
 
-<br>
-  <form>
-    <input id="file" type="file">
-    <button class="small" ng-click="person.userClickedUploadButton()"> upload </button>
-  </form>
-<br>
 <span ng-if="person.personIsNotEmpty()">
+  <div class="text-block">
+    {{person.currentUserName}}
+    <a href="/profile_edit/{{person.personId}}"> edit </a>
+    <img class="round right" ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
+  </div>
 
-  <a href="/profile_edit/{{person.personId}}"> edit profile </a>
-  <br><br>
-<!-- http://localhost:3000/{{person.avatar}} -->
-<img class="round" ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
+  <div class="text-block">
+      <div ng-repeat="team in person.teams">
 
-<br><br>
+            <a href="/team/{{team}}"> {{person.getTeamName(team)}} </a>
+            <span class="black right">  {{person.getTeamRole(team)}} </span>
+            <br> <br>
 
-Name: {{person.currentUserName}}
-    <br><br>
-    Teams: <br><br>
-    <div ng-repeat="team in person.teams">
-
-          Team Name:  <a href="/team/{{team}}"> {{person.getTeamName(team)}} </a>  <br>
-          Role: {{person.getTeamRole(team)}}<br>
-          <br>
-
-    </div>
-
+      </div>
+  </div>
 </span>

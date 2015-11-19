@@ -52,6 +52,8 @@ function PeopleService($http,sessionService) {
     };
 
     service.getAvatar = function (id) {
+
+        // console.log("avatar");
         return service.getPerson(id).avatar.avatar.url;
 
     };
