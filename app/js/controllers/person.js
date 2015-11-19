@@ -166,8 +166,11 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
               vm.personId = vm.person.id;
 
               vm.currentUserName = peopleService.getFullName(vm.personId);
+              vm.stageName = vm.person.stage_name;
+
               vm.firstName = vm.person.first_name;
               vm.lastName = vm.person.last_name;
+
               vm.password = vm.person.password;
               vm.email = vm.person.email;
 

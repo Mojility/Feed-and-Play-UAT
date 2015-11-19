@@ -6,8 +6,9 @@
 
 <span ng-if="person.personIsNotEmpty()">
   <div class="text-block">
-    {{person.currentUserName}}
-    <a href="/profile_edit/{{person.personId}}"> edit </a>
+    {{person.stageName}}
+      <a href="/profile_edit/{{person.personId}}"> edit </a><br>
+   <span class="black">  {{person.currentUserName}} </span>
     <img class="round right" ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
   </div>
 
