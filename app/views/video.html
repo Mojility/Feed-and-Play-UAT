@@ -16,3 +16,16 @@
         <input type="submit"
                ng-click="video.thumbsDown()"
                value="thumbs down"/>
+
+
+<div ng-repeat="comment in video.getComments()">
+
+name: {{video.getFullName(comment.person_id)}}
+<br>
+comment: {{comment.text}}
+<br>
+date: {{comment.created_at| date:'MMMM d yyyy | h:m a'}}
+
+
+
+</div>

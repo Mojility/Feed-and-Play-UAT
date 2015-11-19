@@ -43,8 +43,6 @@ Looking for team roles:
 
  <div ng-repeat="application in team.applications">
 
-     <ol>
-
           <span ng-if="team.getOpening(application.opening_id).team_id == team.teamId">
 
               {{team.getFirstName(application.person_id)}}
@@ -58,8 +56,6 @@ Looking for team roles:
                      reject </button>
               <!--{{application}}-->
           </span>
-
-     </ol>
 
  </div>
 </span>

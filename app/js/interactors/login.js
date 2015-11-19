@@ -62,6 +62,7 @@ function LoginInteractor(sessionService, peopleService, teamService) {
         teamService.setOpenings(data.openings);
         teamService.setVotes(data.votes);
         teamService.setVideos(data.videos);
+        teamService.setComments(data.comments);
 
         interactor.didCompleteFunction(interactor.person.id);
     }

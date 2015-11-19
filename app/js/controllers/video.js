@@ -2,7 +2,7 @@
 
 var controllersModule = require('./_index');
 
-function VideoController($stateParams, teamService) {
+function VideoController($stateParams, teamService, peopleService) {
 
   var vm = this;
 
@@ -45,12 +45,29 @@ function VideoController($stateParams, teamService) {
 
   };
 
+  vm.getComments = function() {
+
+
+
+    return teamService.getComments(vm.video);
+
+  };
+
+  vm.getFullName = function(personId) {
+
+    // console.log(personId);
+
+    return peopleService.getFullName(personId);
+
+  };
+
+
   function initialize() {
 
-     console.log($stateParams.id);
+    //  console.log($stateParams.id);
 
      vm.video = teamService.findVideo($stateParams.id);
-     console.log(vm.video);
+    //  console.log(vm.video);
 
   };
 
@@ -58,4 +75,4 @@ function VideoController($stateParams, teamService) {
 
 }
 
-controllersModule.controller('VideoController',['$stateParams','TeamService', VideoController ]);
+controllersModule.controller('VideoController',['$stateParams','TeamService','PeopleService', VideoController ]);

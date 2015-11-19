@@ -16,6 +16,7 @@ function TeamService(mainGateway) {
     service.baseYoutubeLink = "https://www.youtube.com/embed/";
     service.openings = [];
     service.cache = {};
+    service.setComments = null;
     // console.log("teamService");
 
     service.loadCache = function (team) {
@@ -79,18 +80,14 @@ function TeamService(mainGateway) {
 
         service.videos.forEach(function (video) {
 
-
-
             if (video.id == id) {
                 found = video
 
             }
 
         });
-        console.log(found);
+        // console.log(found);
         return found;
-
-
 
     };
 
@@ -104,6 +101,29 @@ function TeamService(mainGateway) {
         //    console.log(service.getTeam(id).videos[0].youtube_link)
 
         return service.getTeam(id).videos;
+
+    };
+
+    service.setComments = function (comments) {
+
+        service.comments = comments;
+
+    };
+
+    service.getComments = function (video) {
+
+      var comments = [];
+
+      service.comments.forEach(function (comment) {
+
+          if (comment.video_id === video.id) {
+               comments.push(comment);
+
+          }
+
+      });
+
+      return comments;
 
     };
 
