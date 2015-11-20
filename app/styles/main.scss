@@ -21,8 +21,16 @@ a {
   color:#000000 ;
 }
 
-.right{
-  float: right;
+// .right{
+//   float: right;
+// }
+
+// .left{
+//   float: left;
+// }
+
+.center{
+  margin: auto;
 }
 
 .text-block {
@@ -30,6 +38,10 @@ a {
   background-color: $lightGray;
   padding:          $half-space 4*$half-space;
   margin:           8*$half-space;
+  img.right {
+    position: relative;
+    left: 800px;
+  }
 }
 
 .comment-block {
@@ -37,6 +49,13 @@ a {
   background-color: $lightGray;
   padding:          $half-space 4*$half-space;
   margin:           8*$half-space;
+  img.left {
+    position: relative;
+    left: 0px;
+  }
+  .right{
+    float: right;
+  }
 
 }
 
@@ -149,12 +168,12 @@ img.center {
   margin: $half-space auto;
 }
 
-img.left {
-  float: left;
-  margin: $half-space $half-space*2;
-}
+// img.left {
+//   float: left;
+//   margin: $half-space $half-space*2;
+// }
 
-img.right {
-  float: right;
-  margin: $half-space $half-space*2;
-}
+// img.right {
+//   float: right;
+//   margin: $half-space $half-space*2;
+// }
