@@ -100,7 +100,7 @@ function PeopleService($http,sessionService) {
         return userId;
     };
 
-    service.updatePerson = function (personId, newPassword, newFirstName,newLastName, newEmail) {
+    service.updatePerson = function (personId, newPassword, newFirstName,newLastName, newEmail, newStageName) {
 
          var http = new HttpInteractor();
          http.setSecret(sessionService.token);
@@ -110,7 +110,8 @@ function PeopleService($http,sessionService) {
                   first_name: newFirstName,
                   last_name: newLastName,
                   password: newPassword,
-                  email: newEmail
+                  email: newEmail,
+                  stageName: newStageName
              },
              function(data) {
                  //loadCaches(data);

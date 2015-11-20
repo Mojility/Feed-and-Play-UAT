@@ -22,6 +22,7 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
     vm.teams="";
     vm.allTeams="";
     vm.avatar = '';
+    vm.stageName = '';
 
     // console.log("personController");  vm.allTeams = teamService.getAllTeams();
     vm.personIsNotEmpty = function () {
@@ -56,37 +57,10 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
         }
     };
 
-    // vm.updateFirstName = function() {
-    //
-    //   peopleService.updateFirstName(vm.personId, vm.newFirstName);
-    //   vm.newFirstName = "";
-    //
-    // };
-    //
-    // vm.updateLastName = function() {
-    //
-    //   peopleService.updateLastName(vm.personId, vm.newLastName);
-    //   vm.newLastName = "";
-    //
-    // };
-    //
-    // vm.updateEmail = function() {
-    //
-    //   peopleService.updateEmail(vm.personId, vm.newEmail);
-    //   vm.newEmail = "";
-    //
-    // };
-    //
-    // vm.updatePassword = function() {
-    //
-    //   peopleService.updatePassword(vm.personId, vm.newPassword);
-    //   vm.newPassword = "";
-    //
-    // };
 
     vm.updatePerson = function() {
 
-      peopleService.updatePerson(vm.personId, vm.password,vm.firstName, vm.lastName, vm.email);
+      peopleService.updatePerson(vm.personId, vm.password,vm.firstName, vm.lastName, vm.email, vm.stageName);
 
     };
 
