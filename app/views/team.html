@@ -10,7 +10,7 @@
       <li ng-repeat="person in team.teamMembers">
         <span ng-if="team.isLeader(team.teamId,person)">
 
-            <img class="round" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
+            <img class="round left" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
             <a href="/person/{{person}} ">  {{team.getFirstName(person)}} {{team.getLastName(person)}} </a>
         </span>
       </li>

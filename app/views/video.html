@@ -10,12 +10,12 @@
         {{video.getNumberOfVotes()}}
         <br>
         <input type="submit"
-               ng-click="video.thumbsUp()"
-               value="thumbs up"/>
+               ng-click="video.like()"
+               value="Like"/>
         <br>
         <input type="submit"
-               ng-click="video.thumbsDown()"
-               value="thumbs down"/>
+               ng-click="video.dislike()"
+               value="Dislike"/>
 
 <div class="comment-block">
   <div ng-repeat="comment in video.getComments()">
@@ -24,7 +24,7 @@
      {{video.getFullName(comment.person_id)}}
       <span class="right"> {{comment.created_at| date:'MMMM d yyyy | h:m a'}} </span>
 
-      <br>
+      <br><br><br>
       {{comment.text}}
 
   </div>

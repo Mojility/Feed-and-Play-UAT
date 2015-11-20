@@ -26,7 +26,7 @@ function VideoController($stateParams, teamService, peopleService) {
 
   };
 
-  vm.thumbsUp = function() {
+  vm.like = function() {
 
       var value = 1;
       teamService.updateVotes(vm.video, value, function() {
@@ -36,7 +36,7 @@ function VideoController($stateParams, teamService, peopleService) {
 
   };
 
-  vm.thumbsDown = function() {
+  vm.dislike = function() {
 
       var value = -1;
       teamService.updateVotes(vm.video, value,function() {
@@ -63,7 +63,7 @@ function VideoController($stateParams, teamService, peopleService) {
 
   vm.getAvatar = function(personId) {
 
-  
+
 
     return peopleService.getAvatar(personId);
 
