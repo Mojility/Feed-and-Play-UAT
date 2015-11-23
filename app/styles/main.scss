@@ -24,14 +24,6 @@ a {
   }
 }
 
-// .right{
-//   float: right;
-// }
-
-// .left{
-//   float: left;
-// }
-
 .center{
   margin: auto;
 }
@@ -44,9 +36,6 @@ a {
   img.right {
     position: relative;
     left: 800px;
-  }
-  &.right{
-    float: right;
   }
 
 }
@@ -177,13 +166,3 @@ img.center {
   display: block;
   margin: $half-space auto;
 }
-
-// img.left {
-//   float: left;
-//   margin: $half-space $half-space*2;
-// }
-
-// img.right {
-//   float: right;
-//   margin: $half-space $half-space*2;
-// }
