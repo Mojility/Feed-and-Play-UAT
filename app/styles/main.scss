@@ -50,6 +50,7 @@ a {
 
 .text-block {
   @include border-radius($defaultRadius);
+  overflow: auto;
   background-color: $lightGray;
   padding:          $half-space 4*$half-space;
   margin:           8*$half-space;
