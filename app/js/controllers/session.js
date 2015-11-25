@@ -23,6 +23,11 @@ function SessionController($location, session) {
         $location.path('/');
     };
 
+    vm.getPersonId = function() {
+        if (session.isValid())
+            return session.person.id;
+    };
+
     //vm.currentUserName = peopleService.getCurrentUserName;
     //vm.allPeople = peopleService.getAllPeople;
     //vm.allTeams = teamService.getAllTeams;
