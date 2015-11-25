@@ -17,6 +17,25 @@ a {
   }
 }
 
+.darker{
+  color: #E0E0E0;
+}
+
+.big{
+  font-size: 30px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.paragraph {
+  width: 60%;
+  &.left{
+    float: left;
+  }
+}
+
 .black{
   color:#000000 ;
   &.right{
@@ -34,8 +53,7 @@ a {
   padding:          $half-space 4*$half-space;
   margin:           8*$half-space;
   img.right {
-    position: relative;
-    left: 800px;
+    float: right;
   }
 
 }
@@ -113,6 +131,9 @@ form {
   }
   p {
       padding: 8pt 12pt;
+  }
+  .right {
+    float: right;
   }
 }
 
