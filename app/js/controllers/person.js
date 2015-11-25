@@ -127,9 +127,11 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
 
         vm.person = peopleService.getPerson($stateParams.id);
 
+
         // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {
+        
             // vm.updateAdvertisedRoles();
             // console.log(vm.person.id);
             // console.log(sessionService.person.id);
