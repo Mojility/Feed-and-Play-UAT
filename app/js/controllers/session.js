@@ -5,10 +5,23 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function SessionController() {
+function SessionController($location, session) {
 
     // ViewModel
-  //  var vm = this;
+    var vm = this;
+
+    vm.isValid = function() {
+        return session.isValid();
+    };
+
+    vm.isNotValid = function() {
+        return !session.isValid();
+    };
+
+    vm.userClickedLogOut = function() {
+        session.invalidate();
+        $location.path('/');
+    };
 
     //vm.currentUserName = peopleService.getCurrentUserName;
     //vm.allPeople = peopleService.getAllPeople;
@@ -16,4 +29,4 @@ function SessionController() {
 
 }
 
-controllersModule.controller('SessionController',SessionController );
+controllersModule.controller('SessionController', ['$location', 'SessionService', SessionController] );

@@ -13,13 +13,18 @@
 </head>
 <body>
 
-<nav>
+<nav ng-controller="SessionController as session">
     <ol>
         <li><a href="/">Home</a></li>
-        <li class="right"><a href="/login">Log In!</a></li>
+
+        <li ng-if="session.isValid()"><a href="/open_positions">Opportunities</a></li>
+
+        <li ng-if="session.isNotValid()" class="right"><a href="/login">Log In!</a></li>
+        <li ng-if="session.isValid()" class="right"><a ng-click="session.userClickedLogOut()">Log Out!</a></li>
     </ol>
 </nav>
-<!--<nav ng-controller="SessionController as session">-->
+
+<!--<nav>-->
 
     <!--<a href="/login">Log in</a>-->
 
