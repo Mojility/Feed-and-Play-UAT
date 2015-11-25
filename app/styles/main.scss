@@ -37,12 +37,67 @@ a {
   }
 }
 
+.user-profile {
+  position: relative;
+  h2 {
+    margin: $half-space 0;
+    font-size: 32pt;
+    a.button {
+      display: inline-block;
+      cursor: pointer;
+      background-color: $brightWhite;
+      color: $blackGray;
+      padding: 4pt 12pt;
+      font-size: 12pt;
+      font-weight: bold;
+      box-shadow: 2pt 2pt 4pt darken($lightGray, 20%);
+      @include border-radius($defaultRadius);
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  h3 {
+    color: $blackGray;
+  }
+  p {
+    margin: 16pt 0;
+    line-height: 16pt;
+  }
+}
+
+.teams-list {
+  ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    li {
+      position: relative;
+      height: 24pt;
+      font-size: 20pt;
+      margin: 4pt 0;
+      padding: 8pt 0;
+      div.team-name {
+        position: absolute;
+        left: 0;
+      }
+      div.team-role {
+        position: absolute;
+        right: 0;
+        color: $blackGray;
+      }
+    }
+  }
+}
+
+
 .black{
-  color:#000000 ;
+  color: $blackGray;
   &.right{
     float: right;
   }
 }
+
+
 
 .center{
   margin: auto;

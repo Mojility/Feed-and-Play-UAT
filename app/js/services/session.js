@@ -16,6 +16,8 @@ function SessionService() {
     service.initialize = function (token, person) {
         service.person = person;
         service.token = token;
+        console.log("initialize session");
+        console.log(service.token);
         console.log(service.person);
         saveSession();
     };

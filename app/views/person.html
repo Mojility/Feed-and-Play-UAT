@@ -1,33 +1,31 @@
-<h1>Back  Stage</h1>
+<h1>Back Stage</h1>
 
-<br>
+<div class="text-block user-profile">
+    <h2>
+        Stage Name {{ person.stageName }}
+        <a class="button" href="/profile_edit/{{person.personId}}">Edit</a>
+    </h2>
 
-<span ng-if="person.personIsNotEmpty()">
-  <div class="text-block">
-    <span class="big"> {{person.stageName}} </span>
-     <a href="/profile_edit/{{person.personId}}"> edit </a><br>
-    <div class="clearfix"> <span class="black">  {{person.currentUserName}} </span> </div>
+    <h3>{{ person.currentUserName }}</h3>
 
-     <img class="round right" ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
+    <img class="round right" ng-src="http://localhost:3000/{{person.avatar|trusted}}"/>
 
-     <div class="paragraph">
-       <br>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet nisl mauris, tristique bibendum odio efficitur et. Suspendisse dignissim placerat erat sed pellentesque.
-          Fusce iaculis convallis purus sit amet posuere. Proin venenatis rutrum dictum. Donec ac dolor non nibh malesuada ultrices. Aliquam mattis rutrum facilisis. Nulla pharetra dictum
-          est, et maximus dolor luctus at. In aliquet dignissim lacus, quis condimentum neque feugiat eu. Donec neque turpis, tempus et lobortis in, aliquet vel arcu. Vivamus sed tortor non
-          eros eleifend dictum. Curabitur ac orci quis elit egestas pharetra. Fusce et sodales quam.
-     </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet nisl mauris, tristique bibendum odio
+        efficitur et. Suspendisse dignissim placerat erat sed pellentesque.
+        Fusce iaculis convallis purus sit amet posuere. Proin venenatis rutrum dictum. Donec ac dolor non nibh
+        malesuada ultrices. Aliquam mattis rutrum facilisis. Nulla pharetra dictum
+        est, et maximus dolor luctus at. In aliquet dignissim lacus, quis condimentum neque feugiat eu. Donec neque
+        turpis, tempus et lobortis in, aliquet vel arcu. Vivamus sed tortor non
+        eros eleifend dictum. Curabitur ac orci quis elit egestas pharetra. Fusce et sodales quam.
+    </p>
+</div>
 
-
-  </div>
-
-  <div class="text-block">
-
-      <div ng-repeat="team in person.teams">
-
-            <span class="big">  <a href="/team/{{team}}"> {{person.getTeamName(team)}} </a>
-            <span class="black right">  {{person.getTeamRole(team)}} </span> </span>
-            <br><br>
-      </div>
-  </div>
-</span>
+<div class="text-block teams-list">
+    <ul>
+        <li ng-repeat="team in person.teams">
+            <div class="team-name"><a href="/team/{{team}}">{{ person.getTeamName(team) }}</a></div>
+            <div class="team-role">{{ person.getTeamRole(team) }}</div>
+        </li>
+    </ul>
+</div>

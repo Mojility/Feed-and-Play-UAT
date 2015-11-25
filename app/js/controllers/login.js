@@ -7,7 +7,7 @@ var LoginInteractor = require('../interactors/login');
 /**
  * @ngInject
  */
-function LoginController($scope, $location, peopleService, sessionService, teamService) {
+function LoginController($scope, $location, cacheService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -23,9 +23,9 @@ function LoginController($scope, $location, peopleService, sessionService, teamS
     };
 
     vm.loginUser = function() {
-        var interactor = new LoginInteractor(sessionService, peopleService, teamService);
-        interactor.loginUser(vm.email, vm.password, function(id) {
-            var url = "/person/" + id;
+        var interactor = new LoginInteractor(sessionService, cacheService);
+        interactor.loginUser(vm.email, vm.password, function() {
+            var url = "/person/" + sessionService.person.id;
             //console.log("Redirecting person to " + url);
             $location.url(url);
             $scope.$apply();
@@ -34,4 +34,4 @@ function LoginController($scope, $location, peopleService, sessionService, teamS
 
 }
 
-controllersModule.controller('LoginController', ['$scope', '$location', 'PeopleService', 'SessionService', 'TeamService', LoginController]);
+controllersModule.controller('LoginController', ['$scope', '$location', 'CacheService', 'SessionService', LoginController]);

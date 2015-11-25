@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function PersonController($http, $stateParams, uiUploader, peopleService, teamService, sessionService) {
+function PersonController($scope, $http, $stateParams, uiUploader, peopleService, teamService, cacheService, sessionService) {
 
     // ViewModel
     var vm = this;
@@ -171,16 +171,27 @@ function PersonController($http, $stateParams, uiUploader, peopleService, teamSe
               var files = event.target.files;
               uiUploader.addFiles(files);
           });
-        };
+        }
+    }
+
+    function setupWithCacheData() {
+        initializeCurrentPerson();
+        initializeUploadFileField();
     }
 
     function initialize() {
-        initializeCurrentPerson();
-        initializeUploadFileField();
+        if (!cacheService.hasPrimed) {
+            cacheService.requestData(function() {
+                setupWithCacheData();
+                $scope.$apply();
+            });
+        } else {
+            setupWithCacheData();
+        }
     }
 
     initialize();
 
 }
 
-controllersModule.controller('PersonController', ['$http', '$stateParams', 'uiUploader', 'PeopleService', 'TeamService', 'SessionService', PersonController]);
+controllersModule.controller('PersonController', ['$scope', '$http', '$stateParams', 'uiUploader', 'PeopleService', 'TeamService', 'CacheService', 'SessionService', PersonController]);
