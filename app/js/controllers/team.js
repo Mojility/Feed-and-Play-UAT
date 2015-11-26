@@ -21,6 +21,10 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
     vm.getAllPeople = "";
     vm.openings = "";
     vm.applications = "";
+    vm.title = "";
+    vm.description = "";
+    vm.dueDate = "";
+    vm.rules = "";
 
     //console.log("teamController");
 
@@ -157,7 +161,7 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
           $scope.$apply();
         });
       //  console.log("test");
-
+teamId,personId
     };
 
     vm.thumbsDown = function(video) {
@@ -184,6 +188,12 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
     vm.isLeader = function(teamId,personId) {
 
       return teamService.isLeader(teamId,personId);
+
+    };
+
+    vm.addContest = function() {
+
+    teamService.addContest(vm.title,vm.description, vm.duedate, vm.rules);
 
     };
 

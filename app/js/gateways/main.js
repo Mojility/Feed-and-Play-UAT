@@ -113,6 +113,31 @@ var MainGateway = function(sessionService) {
 
     };
 
+    gateway.addContest = function (title,description,dueDate,rules) {
+
+      var http = new HttpInteractor();
+      http.setSecret(sessionService.token);
+      http.put(
+          'http://localhost:3000/create_contest',
+          {
+                    title: title,
+                    description: description,
+                    dueDate: dueDate,
+                    rules: rules
+          },
+          function(data) {
+
+            //  console.log(data.vote);
+              //  onComplete(data);
+              console.log("contest added")
+
+          }, function(errorCode) {
+              console.log("Error: " + errorCode);
+          }
+      );
+
+    };
+
 };
 
 module.exports = MainGateway;

@@ -331,6 +331,12 @@ function TeamService(mainGateway) {
 
     };
 
+    service.addContest =  function(title,description,dueDate,rules){
+
+       mainGateway.addContest(title,description,dueDate,rules);
+
+    };
+
     return service;
 
 }
