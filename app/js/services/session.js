@@ -23,7 +23,7 @@ function SessionService() {
     };
 
     service.isValid = function() {
-        return service.person != null && service.token != null;
+        return service.person !== null && service.token !== null;
     };
 
     service.invalidate = function() {

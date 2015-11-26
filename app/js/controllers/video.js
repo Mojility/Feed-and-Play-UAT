@@ -2,7 +2,7 @@
 
 var controllersModule = require('./_index');
 
-function VideoController($stateParams, teamService, peopleService) {
+function VideoController($stateParams, teamService, peopleService,$scope) {
 
   var vm = this;
 
@@ -78,10 +78,10 @@ function VideoController($stateParams, teamService, peopleService) {
      vm.video = teamService.findVideo($stateParams.id);
     //  console.log(vm.video);
 
-  };
+  }
 
   initialize();
 
 }
 
-controllersModule.controller('VideoController',['$stateParams','TeamService','PeopleService', VideoController ]);
+controllersModule.controller('VideoController',['$stateParams','TeamService','PeopleService','$scope', VideoController ]);

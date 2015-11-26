@@ -182,7 +182,7 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
     };
 
     vm.isLeader = function(teamId,personId) {
-      
+
       return teamService.isLeader(teamId,personId);
 
     };

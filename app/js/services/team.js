@@ -80,8 +80,8 @@ function TeamService(mainGateway) {
 
         service.videos.forEach(function (video) {
 
-            if (video.id == id) {
-                found = video
+            if (video.id ===   id) {
+                found = video;
 
             }
 

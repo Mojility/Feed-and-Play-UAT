@@ -131,7 +131,7 @@ function PersonController($scope, $http, $stateParams, uiUploader, peopleService
         // peopleService.setCurrentUserId(vm.person.id);
 
         if (vm.person !== undefined) {
-        
+
             // vm.updateAdvertisedRoles();
             // console.log(vm.person.id);
             // console.log(sessionService.person.id);
@@ -168,7 +168,7 @@ function PersonController($scope, $http, $stateParams, uiUploader, peopleService
 
     function initializeUploadFileField() {
         var el = document.getElementById("file");
-        if (el != null) {
+        if (el !== null) {
           el.addEventListener("change", function(event) {
               var files = event.target.files;
               uiUploader.addFiles(files);

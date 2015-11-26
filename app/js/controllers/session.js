@@ -24,8 +24,9 @@ function SessionController($location, session) {
     };
 
     vm.getPersonId = function() {
-        if (session.isValid())
+        if (session.isValid()){
             return session.person.id;
+          }
     };
 
     //vm.currentUserName = peopleService.getCurrentUserName;
