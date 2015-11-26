@@ -1,7 +1,7 @@
 'use strict';
 var HttpInteractor = require('../util/http');
 
-function CacheInteractor(sessionService, peopleService, teamService) {
+function CacheInteractor(sessionService, peopleService, teamService, contestService) {
 
     var interactor = this;
 
@@ -37,6 +37,8 @@ function CacheInteractor(sessionService, peopleService, teamService) {
         teamService.setVotes(data.votes);
         teamService.setVideos(data.videos);
         teamService.setComments(data.comments);
+        contestService.setContests(data.contests);
+
 
         didCompleteFunction();
     }

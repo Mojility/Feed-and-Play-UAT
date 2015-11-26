@@ -6,7 +6,7 @@ var HttpInteractor = require('../util/http');
 /**
  * @ngInject
  */
-function PeopleService($http,sessionService) {
+function PeopleService($http,sessionService,mainGateway) {
 
     var service = {};
 
@@ -227,8 +227,14 @@ function PeopleService($http,sessionService) {
 
     };
 
+    service.addPerson =  function(stageName,firstName,lastName,email,password){
+
+       mainGateway.addPerson(stageName,firstName,lastName,email,password);
+
+    };
+
     return service;
 
 }
 
-servicesModule.service('PeopleService', ['$http','SessionService', PeopleService]);
+servicesModule.service('PeopleService', ['$http','SessionService','MainGateway', PeopleService]);

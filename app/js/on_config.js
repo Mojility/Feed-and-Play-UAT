@@ -55,6 +55,18 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
             controller: 'VideoController as video',
             templateUrl: 'video.html',
             title: 'video view'
+        })
+        .state('contests', {
+            url: '/contests',
+            controller: 'ContestController as contest',
+            templateUrl: 'contests.html',
+            title: 'contest view'
+        })
+        .state('signup', {
+            url: '/signup',
+            controller: 'SignupController as signup',
+            templateUrl: 'signup.html',
+            title: 'signup view'
         });
 
 

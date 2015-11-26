@@ -6,8 +6,8 @@ var CacheInteractor = require('../interactors/cache');
 /**
  * @ngInject
  */
-function CacheService(sessionService, peopleService, teamService) {
-    return new CacheInteractor(sessionService, peopleService, teamService);
+function CacheService(sessionService, peopleService, teamService, contestService) {
+    return new CacheInteractor(sessionService, peopleService, teamService, contestService);
 }
 
-servicesModule.service('CacheService', ['SessionService', 'PeopleService', 'TeamService', CacheService]);
+servicesModule.service('CacheService', ['SessionService', 'PeopleService', 'TeamService', 'ContestService', CacheService]);

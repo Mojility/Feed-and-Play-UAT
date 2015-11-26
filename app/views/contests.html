@@ -1,0 +1,23 @@
+<h1>Contests</h1>
+
+
+<div ng-repeat="contest in contest.getContests()">
+
+    <ol>
+
+        <li>
+          title: {{contest.title}}
+        </li>
+        <li>
+          description:   {{contest.description}}
+        </li>
+        <li>
+          date:   {{contest.due_date}}
+        </li>
+        <li>
+          rules and regulations:   {{contest.rules_and_regulations}}
+
+        </li>
+    </ol>
+
+</div>

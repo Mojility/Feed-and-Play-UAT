@@ -129,7 +129,34 @@ var MainGateway = function(sessionService) {
 
             //  console.log(data.vote);
               //  onComplete(data);
-              console.log("contest added")
+              console.log("contest added");
+
+          }, function(errorCode) {
+              console.log("Error: " + errorCode);
+          }
+      );
+
+    };
+
+    gateway.addPerson = function (stageName,firstName,lastName,email,password) {
+
+      var http = new HttpInteractor();
+      http.setSecret(sessionService.token);
+      http.put(
+          'http://localhost:3000/create_person',
+          {
+                    stage_name: stageName,
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    password: password
+
+          },
+          function(data) {
+
+            //  console.log(data.vote);
+              //  onComplete(data);
+              console.log("person created");
 
           }, function(errorCode) {
               console.log("Error: " + errorCode);

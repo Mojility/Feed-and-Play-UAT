@@ -161,7 +161,7 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
           $scope.$apply();
         });
       //  console.log("test");
-teamId,personId
+
     };
 
     vm.thumbsDown = function(video) {
