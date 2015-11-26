@@ -27,6 +27,6 @@ gulp.task('styles', function () {
       sourcemaps.write( global.isProd ? './' : null ))
     )
     .pipe(gulp.dest(config.styles.dest))
-    .pipe(browserSync.stream({ once: true }));
+    .pipe(gulpif(browserSync.active, browserSync.reload({stream: true})));
 
 });
