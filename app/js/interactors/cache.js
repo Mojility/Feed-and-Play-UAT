@@ -15,7 +15,7 @@ function CacheInteractor(sessionService, peopleService, teamService, contestServ
         http.get(
             'http://localhost:3000/',
             function(data) {
-                 console.log(data);
+                //  console.log(data);
                 loadCaches(data, didCompleteFunction);
             }, function(errorCode) {
                 console.log("Error: " + errorCode);

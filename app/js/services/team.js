@@ -296,8 +296,6 @@ function TeamService(mainGateway) {
     service.isLeader = function (teamId,personId){
         var leadership = null;
 
-
-
         service.memberships.forEach(function (member) {
 
           //  console.log(member);

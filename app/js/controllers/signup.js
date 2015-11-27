@@ -7,7 +7,6 @@ var controllersModule = require('./_index');
  */
 function SignupController(peopleService) {
 
-
   var vm = this;
 
   vm.stageName = "";
@@ -18,9 +17,16 @@ function SignupController(peopleService) {
 
   vm.addPerson = function () {
 
-       console.log("add person")
+       console.log("add person");
       peopleService.addPerson(vm.stageName,vm.firstName,vm.lastName,vm.email,vm.password);
 
+  };
+
+  vm.signupEnabled = function () {
+
+      if (vm.stageName !== "" && vm.firstName !== "" && vm.lastName !== "" && vm.email !== "" && vm.password !== "") {
+          return true;
+      }
   };
 
 }

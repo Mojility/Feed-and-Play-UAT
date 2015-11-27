@@ -78,6 +78,13 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
         }
     };
 
+    vm.contestEnabled = function () {
+
+        if (vm.title !== "" && vm.description !== "" && vm.dueDate !== "" && vm.rules !== "") {
+            return true;
+        }
+    };
+
     vm.addAdvertisedRole = function () {
 
         // console.log(vm.newRole);
@@ -193,7 +200,11 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
 
     vm.addContest = function() {
 
-    teamService.addContest(vm.title,vm.description, vm.duedate, vm.rules);
+      console.log(vm.title);
+      console.log(vm.description);
+      console.log(vm.dueDate);
+      console.log(vm.rules);
+    teamService.addContest(vm.title,vm.description, vm.dueDate, vm.rules);
 
     };
 

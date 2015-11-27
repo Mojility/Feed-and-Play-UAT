@@ -1,10 +1,9 @@
 <h1>Contests</h1>
 
 
-<div ng-repeat="contest in contest.getContests()">
+<div class="contests" ng-repeat="contest in contest.getContests()">
 
     <ol>
-
         <li>
           title: {{contest.title}}
         </li>
@@ -12,11 +11,10 @@
           description:   {{contest.description}}
         </li>
         <li>
-          date:   {{contest.due_date}}
+          date:   {{contest.due_date | date:'MMMM d, yyyy'}}
         </li>
         <li>
           rules and regulations:   {{contest.rules_and_regulations}}
-
         </li>
     </ol>
 
