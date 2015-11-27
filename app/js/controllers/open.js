@@ -25,7 +25,6 @@ function OpenController(teamService,peopleService) {
 
    function initialize() {
 
-
          vm.allTeams = teamService.getAllTeams();
         //  vm.lookingForRoles = teamService.getAdvertisedRoles(vm.teamId);
     }

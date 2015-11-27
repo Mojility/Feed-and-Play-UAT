@@ -57,7 +57,6 @@ function PersonController($scope, $http, $stateParams, uiUploader, peopleService
         }
     };
 
-
     vm.updatePerson = function() {
 
       peopleService.updatePerson(vm.personId, vm.password,vm.firstName, vm.lastName, vm.email, vm.stageName);

@@ -47,8 +47,6 @@ function VideoController($stateParams, teamService, peopleService,$scope) {
 
   vm.getComments = function() {
 
-
-
     return teamService.getComments(vm.video);
 
   };
@@ -63,13 +61,9 @@ function VideoController($stateParams, teamService, peopleService,$scope) {
 
   vm.getAvatar = function(personId) {
 
-
-
     return peopleService.getAvatar(personId);
 
   };
-
-
 
   function initialize() {
 

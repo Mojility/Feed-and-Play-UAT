@@ -126,7 +126,6 @@ function TeamController($scope, $stateParams, teamService, peopleService, sessio
        // console.log(application);
         peopleService.removeTeamMembershipApplications(application, id);
 
-
     };
 
     vm.acceptApplicant = function (application, personId) {

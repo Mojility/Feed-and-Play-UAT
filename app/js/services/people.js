@@ -184,17 +184,13 @@ function PeopleService($http,sessionService,mainGateway) {
             }
         );
 
-
     };
 
     service.removeTeamMembershipApplications = function (application) {
 
         var index = service.applications.indexOf(application);
-
-
         var value = service.applications[index].id;
         var id = service.applications[index].opening_id;
-
 
         service.applications.forEach(function (application) {
 
