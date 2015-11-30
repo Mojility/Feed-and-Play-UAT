@@ -1,0 +1,14 @@
+digraph {
+
+  Home -> Login
+  Home -> SignUp
+
+  SignUp -> Login
+  Login -> Backstage
+
+  Backstage -> BrowseOpportunities
+  Backstage -> CrewDetails
+  Backstage -> BrowseContests
+
+  Backstage -> CreateContest
+}
