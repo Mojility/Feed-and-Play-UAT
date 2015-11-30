@@ -29,6 +29,8 @@ function TeamService(mainGateway) {
 
     service.getYoutubeLink = function (video) {
 
+      // console.log();
+
         return service.baseYoutubeLink + video;
 
     };
@@ -78,15 +80,17 @@ function TeamService(mainGateway) {
 
       var found = null;
 
+      // console.log(service.videos);
+
         service.videos.forEach(function (video) {
 
-            if (video.id ===   id) {
+            if (video.id ==   id) {
                 found = video;
 
             }
 
         });
-        // console.log(found);
+        //  console.log(found);
         return found;
 
     };

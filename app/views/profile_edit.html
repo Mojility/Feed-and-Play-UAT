@@ -31,3 +31,26 @@
   <input id="file" type="file">
   <button class="small" ng-click="person.userClickedUploadButton()">upload </button>
 </form>
+
+<br>
+create Contest
+<br><br>
+<form>
+  <ol>
+    <li>
+      title: <input type="text" ng-model="person.title">   <br>
+    </li>
+    <li>
+      description: <input type="text" ng-model="person.description">  <br>
+    </li>
+    <li>
+      due date: <input type="date" ng-model="person.dueDate"> <br>
+    </li>
+    <li>
+      rules and regulations: <input type="text" ng-model="person.rules"><br>
+    </li>
+  </ol>
+    <span ng-if="person.contestEnabled()">
+      <button class="small" ng-click="person.addContest()"> add </button>
+    </span>
+</form>

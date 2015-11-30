@@ -8,7 +8,7 @@ function VideoController($stateParams, teamService, peopleService,$scope) {
 
   vm.getYoutubeLink = function () {
 
-    //  console.log(vm.video);
+      // console.log(vm.video);
 
       return teamService.getYoutubeLink(vm.video.youtube_link);
 

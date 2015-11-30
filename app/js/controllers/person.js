@@ -23,6 +23,10 @@ function PersonController($scope, $http, $stateParams, uiUploader, peopleService
     vm.allTeams="";
     vm.avatar = '';
     vm.stageName = '';
+    vm.title = "";
+    vm.description = "";
+    vm.dueDate = "";
+    vm.rules = "";
 
     // console.log("personController");  vm.allTeams = teamService.getAllTeams();
     vm.personIsNotEmpty = function () {
@@ -95,6 +99,19 @@ function PersonController($scope, $http, $stateParams, uiUploader, peopleService
 
       //  console.log(teamService.getAdvertisedRoles(id))
         return teamService.getAdvertisedRoles(id);
+
+    };
+
+    vm.contestEnabled = function () {
+
+        if (vm.title !== "" && vm.description !== "" && vm.dueDate !== "" && vm.rules !== "") {
+            return true;
+        }
+    };
+
+    vm.addContest = function() {
+
+    teamService.addContest(vm.title,vm.description, vm.dueDate, vm.rules);
 
     };
 
