@@ -12,5 +12,4 @@ end
 
 Then(/^I should see cute puppies!$/) do
   expect(driver.find_elements(css: '.rg_di').size).to be > 0
-  sleep 10
 end
