@@ -1,0 +1,18 @@
+digraph {
+
+    LoginController -> PeopleService
+
+    TeamController -> TeamService
+    TeamController -> PeopleService
+
+    PersonController -> PeopleService
+    PersonController -> TeamService
+
+    SessionController -> SessionService
+    SessionController -> PeopleService
+    SessionController -> TeamService
+
+    SessionService -> PeopleService
+    SessionService -> TeamService
+
+}

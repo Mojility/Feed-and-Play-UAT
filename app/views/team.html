@@ -1,0 +1,54 @@
+<h1>{{team.teamName}}</h1>
+
+<br>
+  <a href="/team_management/{{team.teamId}}"> team management </a>
+<br> <br>
+
+<div class="leader">
+  <ol>
+      <li ng-repeat="person in team.teamMembers">
+        <span ng-if="team.isLeader(team.teamId,person)">
+
+            <img class="round left" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
+        <div class="right">    <div class="big">     <a href="/person/{{person}} ">  {{team.getFirstName(person)}} {{team.getLastName(person)}} </a> </div>
+
+      <span class="darker">   Loves Action Sports </span> </div>
+        </span>
+      </li>
+  </ol>
+  <p> <span class="darker">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet nisl mauris, tristique bibendum odio efficitur et. Suspendisse dignissim placerat erat sed pellentesque.
+       Fusce iaculis convallis purus sit amet posuere. Proin venenatis rutrum dictum. Donec ac dolor non nibh malesuada ultrices. Aliquam mattis rutrum facilisis. Nulla pharetra dictum
+       est, et maximus dolor luctus at. In aliquet dignissim lacus, quis condimentum neque feugiat eu. Donec neque turpis, tempus et lobortis in, aliquet vel arcu. Vivamus sed tortor non
+       eros eleifend dictum. Curabitur ac orci quis elit egestas pharetra. Fusce et sodales quam. </span>
+  </p>
+</div>
+
+<h1>The Crew:</h1>
+
+<span ng-if="team.teamIsNotEmpty()">
+<div class="members">
+  <ol>
+      <li ng-repeat="person in team.teamMembers">
+        <span ng-if="team.isLeader(team.teamId,person)==false">
+          <img class="round" ng-src="http://localhost:3000/{{team.getAvatar(person)}}"/>
+          <br>          <a href="/person/{{person}} ">  {{team.getFirstName(person)}} <br> {{team.getLastName(person)}} </a> <br>
+          <span class="darker">  {{team.getTeamRole(person)}} </span>
+        </span>
+      </li>
+  </ol>
+</div>
+
+<br> <br>
+videos:
+<br> <br>
+<div class="video">
+  <ol>
+      <li ng-repeat="video in team.videos">
+
+          <a href="/video/{{video.id}} "> {{video.youtube_link}}   </a>
+      </li>
+  </ol>
+</div>
+
+</span>

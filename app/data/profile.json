@@ -1,0 +1,71 @@
+{
+  "user": [
+    {
+      "person_id": 0
+    }
+  ],
+  "teams": [
+    {
+      "team_id": 0,
+      "name": "Smith Productions",
+      "video_id": [
+        "gNqQL-1gZF8"
+      ],
+      "team_roles": ["writer"]
+    },
+    {
+      "team_id": 1,
+      "name": "John Solo",
+      "video_id": [
+        "st8-EY71K84"
+      ],
+      "team_roles": ["editor"]
+    },
+    {
+      "team_id": 2,
+      "name": "Ze Frank Team",
+      "video_id": [
+        "110iUX1Ursk","GDwOi7HpHtQ", "ndQZBQJf034"
+      ],
+      "team_roles": ["editor","writer"]
+    }
+  ],
+  "people": [
+    {
+      "id": 0,
+      "first_name": "John",
+      "last_name": "Smith",
+      "password": "1234",
+      "email": "john@smith.com",
+      "role_applied":[
+        {"team_id": 0, "role": "writer" }
+      ]
+    },
+    {
+      "id": 1,
+      "first_name": "Sally",
+      "last_name": "Johnson",
+      "email": "sally@johnson.com",
+      "password": "4321",
+      "role_applied":[
+        {"team_id": 0, "role": "writer" }
+      ]
+    },
+    {
+      "id": 2,
+      "first_name": "Ze",
+      "last_name": "Frank",
+      "email": "ze@Frank.com",
+      "password": "abcd",
+      "role_applied":[
+        {"team_id": 1, "role": "editor" }
+      ]
+    }
+  ],
+  "team_memberships" : [
+    { "person_id": 0, "team_id": 0, "role": "Lead" },
+    { "person_id": 0, "team_id": 1, "role": "Lead" },
+    { "person_id": 1, "team_id": 0, "role": "Writer" },
+    { "person_id": 2, "team_id": 2, "role": "Lead" }
+  ]
+}

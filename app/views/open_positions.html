@@ -1,0 +1,15 @@
+Opportunities
+ <br> <br>
+
+<div ng-repeat="team in open.allTeams">
+
+    Team Name: {{team.name}}
+    <ol>
+        Role(s):
+        <li ng-repeat="role in open.getAdvertisedRoles(team.id)">
+            {{ role.role }} <button class="small" ng-click="open.addTeamMembershipApplication(role,team.id)">
+                                   apply </button>
+        </li>
+    </ol>
+
+</div>
