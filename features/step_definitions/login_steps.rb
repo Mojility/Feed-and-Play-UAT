@@ -20,5 +20,5 @@ When(/^I click the log in button$/) do
 end
 
 Then(/^I should see my profile page with my stagename "([^"]*)"$/) do |keyword|  
-    expect(driver.find_elements(css: '.stagename')) ==  keyword
+    expect(driver.find_elements(css: '.stagename')).to eq(keyword)
 end
