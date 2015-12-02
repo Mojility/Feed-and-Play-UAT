@@ -19,7 +19,6 @@ When(/^I click the log in button$/) do
     driver.find_element(css: 'button[type=submit]').click
 end
 
-Then(/^I should see my profile page with my stagename "([^"]*)"$/) do |arg1|
-    sleep(3)
-    expect(driver.find_elements(css: '.stagename').length).to be > 0
+Then(/^I should see my profile page with my stagename "([^"]*)"$/) do |keyword|  
+    expect(driver.find_elements(css: '.stagename')) ==  keyword
 end
