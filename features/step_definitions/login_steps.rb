@@ -20,5 +20,49 @@ When(/^I click the log in button$/) do
 end
 
 Then(/^I should see my profile page with my stagename "([^"]*)"$/) do |stage_name|
+    sleep(2)
     expect(driver.find_elements(css: '.stagename')).to eq(stage_name)
+end
+
+
+
+
+
+When(/^I click to edit my profile$/) do
+    sleep(2)
+    driver.find_element(css: '.edit').click
+end
+
+When(/^I change my stagename to "([^"]*)"$/) do |stageName|
+  sleep(2)
+  driver.find_element(css: '.stage').send_keys(stageName)
+end
+
+When(/^I click on the my profile menu item$/) do
+  driver.find_element(css: '.profile').click
+end
+
+When(/^I click on my team$/) do
+  sleep(2)
+  driver.find_element(css: '.team-name').click
+end
+
+
+
+When(/^I click on team management$/) do
+  driver.find_element(css: '.management').click
+end
+
+When(/^I enter a "([^"]*)"$/) do |role|
+  sleep(2)
+  driver.find_element(css: '.role').send_keys(role)
+end
+
+When(/^I click on add$/) do
+  driver.find_element(css: '.add').click
+end
+
+Then(/^I should see that role added$/) do
+  sleep(2)
+  pending # Write code here that turns the phrase above into concrete actions
 end
