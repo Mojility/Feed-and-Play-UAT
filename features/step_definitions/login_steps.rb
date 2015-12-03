@@ -21,7 +21,7 @@ end
 
 Then(/^I should see my profile page with my stagename "([^"]*)"$/) do |stage_name|
     sleep(2)
-    expect(driver.find_elements(css: '.stagename')).to eq(stage_name)
+    expect(driver.find_element(css: '.stagename').text).to eq(stage_name)
 end
 
 
@@ -66,5 +66,5 @@ end
 
 Then(/^I should see that "([^"]*)" added$/) do |role|
   sleep(2)
-  expect(driver.find_elements(css: '.advertised')).to eq(role)
+  expect(driver.find_element(css: '.advertised').text).to eq(role)
 end
