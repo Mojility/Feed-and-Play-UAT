@@ -8,4 +8,4 @@ Feature:
     And I fill out "a@b.com" for the email field
     And I fill out "pass" for the password field
     And I click the create profile button
-    Then I should be logged in and viewing my profile page
+    Then I should see my profile page with my stagename "bla"
