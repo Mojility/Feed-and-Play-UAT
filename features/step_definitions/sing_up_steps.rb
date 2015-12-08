@@ -24,6 +24,7 @@ end
 
 When(/^I click the create profile button$/) do
     driver.find_element(css: '.small').click
+    sleep(5)
 end
 
 Then(/^I should be logged in and viewing my profile page$/) do
