@@ -1,4 +1,4 @@
-Feature:
+Feature: Sign Up
 
   Scenario: As a public visitor, I should be able to sign up
     Given I am on the signup page
