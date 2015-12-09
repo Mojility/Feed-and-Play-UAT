@@ -1,5 +1,5 @@
 Given(/^I am on the signup page$/) do
-    driver.get('localhost:3001/signup')
+    driver.get(site_url+'/signup')
 end
 
 When(/^I fill out "([^"]*)" for the stage name field$/) do |stageName|

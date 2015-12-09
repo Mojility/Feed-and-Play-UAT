@@ -1,5 +1,5 @@
 Given(/^I am on the home page$/) do
-    driver.get('localhost:3001')
+    driver.get(site_url)
     sleep(3)
 end
 

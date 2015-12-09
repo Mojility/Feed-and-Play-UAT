@@ -1,7 +1,7 @@
 require 'selenium-webdriver'
 
 def site_url
-  ENV['SITE_URL']
+  ENV['SITE_URL'] || 'http://localhost:3001'
 end
 
 def driver
